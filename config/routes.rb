@@ -9,4 +9,16 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  resources :workouts, only: [:index, :show, :update, :new, :create] do
+    resources :workout_sessions, only: [:create]
+  end
+
+  resources :workout_sessions, only: [:index, :show] do
+    resources :exercise_sets, only: [:create]
+  end
+
+  resources :exercises, only: [:show, :update, :create, :new]
+
+  get '/dashboard', to: "pages#dashboard", as: :dashboard
+
 end
