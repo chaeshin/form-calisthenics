@@ -76,10 +76,8 @@ group :test do
   gem "selenium-webdriver"
 end
 
-<<<<<<< HEAD
 # custom gems
 gem 'roo'
 gem 'faker'
-=======
+
 gem 'cloudinary'
->>>>>>> 79bbbc0fa5dce8cea9dd11736a1f73cbbd429f42

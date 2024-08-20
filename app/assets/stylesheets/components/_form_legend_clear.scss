@@ -8,3 +8,14 @@
 legend ~ div.form-check:first-of-type {
   clear: left;
 }
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+form {
+  padding: 20px
+}
