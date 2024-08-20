@@ -4,7 +4,6 @@ class User < ApplicationRecord
   has_many :workouts, dependent: :destroy
   has_many :workout_sessions, dependent: :destroy
   validates :username, presence: true, uniqueness: true
-
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end
