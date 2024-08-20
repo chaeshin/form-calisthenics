@@ -1,0 +1,7 @@
+<div>
+  <h1><%= @workout_session.workout.name %></h1>
+</div>
+
+<% @exercises.each_with_index do |exercise, index| %>
+  <%= render 'shared/exercise_card', exercise: exercise, index_exercise: index %>
+<% end %>

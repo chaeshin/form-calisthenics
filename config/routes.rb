@@ -14,10 +14,11 @@ Rails.application.routes.draw do
   end
 
   resources :workout_sessions, only: [:index, :show] do
-    resources :exercise_sets, only: [:create]
   end
 
-  resources :exercises, only: [:show, :update, :create, :new]
+  resources :exercises, only: [:show, :update, :create, :new] do
+    resources :exercise_sets, only: [:create]
+  end
 
   get '/dashboard', to: "pages#dashboard", as: :dashboard
 
