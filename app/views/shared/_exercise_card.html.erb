@@ -6,7 +6,12 @@
         <%# excercise name here: %>
       <div>
         <%# sets and reps here: %>
-        <span><%= exercise.sets %> x <%= exercise.lower_reps %>-<%= exercise.upper_reps %></span>
+        <span><%= exercise.sets %> x
+          <%= if exercise.lower_reps.nill? && exercise.upper_reps.nill?  %>
+            <%= exercise.hold_time %>
+          <% else %>
+            <%= exercise.lower_reps %>-<%= exercise.upper_reps %></span>
+          <% end %>
         <%# rest time:here %>
         <span>| rest: <%= exercise.rest %></span>
       </div>
