@@ -65,6 +65,7 @@ xlsx.sheet('Skills Workout').parse do |row|
     reps_array = row[5]&.split('-')
     upper_reps = reps_array.nil? ? nil : reps_array[1]
     lower_reps = reps_array.nil? ? nil : reps_array[0]
+    hold_time = row[3].end_with?("s") ? row[3].slice[0..-1].to_i : nil
     exercise = Exercise.new(
     name: row[6],
     upper_reps: upper_reps,
