@@ -9,6 +9,4 @@ class Exercise < ApplicationRecord
     validates :name, presence: true
     validates :upper_reps, :lower_reps, :rest, :reps, :hold_time, :duration, numericality: { greater_than_or_equal_to: 0 }, allow_nil: true
     validates :progression_difficulty, numericality: { only_integer: true, greater_than_or_equal_to: 0 }, allow_nil: true
-    validates :tempo, :category, :type, :progression_name, presence: true
-
 end
