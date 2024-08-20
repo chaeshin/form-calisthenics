@@ -1,0 +1,53 @@
+<div>
+  <div class="bg-light">
+    <div>
+      <%# div 1 exercise and descriptions %>
+      <h3><%= excercise.name %></h3>
+        <%# excercise name here: %>
+      <div>
+        <%# sets and reps here: %>
+        <span><%= excercise.sets %> x <%= excercise.lower_reps %>-<%= excercise.upper_reps %></span>
+        <%# rest time:here %>
+        <span>rest:<%= excercise.rest %></span>
+      </div>
+    </div>
+
+    <%# each exercise_sets input and total set here: %>
+    <div>
+      <%# sub exercise_sets form here: %>
+      <div>
+        <% exercises.sets each do |set| %>
+          <%= render 'shared/exercise_set_form', set: set %>
+        <% end %>
+      </div>
+      <%# total # of sets display here: %>
+      <div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="collapse" id="exerciseExpanded">
+  <div>
+
+  </div>
+</div>
+
+
+<%# create_table "exercises", force: :cascade do |t|
+    t.string "name"
+    t.integer "upper_reps"
+    t.integer "lower_reps"
+    t.integer "reps"
+    t.integer "hold_time"
+    t.integer "duration"
+    t.integer "rest"
+    t.string "tempo"
+    t.string "category"
+    t.string "type"
+    t.integer "progression_difficulty"
+    t.string "progression_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end %>
