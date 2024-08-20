@@ -62,16 +62,23 @@ xlsx.sheet('Skills Workout').parse do |row|
     p workout.errors
   else
     # create exercise
-    reps_array = row[5]&.split('-')
-    upper_reps = reps_array.nil? ? nil : reps_array[1]
-    lower_reps = reps_array.nil? ? nil : reps_array[0]
+    if row[5].end_with?("s")
+      upper_reps = nil
+      lower_reps = nil
+    else
+      reps_array = row[5]&.split('-')
+      upper_reps = reps_array.nil? && reps_array.size >= 2 ? nil : reps_array[1].to_i
+      lower_reps = reps_array.nil? && reps_array.size >= 2 ? nil : reps_array[0].to_i
+    end
+
+    hold_time = row[5].end_with?("s") ? row[5][0..-1].to_i : nil
     exercise = Exercise.new(
     name: row[6],
     upper_reps: upper_reps,
     lower_reps: lower_reps,
     reps: lower_reps,
     sets: row[4],
-    hold_time: nil,
+    hold_time: hold_time,
     duration: nil,
     rest: row[2].to_i,
     tempo: row[1].to_s,
@@ -80,7 +87,7 @@ xlsx.sheet('Skills Workout').parse do |row|
     progression_difficulty: nil,
     progression_name: nil
     )
-    exercise.save
+    exercise.save!
     # create exercise assignment
     assignment = ExerciseAssignment.new(
       workout_id: Workout.last.id,
