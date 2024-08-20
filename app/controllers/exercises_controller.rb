@@ -4,10 +4,6 @@ class ExercisesController < ApplicationController
 
   end
 
-  def update
-
-  end
-
   def new
 
   end
@@ -15,4 +11,9 @@ class ExercisesController < ApplicationController
   def create
 
   end
+
+  def update
+
+  end
+
 end

@@ -3,7 +3,7 @@ class Exercise < ApplicationRecord
     # Associations
     has_many :exercise_assignments, dependent: :destroy
     has_many :workouts, through: :exercise_assignments
-    has_many :exerise_sets
+    has_many :exercise_sets
 
     # Validations
     validates :name, presence: true
