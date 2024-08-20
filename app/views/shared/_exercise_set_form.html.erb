@@ -1,5 +1,14 @@
-<%= simple_form_for(set) do |f| %>
-  <div class="form-inputs">
-    <%= f.input %>
+<a data-bs-toggle="collapse" href="#exerciseExpanded<%= index %><%= index_exercise %>" role="button" aria-expanded="false" aria-controls="exerciseExpanded<%= index %><%= index_exercise %>">
+<%# link for collapse %>
+  <%= simple_form_for([exercise, set]) do |f| %>
+    <div class="form-inputs">
+      <%= f.input :reps, input_html: {class: 'w-25'}, label: false %>
+    </div>
+  <% end %>
+
+  <div class="collapse" id="exerciseExpanded<%= index %><%= index_exercise %>">
+    <div>
+      hello
+    </div>
   </div>
-<% end %>
+</a>
