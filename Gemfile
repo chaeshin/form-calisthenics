@@ -79,5 +79,4 @@ end
 # custom gems
 gem 'roo'
 gem 'faker'
-
 gem 'cloudinary'
