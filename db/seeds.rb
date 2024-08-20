@@ -72,7 +72,7 @@ xlsx.sheet('Skills Workout').parse do |row|
     lower_reps: lower_reps,
     reps: lower_reps,
     sets: row[4],
-    hold_time: nil,
+    hold_time: hold_time,
     duration: nil,
     rest: row[2].to_i,
     tempo: row[1].to_s,
