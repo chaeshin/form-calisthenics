@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_20_031921) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_20_055824) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -72,11 +72,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_20_031921) do
     t.integer "rest"
     t.string "tempo"
     t.string "category"
-    t.string "type"
+    t.string "exercise_type"
     t.integer "progression_difficulty"
     t.string "progression_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "sets", default: 3
   end
 
   create_table "users", force: :cascade do |t|
@@ -87,6 +88,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_20_031921) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "username"
+    t.datetime "birthday"
+    t.integer "height"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -106,7 +110,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_20_031921) do
   create_table "workouts", force: :cascade do |t|
     t.string "name"
     t.string "category"
-    t.bigint "user_id", null: false
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_workouts_on_user_id"
