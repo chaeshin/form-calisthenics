@@ -1,0 +1,13 @@
+<div class="form-container">
+  <%= simple_form_for @workout do |form| %>
+    <div class="mb-3">
+      <%= form.input :name, input_html: { class: 'form-control' } %>
+    </div>
+    <div class="mb-3">
+      <%= form.input :category, input_html: { class: 'form-control' } %>
+    </div>
+    <div class="d-grid">
+      <%= form.submit "Create Workout", class: 'create-form-button' %>
+    </div>
+  <% end %>
+</div>

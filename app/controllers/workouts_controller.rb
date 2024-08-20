@@ -1,7 +1,8 @@
 class WorkoutsController < ApplicationController
 
   def index
-    @workout = Workout.all
+    @workouts = Workout.all
+    @workout = Workout.new
   end
 
   def show
@@ -9,7 +10,7 @@ class WorkoutsController < ApplicationController
   end
 
   def new
-
+    @workout = Workout.new
   end
 
   def update
@@ -17,7 +18,18 @@ class WorkoutsController < ApplicationController
   end
 
   def create
-
+    @workout = Workout.new(workout_params)
+    @workout.user = current_user
+    if @workout.save
+      redirect_to workouts_path, notice: "Workout was successfully created"
+    else
+      render 'new', status: :unprocessable_entity
+    end
   end
 
+  private
+
+  def workout_params
+    params.required(:workout).permit(:name, :category)
+  end
 end
