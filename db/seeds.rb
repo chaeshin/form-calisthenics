@@ -6,9 +6,10 @@ require "roo"
 puts " "
 puts "Cleaning the DB..."
 ExerciseAssignment.destroy_all
+User.destroy_all
 Exercise.destroy_all
 Workout.destroy_all
-User.destroy_all
+
 
 puts " "
 puts "Creating users accounts for Chae, Ryo and Nick..."
@@ -48,6 +49,8 @@ puts "Creating workouts, exercises and exercise assignments ... "
 xlsx = Roo::Excelx.new('./db/data/Calisthenics Skills.xlsx')
 
 # Reading data from the first sheet
+puts " "
+puts "Parsing spreadsheet data  ... "
 xlsx.sheet('Skills Workout').parse do |row|
   next if row[1..6].all?(nil)
   # Access the cell data with row[cell_index]
@@ -59,7 +62,12 @@ xlsx.sheet('Skills Workout').parse do |row|
       category: row[3],
     )
     workout.save
-    p workout.errors
+    puts " "
+    puts " ----------------------------------- "
+    puts " Created new workout: #{workout.name} "
+    puts " ----------------------------------- "
+    puts " "
+    # p workout.errors
   else
     # create exercise
     if row[5].end_with?("s")
@@ -72,6 +80,7 @@ xlsx.sheet('Skills Workout').parse do |row|
     end
 
     hold_time = row[5].end_with?("s") ? row[5][0..-1].to_i : nil
+
     exercise = Exercise.new(
     name: row[6],
     upper_reps: upper_reps,
@@ -94,6 +103,8 @@ xlsx.sheet('Skills Workout').parse do |row|
       exercise_id: Exercise.last.id
     )
     assignment.save
+    puts "Created #{exercise.name} and added to #{assignment.workout.name}... "
+    puts " "
   end
 
 
