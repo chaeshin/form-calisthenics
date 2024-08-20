@@ -101,3 +101,10 @@ end
 
 puts " "
 puts "Created: #{User.all.count} users, #{Workout.all.count} workouts, #{Exercise.all.count} exercises and #{ExerciseAssignment.all.count} exercise assignments"
+
+workout_session = WorkoutSession.create(
+  user: User.first,
+  workout: Workout.first,
+  bodyweight: 70.0,
+  sleep_time: 7 * 60,
+)
