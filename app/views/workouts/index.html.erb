@@ -1,3 +1,20 @@
 <div class="container">
-  <h1>Workout List</h1>
+  <h1 class="custom-margin">Workout List</h1>
+  <div class="cards">
+    <% @workouts.each do |workout| %>
+      <div class="card-product">
+        <div class="card-product-infos">
+          <h2><%= workout.name %></h2>
+          <p><%= workout.category %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+<div class="fab-container">
+  <%= link_to new_workout_path, class: 'fab' do %>
+    <i class="fas fa-plus"></i> <!-- Font Awesome icon -->
+  <% end %>
 </div>
