@@ -1,8 +1,6 @@
 <div>
-  <h1><%= @workout_session.workout.name %></h1>
+  <h1 class="custom-margin"><%= @workout_session.workout.name %></h1>
 </div>
-
-<%= render 'shared/cl_video_tag', exercise_set: ExerciseSet.last %>
 
 <% @exercises.each_with_index do |exercise, index| %>
   <%= render 'shared/exercise_card', exercise: exercise, index_exercise: index, workout_session: @workout_session %>

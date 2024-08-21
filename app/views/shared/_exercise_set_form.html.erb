@@ -1,11 +1,13 @@
 <%# link for collapse %>
 <div data-controller="record-video">
   <%= simple_form_for([exercise, set], html: {data: { record_video_target:"form"}}) do |f| %>
-    <div class="form-inputs">
-      <%= f.input :reps, input_html: {class: 'w-25'}, label: false, input_html: { 'data-bs-toggle': "collapse", 'data-bs-target':"#collapse-#{index_exercise}-#{index}", 'aria-expanded':"false", 'aria-controls':"collapse-#{index_exercise}-#{index}"} %>
+    <div class="form-inputs custom-set-form-width">
+      <%= f.input :reps, input_html: {class: 'w-25 nopadding' }, label: false, input_html: { 'data-bs-toggle': "collapse", 'data-bs-target':"#collapse-#{index_exercise}-#{index}", 'aria-expanded':"false", 'aria-controls':"collapse-#{index_exercise}-#{index}"} %>
       <%= f.input :workout_session_id, as: :hidden, input_html: { value: workout_session.id} %>
     </div>
   <% end %>
+
+
   <div data-record-video-target="collapse" class="collapse" id="collapse-<%= index_exercise %>-<%= index%>"  >
     <div>
       <h6>Record your video</h6>
