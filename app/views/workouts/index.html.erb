@@ -1,11 +1,11 @@
-<div class="container">
-  <h1 class="custom-margin">Workout List</h1>
-  <div class="cards">
-    <% @workouts.each do |workout| %>
-      <%= render 'shared/workout_card', workout: workout %>
-    <% end %>
-  </div>
+
+<h1 class="custom-margin">Workout List</h1>
+<div class="cards">
+  <% @workout.each do |workout| %>
+    <%= render 'shared/workout_card', workout: workout %>
+  <% end %>
 </div>
+
 
 
 <div class="fab-container">
