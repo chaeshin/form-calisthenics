@@ -2,12 +2,24 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 75px;  /* Adjust size as needed */
-  height: 75px; /* Adjust size as needed */
-  background-color: #f0f0f0; /* Background color of the bubble */
+  width: 75px;
+  /* Adjust size as needed */
+  height: 75px;
+  /* Adjust size as needed */
+  background-color: #f0f0f0;
+  /* Background color of the bubble */
   border-radius: 50%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  font-size: 40px; /* Adjust size of the emoji */
-  color: #333; /* Color of the emoji */
+  font-size: 40px;
+  /* Adjust size of the emoji */
+  color: #333;
+  /* Color of the emoji */
   margin-left: 20px;
+
+}
+
+.bubble-wrap {
+  text-align: center;
+  margin: 20px;
+  color: white;
 }
