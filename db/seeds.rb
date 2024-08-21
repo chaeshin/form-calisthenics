@@ -133,3 +133,29 @@ workout_session = WorkoutSession.create(
   bodyweight: 70.0,
   sleep_time: 7 * 60,
 )
+
+# ExerciseSet.new(
+
+# )
+
+{
+  workout_name: {
+    exercise_name: {
+      dates: {
+        date: [3,3,3]
+      }
+    },
+    exercise_name2: {
+      dates: {
+        date: [3,3,3]
+      }
+    }
+  },
+  workout_name_2: {
+    exercise_name: {
+      dates: {
+        date: [3,3,3]
+      }
+    }
+  }
+}
