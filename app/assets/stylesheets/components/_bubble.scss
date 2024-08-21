@@ -1,25 +1,32 @@
-.bubble {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 75px;
-  /* Adjust size as needed */
-  height: 75px;
-  /* Adjust size as needed */
-  background-color: #f0f0f0;
-  /* Background color of the bubble */
-  border-radius: 50%;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  font-size: 40px;
-  /* Adjust size of the emoji */
-  color: #333;
-  /* Color of the emoji */
-  margin-left: 20px;
-
+.bubble-container {
+  display: flex;
+  justify-content: space-around; /* Adjust spacing between items */
+  align-items: center; /* Center items vertically if needed */
+  gap: 20px; /* Optional: Add space between the bubbles */
 }
 
 .bubble-wrap {
+  display: flex;
+  flex-direction: column; /* Stack the bubble and title vertically */
+  align-items: center; /* Center content horizontally */
   text-align: center;
-  margin: 20px;
-  color: white;
+}
+
+.bubble {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 65px;
+  height: 65px;
+  background-color: #2e2e2e;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: 40px;
+}
+
+.title {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ff5722;
 }
