@@ -15,7 +15,7 @@
     <%# each exercise_sets input and total set here: %>
     <div>
       <%# sub exercise_sets form here: %>
-      <div class="d-flex exercise-sets-grid">
+      <div class="d-flex exercise-sets-grid" style="color: white;">
         <% exercise.sets.times do |i| %>
           <%= render 'shared/exercise_set_form', set: ExerciseSet.new, exercise: exercise, index: i, index_exercise: index_exercise %>
         <% end %>
