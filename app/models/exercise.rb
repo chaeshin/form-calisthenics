@@ -9,4 +9,11 @@ class Exercise < ApplicationRecord
     validates :name, presence: true
     validates :upper_reps, :lower_reps, :rest, :reps, :hold_time, :duration, numericality: { greater_than_or_equal_to: 0 }, allow_nil: true
     validates :progression_difficulty, numericality: { only_integer: true, greater_than_or_equal_to: 0 }, allow_nil: true
+
+    include PgSearch::Model
+    pg_search_scope :search_by,
+      against: [:name, :category],
+      using: {
+        tsearch: { prefix: true } # <-- now `superman batm` will return something!
+      }
 end
