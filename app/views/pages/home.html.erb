@@ -13,15 +13,27 @@
             %>
   <%= submit_tag "Search", name: "", class: "btn btn-light shadow-sm align-item-center border rounded-pill", style: "background-color: white;" %>
 <% end %>
-
 <h2 class="custom-margin">Featured Workout</h2>
-<div class="bubble-wrap">
-  <div class="bubble">
-    <span class="emoji">🚶‍♂️</span>
+<div class="bubble-container">
+  <div class="bubble-wrap">
+    <div class="bubble">
+      <span class="emoji">🚶‍♂️</span>
+    </div>
+    <span class="title">Mobility</span>
   </div>
-  <span class="title">Mobility</span>
+  <div class="bubble-wrap">
+    <div class="bubble">
+      <span class="emoji">💪</span>
+    </div>
+    <span class="title">Upper Body</span>
+  </div>
+  <div class="bubble-wrap">
+    <div class="bubble">
+      <span class="emoji">🤸‍♂️</span>
+    </div>
+    <span class="title">Skill</span>
+  </div>
 </div>
-
 <h2 class="custom-margin">Training Plan</h2>
 <div class="cards">
   <% @workouts.each do |workout| %>

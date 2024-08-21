@@ -3,7 +3,7 @@
     <div class="pe-1 exercise-name">
       <%# div 1 exercise and descriptions %>
       <h6><strong><%= exercise.name %></strong></h6>
-        <%# excercise name here: %>
+      <%# excercise name here: %>
       <div>
         <%# sets and reps here: %>
         <span class="exercise-info"><%= exercise.sets %> x
@@ -13,12 +13,10 @@
             <%= exercise.lower_reps %>-<%= exercise.upper_reps %>
           <% end %>
         </span>
-
         <%# rest time:here %>
         <span class="exercise-info">| rest: <%= exercise.rest %>s</span>
       </div>
     </div>
-
     <%# each exercise_sets input and total set here: %>
     <div data-controller="total-set-count">
       <div class="d-flex ps-1 justify-content-between align-items-center border-start border-light-subtle">
