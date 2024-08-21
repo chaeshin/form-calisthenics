@@ -2,7 +2,7 @@
 <div data-controller="record-video">
   <%= simple_form_for([exercise, set], html: {data: { record_video_target:"form"}}) do |f| %>
     <div class="form-inputs custom-set-form-width">
-      <%= f.input :reps, input_html: {class: 'w-25 nopadding' }, label: false, input_html: { 'data-bs-toggle': "collapse", 'data-bs-target':"#collapse-#{index_exercise}-#{index}", 'aria-expanded':"false", 'aria-controls':"collapse-#{index_exercise}-#{index}"} %>
+      <%= f.input :reps, input_html: {class: 'w-25 nopadding set-value', 'data-total-set-count-target': 'input', 'data-action': 'input->total-set-count#calculateTotal'}, label: false, input_html: { 'data-bs-toggle': "collapse", 'data-bs-target':"#collapse-#{index_exercise}-#{index}", 'aria-expanded':"false", 'aria-controls':"collapse-#{index_exercise}-#{index}"} %>
       <%= f.input :workout_session_id, as: :hidden, input_html: { value: workout_session.id} %>
     </div>
   <% end %>
