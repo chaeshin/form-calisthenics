@@ -2,18 +2,25 @@
   <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
   <h1 class="margin-h1">Hi, Nick 👋 </h1>
 </div>
-</div>
 <%# enter last exercise recorded here  %>
-<%= form_with url: root_path, method: :get, class: "d-flex align-items-center" do %>
-  <h6 class="pt-1 m-2"><i class="fa-solid fa-magnifying-glass text-white"></i></h6>
+<%= form_with url: root_path, method: :get, class: "d-flex align-items-center mt-3" do %>
+  <h6><i class="fa-solid fa-magnifying-glass text-white"></i></h6>
   <%= text_field_tag :query,
             params[:query],
             class: "form-control rounded-pill",
-            placeholder: "Search by city, brand, model, or year"
+            placeholder: "Search by exercise or workout",
+            style: "background-color: white;"
             %>
-  <%= submit_tag "Search", name: "", class: "m-3 btn btn-light shadow-sm align-item-center border rounded-pill" %>
+  <%= submit_tag "Search", name: "", class: "btn btn-light shadow-sm align-item-center border rounded-pill", style: "background-color: white;" %>
 <% end %>
-<h1 class="custom-margin">Training Plan</h1>
+
+<h2 class="custom-margin">Featured Workout</h2>
+<div class="bubble">
+  <span class="emoji">🚶‍♂️</span>
+</div>
+<span class="title">Mobility</span>
+
+<h2 class="custom-margin">Training Plan</h2>
 <div class="cards">
   <% @workouts.each do |workout| %>
     <%= render 'shared/workout_card', workout: workout %>
