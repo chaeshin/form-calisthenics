@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     resources :exercise_sets, only: [:create]
   end
 
-  get '/dashboard', to: "pages#dashboard", as: :dashboard
+  get '/calendar', to: "pages#calendar", as: :calendar
+
 
 end
