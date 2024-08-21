@@ -80,3 +80,4 @@ end
 gem 'roo'
 gem 'faker'
 gem 'cloudinary'
+gem "pg_search"
