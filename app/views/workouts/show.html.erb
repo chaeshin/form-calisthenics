@@ -1,0 +1,25 @@
+<div>
+  <h1><%= @workout.name %></h1>
+</div>
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="workout-tab" data-bs-toggle="tab" data-bs-target="#workout-tab-pane" type="button" role="tab" aria-controls="workout-tab-pane" aria-selected="true">Workout</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="history-tab" data-bs-toggle="tab" data-bs-target="#history-tab-pane" type="button" role="tab" aria-controls="history-tab-pane" aria-selected="false">History</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="analytics-tab" data-bs-toggle="tab" data-bs-target="#analytics-tab-pane" type="button" role="tab" aria-controls="analytics-tab-pane" aria-selected="false">Analytics</button>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="workout-tab-pane" role="tabpanel" aria-labelledby="workout-tab" tabindex="0">
+    <% @exercises.each_with_index do |exercise, index| %>
+      <%= render 'shared/exercise_card', exercise: exercise, index_exercise: index %>
+    <% end %>
+  </div>
+
+  <div class="tab-pane fade" id="history-tab-pane" role="tabpanel" aria-labelledby="history-tab" tabindex="0">...</div>
+  <div class="tab-pane fade" id="analytics-tab-pane" role="tabpanel" aria-labelledby="analytics-tab" tabindex="0">...</div>
+</div>
