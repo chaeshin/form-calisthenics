@@ -11,37 +11,37 @@ Workout.destroy_all
 Exercise.destroy_all
 
 
-# puts " "
-# puts "Creating users accounts for Chae, Ryo and Nick..."
+puts " "
+puts "Creating users accounts for Chae, Ryo and Nick..."
 
-# User.create!(
-#   email: "nk.matsumoto@gmail.com",
-#   password: "password",
-#   username: "nkmatsumoto"
-# )
+User.create!(
+  email: "nk.matsumoto@gmail.com",
+  password: "password",
+  username: "nkmatsumoto"
+)
 
-# User.create!(
-#   email: "chaewanshin@gmail.com",
-#   password: "password",
-#   username: "chaewanshin"
-# )
-# User.create!(
-#   email: "stuntpad@gmail.com",
-#   password: "password",
-#   username: "stuntpad"
-# )
+User.create!(
+  email: "chaewanshin@gmail.com",
+  password: "password",
+  username: "chaewanshin"
+)
+User.create!(
+  email: "stuntpad@gmail.com",
+  password: "password",
+  username: "stuntpad"
+)
 
-# user_count = 10
-# puts " "
-# puts "Creating #{user_count} random users..."
+user_count = 10
+puts " "
+puts "Creating #{user_count} random users..."
 
-# user_count.times do
-#   User.create(
-#     email: Faker::Internet.unique.email,
-#     password: Faker::Internet.password(min_length: 8),
-#     username: Faker::Internet.unique.username
-#   )
-# end
+user_count.times do
+  User.create(
+    email: Faker::Internet.unique.email,
+    password: Faker::Internet.password(min_length: 8),
+    username: Faker::Internet.unique.username
+  )
+end
 
 
 puts " "
