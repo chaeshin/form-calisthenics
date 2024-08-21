@@ -1,7 +1,7 @@
 <%# link for collapse %>
 <div data-controller="record-video">
   <%= simple_form_for([exercise, set], html: {data: { record_video_target:"form"}}) do |f| %>
-    <div class="form-inputs">
+    <div class="form-inputs set-input">
       <%= f.input :reps, input_html: {class: 'w-25'}, label: false, input_html: { 'data-bs-toggle': "collapse", 'data-bs-target':"#collapse-#{index_exercise}-#{index}", 'aria-expanded':"false", 'aria-controls':"collapse-#{index_exercise}-#{index}"} %>
       <%= f.input :workout_session_id, as: :hidden, input_html: { value: workout_session.id} %>
     </div>
