@@ -7,11 +7,13 @@
       <div>
         <%# sets and reps here: %>
         <span><%= exercise.sets %> x
-          <%= if exercise.lower_reps.nill? && exercise.upper_reps.nill?  %>
+          <% if exercise.lower_reps.nil? && exercise.upper_reps.nil?  %>
             <%= exercise.hold_time %>
           <% else %>
-            <%= exercise.lower_reps %>-<%= exercise.upper_reps %></span>
+            <%= exercise.lower_reps %>-<%= exercise.upper_reps %>
           <% end %>
+        </span>
+
         <%# rest time:here %>
         <span>| rest: <%= exercise.rest %></span>
       </div>
