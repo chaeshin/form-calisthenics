@@ -1,12 +1,12 @@
 <div>
   <div class="d-flex exercise-sets-card">
-    <div>
+    <div class="pe-1 exercise-name">
       <%# div 1 exercise and descriptions %>
       <h6><strong><%= exercise.name %></strong></h6>
         <%# excercise name here: %>
       <div>
         <%# sets and reps here: %>
-        <span><%= exercise.sets %> x
+        <span class="exercise-info"><%= exercise.sets %> x
           <% if exercise.lower_reps.nil? && exercise.upper_reps.nil?  %>
             <%= exercise.hold_time %>
           <% else %>
@@ -15,43 +15,23 @@
         </span>
 
         <%# rest time:here %>
-        <span>| rest: <%= exercise.rest %></span>
+        <span class="exercise-info">| rest: <%= exercise.rest %>s</span>
       </div>
     </div>
 
     <%# each exercise_sets input and total set here: %>
-    <div>
+    <div class="d-flex ps-1 justify-content-between align-items-center border-start border-light-subtle">
       <%# sub exercise_sets form here: %>
-      <div class="d-flex">
+      <div class="d-flex sets-form">
         <% exercise.sets.times do |i| %>
           <%= render 'shared/exercise_set_form', set: ExerciseSet.new, exercise: exercise, index: i, index_exercise: index_exercise, workout_session: workout_session %>
         <% end %>
       </div>
       <%# total # of sets display here: %>
       <div>
-
+        <span class="total-set-count">=10</span>
       </div>
     </div>
 
-
   </div>
 </div>
-
-
-
-<%# create_table "exercises", force: :cascade do |t|
-    t.string "name"
-    t.integer "upper_reps"
-    t.integer "lower_reps"
-    t.integer "reps"
-    t.integer "hold_time"
-    t.integer "duration"
-    t.integer "rest"
-    t.string "tempo"
-    t.string "category"
-    t.string "type"
-    t.integer "progression_difficulty"
-    t.string "progression_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end %>
