@@ -41,6 +41,7 @@
   // border: solid;
   // border-color: rgb(151, 151, 151);
   padding: 16px;
+  width: 100%;
 }
 
 .exercise-sets-card h6{
@@ -48,16 +49,21 @@
 }
 
 .exercise-sets-card .exercise-name {
-  width: 120px;
+  width: 121px;
 }
 
 .exercise-sets-card .exercise-info {
   font-size: 12px;
 }
 
-.set-input {
-  width: 12px;
+.exercise-sets-card .total-set-count {
+  background-color: rgb(191, 191, 191);
+  border-radius: 4px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   padding-right: 3px;
+  padding-left: 3px;
+
 }
 // .exercise-sets-grid {
 //   display: grid;

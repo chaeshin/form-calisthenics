@@ -1,6 +1,6 @@
 <div>
   <div class="d-flex exercise-sets-card">
-    <div class="exercise-name">
+    <div class="pe-1 exercise-name">
       <%# div 1 exercise and descriptions %>
       <h6><strong><%= exercise.name %></strong></h6>
         <%# excercise name here: %>
@@ -20,19 +20,18 @@
     </div>
 
     <%# each exercise_sets input and total set here: %>
-    <div>
+    <div class="d-flex ps-1 justify-content-between align-items-center border-start border-light-subtle">
       <%# sub exercise_sets form here: %>
-      <div class="d-flex">
+      <div class="d-flex sets-form">
         <% exercise.sets.times do |i| %>
           <%= render 'shared/exercise_set_form', set: ExerciseSet.new, exercise: exercise, index: i, index_exercise: index_exercise, workout_session: workout_session %>
         <% end %>
       </div>
       <%# total # of sets display here: %>
       <div>
-
+        <span class="total-set-count">=10</span>
       </div>
     </div>
-
 
   </div>
 </div>

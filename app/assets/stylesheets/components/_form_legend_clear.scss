@@ -15,14 +15,26 @@ legend ~ div.form-check:first-of-type {
   align-items: center;
 }
 
+.custom-set-form-width {
+  width: 40px;
+  margin: 3px;
+  padding: 0px;
+}
 
-form {
-  padding: 10px
+// form {
+// }
+
+.sets-form {
+  width: 100%;
 }
 
 .form-control {
   background-color: white;
 }
+
+// .form-control :active {
+//   background-color: white;
+// }
 
 .form-label {
   color: white;
