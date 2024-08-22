@@ -42,25 +42,35 @@
 
 // exercise sets card
 .exercise-sets-card {
-  background-color: rgb(255, 255, 255);
+  background-color:  #2e2e2e;
   border-radius: 16px;
   border: solid;
   border-color: rgb(187, 187, 187);
   border-width: 0.25px;
   padding: 16px;
   width: 100%;
+  display: flex;
 }
 
 .exercise-sets-card h6{
   font-size: 16px;
+  color: white;
 }
 
 .exercise-sets-card .exercise-name {
-  width: 121px;
+  width: 125px;
 }
 
 .exercise-sets-card .exercise-info {
   font-size: 12px;
+}
+
+.exercise-sets-card .sets {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 3px;
+  flex-grow: 1;
 }
 
 .exercise-sets-card .total-set-count {
@@ -70,7 +80,7 @@
   padding-bottom: 10px;
   padding-right: 3px;
   padding-left: 3px;
-
+  margin-left: 10px;
 }
 // .exercise-sets-grid {
 //   display: grid;

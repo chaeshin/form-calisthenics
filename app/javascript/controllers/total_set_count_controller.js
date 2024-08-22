@@ -6,10 +6,10 @@ export default class extends Controller {
 
   connect() {
     console.log('connected')
-    this.total = 0;
   }
 
   calculateTotal() {
+    this.total = 0;
     this.inputTargets.forEach((input) => {
       this.total += parseFloat(input.value) || 0;
     });
