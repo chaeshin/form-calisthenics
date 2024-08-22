@@ -1,31 +1,34 @@
 <div>
-  <h1 class="custom-margin"><%= @workout_session.workout.name %></h1>
-</div>
-
-<%= render 'shared/progress_bar', workout_session: @workout_session %>
-
-<div class="video">
-  <h1>
-    <%# <%= workout_session.name %>
-    <%# <%= exercise.name %>
+  <h1 class="custom-margin">
+    <%= @workout_session.workout.name %>
+    <%= @exercise.name %>
   </h1>
-  <%# <%= link_to ,  %>
-  <div data-controller="record-video">
-    <div>
-      <h3>Enter your reps</h3>
-      <%= render 'shared/exercise_set_form', set: ExerciseSet.new, exercise: @exercise, workout_session: @workout_session %>
-    </div>
-    <div>
-      <h3>Record your video</h3>
-      <button id="start" data-record-video-target="start" data-action="click->record-video#record">Start</button>
-      <button id="stop" data-record-video-target="stop" data-action="click->record-video#replace">Stop and save</button>
+
+  <%# how to link here: %>
+  <%= render 'shared/how_to_link', exercise: @exercise, workout_session: @workout_session %>
+
+  <%# progress bar here: %>
+  <%= render 'shared/progress_bar', workout_session: @workout_session, exercises: @exercises %>
+
+  <%# video here %>
+  <div class="video">
+    <div data-controller="record-video">
       <div>
-        <video style="border: 1px solid black" id="live" width="100%vw" height="300" autoplay muted data-record-video-target="live"></video>
+        <h3>Record your video</h3>
+        <button id="start" data-record-video-target="start" data-action="click->record-video#record">Start</button>
+        <button id="stop" data-record-video-target="stop" data-action="click->record-video#replace">Stop and save</button>
+        <div>
+          <video style="border: 1px solid black" id="live" width="100%vw" height="300" autoplay muted data-record-video-target="live"></video>
+        </div>
+        <div data-record-video-target="video" class="d-none"></div>
+      </div>
+      <div>
+        <h3>Enter your reps</h3>
+        <%= render 'shared/exercise_set_form', set: ExerciseSet.new, exercise: @exercise, workout_session: @workout_session %>
       </div>
     </div>
-    <div data-record-video-target="video" class="d-none"></div>
   </div>
+
+
+  <%= link_to "Back", workout_session_path, class: 'm-3 btn btn-light' %>
 </div>
-
-
-<%= link_to "Back", workout_session_path, class: 'm-3 btn btn-light' %>

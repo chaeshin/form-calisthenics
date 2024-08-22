@@ -16,4 +16,8 @@ class Exercise < ApplicationRecord
     using: {
       tsearch: { prefix: true } # <-- now `superman batm` will return something!
     }
+
+  def completed?
+    self.exercise_sets.all? { |set| set.reps.any? }
+  end
 end
