@@ -21,12 +21,12 @@ $headers-font: "Nunito", "Helvetica", "sans-serif";
 // $my-font: "Font Name";
 
 .custom-margin{
-  margin: 20px;
+  margin-top: 50px;
   color: white;
 }
 
 body {
-  background-color: #0E0000;
+  background-color: white;
   color:white
 }
 
@@ -40,4 +40,10 @@ h1 {
 
 span {
   color: white
+}
+
+.custom-margin2 {
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
