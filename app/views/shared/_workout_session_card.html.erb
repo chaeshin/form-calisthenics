@@ -1,8 +1,6 @@
 <div class="card-product">
   <div class="card-product-infos">
-    <h2><%= workout.workout.name %></h2>
-    <p class= "m-0 mb-2"><%= workout.workout.category %></p>
-    <h2><%= workout.updated_at.strftime("%A, %b %d") %></h2>
-    <p class="m-0"><%= workout.updated_at.strftime("%Y") %></p>
+      <h2><%=workout_session.workout.updated_at.strftime("%A, %b %d %Y") %></h2>
+      <p class= "m-0"><%= workout_session.workout.category %>, <%= workout_session.workout.name %> </p>
   </div>
 </div>

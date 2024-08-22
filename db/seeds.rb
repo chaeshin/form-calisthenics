@@ -134,28 +134,20 @@ workout_session = WorkoutSession.create(
   sleep_time: 7 * 60,
 )
 
-# ExerciseSet.new(
+exercise_set = ExerciseSet.new(
+  reps: 10,
+  workout_session: workout_session,
+  exercise_id: workout_session.exercises[0]
+)
 
-# )
-
-{
-  workout_name: {
-    exercise_name: {
-      dates: {
-        date: [3,3,3]
-      }
-    },
-    exercise_name2: {
-      dates: {
-        date: [3,3,3]
-      }
-    }
-  },
-  workout_name_2: {
-    exercise_name: {
-      dates: {
-        date: [3,3,3]
-      }
-    }
-  }
-}
+workout_session.exercises.each do |exercise|
+  p exercise.name
+  exercise.sets.times do
+    exercise_set = ExerciseSet.new(
+      reps: exercise.reps,
+      workout_session: workout_session,
+      exercise: exercise
+    )
+    exercise_set.save!
+  end
+end

@@ -1,0 +1,15 @@
+
+<h1 class="custom-margin">Workout Sessions</h1>
+<div class="cards">
+  <% @workout_sessions.each do |workout_session| %>
+    <%= render 'shared/workout_session_card', workout_session: workout_session %>
+  <% end %>
+</div>
+
+
+
+<div class="fab-container">
+  <%= link_to new_workout_path, class: 'fab' do %>
+    <i class="fas fa-plus"></i> <!-- Font Awesome icon -->
+  <% end %>
+</div>

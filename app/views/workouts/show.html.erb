@@ -15,9 +15,7 @@
 </ul>
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="workout-tab-pane" role="tabpanel" aria-labelledby="workout-tab" tabindex="0">
-    <% @exercises.each_with_index do |exercise, index| %>
-      <%= render 'shared/exercise_card', exercise: exercise, index_exercise: index %>
-    <% end %>
+
   </div>
 
   <div class="tab-pane fade" id="history-tab-pane" role="tabpanel" aria-labelledby="history-tab" tabindex="0">

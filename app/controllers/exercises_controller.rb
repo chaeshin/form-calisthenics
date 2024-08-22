@@ -5,7 +5,10 @@ class ExercisesController < ApplicationController
   end
 
   def show
-
+    @exercise = Exercise.find(params[:id])
+    # @workout = Workout.find(params[:id])
+    # @workout_sessions = WorkoutSession.where(workout_id: params[:id])
+    # @exercises = @workout.exercises
   end
 
   def new
