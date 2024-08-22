@@ -61,7 +61,7 @@ export default class extends Controller {
 
   uploadToCloudinary(video) {
     const formData = new FormData(this.formTarget);
-    formData.append('exercise_set[video]', video, `my_video${Math.floor(Math.random() * 10)}.mp4`);
+    formData.append('exercise_set[video]', video, `my_video.mp4`);
     fetch(this.formTarget.action, {
       // headers: { "Accept": "application/json"},
       body: formData,

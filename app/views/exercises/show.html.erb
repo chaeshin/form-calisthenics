@@ -12,7 +12,11 @@
   <%# <%= link_to ,  %>
   <div data-controller="record-video">
     <div>
-      <h2>Record your video</h2>
+      <h3>Enter your reps</h3>
+      <%= render 'shared/exercise_set_form', set: ExerciseSet.new, exercise: @exercise, workout_session: @workout_session %>
+    </div>
+    <div>
+      <h3>Record your video</h3>
       <button id="start" data-record-video-target="start" data-action="click->record-video#record">Start</button>
       <button id="stop" data-record-video-target="stop" data-action="click->record-video#replace">Stop and save</button>
       <div>
@@ -23,13 +27,5 @@
   </div>
 </div>
 
-<div>
-  <%= simple_form_for([@exercise, set], html: {data: { record_video_target:"form"}}) do |f| %>
-    <div class="custom-set-form">
-      <%= f.input :reps, label: false, input_html: {class: 'set-value', id: 'sets-form', data: { total_set_count_target: 'input', action: 'input->total-set-count#calculateTotal'}} %>
-      <%= f.input :workout_session_id, as: :hidden, input_html: { value: workout_session.id} %>
-    </div>
-  <% end %>
-</div>
 
 <%= link_to "Back", workout_session_path, class: 'm-3 btn btn-light' %>
