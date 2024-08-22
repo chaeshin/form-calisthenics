@@ -3,7 +3,7 @@
   <h1 class="margin-h1">Hi, Nick 👋 </h1>
 </div>
 <%# enter last exercise recorded here  %>
-<%= form_with url: root_path, method: :get, class: "d-flex align-items-center mt-3" do %>
+<%= form_with url: root_path, method: :get, class: "d-flex align-items-center mt-3", style: "width: 200px;" do %>
   <h6><i class="fa-solid fa-magnifying-glass text-white"></i></h6>
   <%= text_field_tag :query,
             params[:query],
@@ -13,7 +13,7 @@
             %>
   <%= submit_tag "Search", name: "", class: "btn btn-light shadow-sm align-item-center border rounded-pill", style: "background-color: white;" %>
 <% end %>
-<h2 class="custom-margin">Featured Workout</h2>
+<h2 class="custom-margin mb-2">Featured Workout</h2>
 <div class="bubble-container">
   <div class="bubble-wrap">
     <div class="bubble">
@@ -36,6 +36,7 @@
 </div>
 <h2 class="custom-margin">Training Plan</h2>
 <div class="cards">
+
   <% @workouts.each do |workout| %>
     <%= render 'shared/workout_card', workout: workout %>
   <% end %>

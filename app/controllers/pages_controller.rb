@@ -8,6 +8,7 @@ class PagesController < ApplicationController
     else
       @workouts = Workout.all
     end
+    @workout_sess = WorkoutSession.new
   end
 
   def calendar
