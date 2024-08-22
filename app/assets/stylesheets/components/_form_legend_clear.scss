@@ -41,3 +41,11 @@ legend ~ div.form-check:first-of-type {
 .form-label {
   color: white;
 }
+
+.workout_session_info_form {
+  display: flex;
+  // margin-left: 100px;
+  // margin-right: 100px;
+  justify-content: center;
+  margin-top: 30px;
+}

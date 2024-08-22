@@ -1,13 +1,13 @@
-<%= link_to workout_session_exercise_path(workout_session, exercise), class:"text-decoration-none link-dark" do %>
+<%# <%= link_to workout_session_exercise_path(workout_session, exercise), class:"text-decoration-none link-dark" do %>
   <div>
     <%= simple_form_for([exercise, set], html: {data: { record_video_target:"form"}}) do |f| %>
       <div class="custom-set-form">
-        <%= f.input :reps, label: false, input_html: {class: 'set-value', id: 'sets-form', data: { total_set_count_target: 'input', action: 'input->total-set-count#calculateTotal'}} %>
+        <%= f.input :reps, label: false, input_html: {class: 'set-value', id: 'sets-form', data: { total_set_count_target: 'input', action: 'input->total-set-count#calculateTotal'},  value: f.object.reps || ''} %>
         <%= f.input :workout_session_id, as: :hidden, input_html: { value: workout_session.id} %>
       </div>
     <% end %>
   </div>
-<% end %>
+<%# <% end %>
 
 <%# <div class="custom-set-form"> %>
   <%# <%= f.input :reps, label: false, input_html: {class: 'set-value', id: 'sets-form', data: { total_set_count_target: 'input', action: 'input->total-set-count#calculateTotal'}, 'data-bs-toggle': "collapse", 'data-bs-target':"#collapse-#{index_exercise}-#{index}", 'aria-expanded':"false", 'aria-controls':"collapse-#{index_exercise}-#{index}"} %>
