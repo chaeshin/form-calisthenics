@@ -3,4 +3,7 @@
     <h2><%= workout.name %></h2>
     <p><%= workout.category %></p>
   </div>
+ <%= simple_form_for([workout, @workout_sess]) do |f| %>
+ <%=  f.submit 'New session', class: 'btn' %>
+<% end %>
 </div>
