@@ -1,7 +1,8 @@
 class WorkoutSessionsController < ApplicationController
 
   def index
-
+    @workout_sessions = WorkoutSession.all
+    @workout_sesssion = WorkoutSession.new
   end
 
   def new

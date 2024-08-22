@@ -1,12 +1,14 @@
-<div class="container">
 
-  <h1 class="text-light session-header">Hello Chae is this working</h1>
+<h1 class="custom-margin">Workout Sessions</h1>
+<div class="cards">
+  <% @workout_sessions.each do |workout_session| %>
+    <%= render 'shared/workout_session_card', workout_session: workout_session %>
+  <% end %>
+</div>
 
-  <div class="card-product mt-3">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-  <div class="card-product-infos">
-    <h2>Product name</h2>
-    <p>Product description with <strong>relevant info</strong> only.</p>
-  </div>
-</div>
-</div>
+
+
+<div class="fab-container">
+  <%= link_to new_workout_path, class: 'fab' do %>
+    <i class="fas fa-plus"></i> <!-- Font Awesome icon -->
+  <% end %>
