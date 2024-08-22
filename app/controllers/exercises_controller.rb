@@ -1,7 +1,8 @@
 class ExercisesController < ApplicationController
 
   def show
-    @workout_session = WorkoutSession.find(params[:id])
+    @exercise = Exercise.find(params[:id])
+    @workout_session = WorkoutSession.find(params[:workout_session_id])
     @exercises = @workout_session.exercises
   end
 
