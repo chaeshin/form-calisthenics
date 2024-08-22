@@ -1,7 +1,14 @@
 <div>
-  <h1 class="custom-margin"><%= @workout_session.workout.name %></h1>
-</div>
+  <div>
+    <h1 class="custom-margin"><%= @workout_session.workout.name %></h1>
+  </div>
 
-<% @exercises.each_with_index do |exercise, index| %>
-  <%= render 'shared/exercise_card', exercise: exercise, index_exercise: index, workout_session: @workout_session %>
-<% end %>
+  <% @exercises.each_with_index do |exercise, index| %>
+    <%= render 'shared/exercise_card', exercise: exercise, index_exercise: index, workout_session: @workout_session %>
+  <% end %>
+
+  <%# session completed button here: %>
+  <div class="d-flex justify-content-center">
+    <%= link_to 'Complete', workout_sessions_path, class:"m-3 text-decoration-none link-dark btn btn-light rounded-pill" %>
+  </div>
+</div>

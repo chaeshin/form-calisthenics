@@ -10,17 +10,16 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   resources :workouts, only: [:index, :show, :update, :new, :create] do
-    resources :workout_sessions, only: [:create]
+    resources :workout_sessions, only: [:new, :create]
   end
 
   resources :workout_sessions, only: [:index, :show] do
   end
 
   resources :exercises, only: [:index, :show, :update, :create, :new] do
-    resources :exercise_sets, only: [:create]
+    resources :exercise_sets, only: [:create, :show]
   end
 
   get '/calendar', to: "pages#calendar", as: :calendar
-
 
 end
