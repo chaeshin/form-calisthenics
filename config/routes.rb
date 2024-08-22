@@ -18,6 +18,9 @@ Rails.application.routes.draw do
   end
 
   resources :exercises, only: [:index, :show, :update, :create, :new] do
+    member do
+      get :view
+    end
     resources :exercise_sets, only: [:create, :show]
   end
 
