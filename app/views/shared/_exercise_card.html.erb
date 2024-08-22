@@ -23,7 +23,9 @@
       <%# total_sets = 0 %>
       <div class="d-flex">
         <% exercise.sets.times do |i| %>
-          <%= render 'shared/exercise_set_form', set: ExerciseSet.new, exercise: exercise, index: i, index_exercise: index_exercise, workout_session: workout_session %>
+          <%= link_to workout_session_exercise_path(workout_session, exercise), class:"text-decoration-none link-dark" do %>
+            <%= render 'shared/exercise_set_form', set: ExerciseSet.new, exercise: exercise, index: i, index_exercise: index_exercise, workout_session: workout_session %>
+          <% end %>
         <% end %>
       </div>
       <%# total # of sets display here: %>
