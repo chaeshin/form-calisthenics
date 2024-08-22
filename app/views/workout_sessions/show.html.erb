@@ -7,6 +7,11 @@
     <%= render 'shared/exercise_card', exercise: exercise, index_exercise: index, workout_session: @workout_session %>
   <% end %>
 
+  <%# bodyweight sleeptime form here: %>
+  <div class="workout_session_info_form">
+    <%= render 'shared/workout_session_info_form', workout_session: @workout_session  %>
+  </div>
+
   <%# session completed button here: %>
   <div class="d-flex justify-content-center">
     <%= link_to 'Complete', workout_sessions_path, class:"m-3 text-decoration-none link-dark btn btn-light rounded-pill" %>
