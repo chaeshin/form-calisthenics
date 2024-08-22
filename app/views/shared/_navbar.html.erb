@@ -1,6 +1,14 @@
 <ul class="navbar-custom navbar-bottom">
-  <li><%= link_to "Home", root_path %></li>
-  <li><%= link_to "Calendar", calendar_path %></li>
-  <li><%= link_to "Contact", "#contact" %></li>
-  <li><%= link_to "About", "#about" %></li>
+  <li><%= link_to root_path do %>
+    <i class="fas fa-home"></i>
+  <% end %></li>
+  <li><%= link_to calendar_path do %>
+    <i class="fas fa-calendar-alt"></i>
+  <% end %></li>
+  <li><%= link_to workout_sessions_path do %>
+    <i class="fas fa-history"></i>
+  <% end %></li>
+  <li><%= link_to "#about" do %>
+    <i class="fas fa-balance-scale"></i>
+  <% end %></li>
 </ul>
