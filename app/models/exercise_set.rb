@@ -4,6 +4,7 @@ class ExerciseSet < ApplicationRecord
   has_one_attached :video
 
   # validates :reps, :set_duration, numericality: { greater_than_or_equal_to: 0 }
+
   validates :workout_session, presence: true
   validates :exercise, presence: true
 end
