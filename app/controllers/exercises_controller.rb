@@ -12,9 +12,10 @@ class ExercisesController < ApplicationController
 
   def view
     @exercise = Exercise.find(params[:id])
-    # @exercise_set = ExerciseSet.where(exercise: @exercise)
+    @exercises = Exercise.where()
+    @exercise_set = ExerciseSet.where(exercise: @exercise)
+    @workout_sessions = WorkoutSession.where(workout_id: params[:id])
     # @workout = Workout.find(params[:id])
-    # @workout_sessions = WorkoutSession.where(workout_id: params[:id])
     # @exercises = @workout.exercises
   end
 
