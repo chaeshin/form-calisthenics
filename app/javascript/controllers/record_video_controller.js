@@ -56,7 +56,7 @@ export default class extends Controller {
   replace(data) {
     this.videoTarget.innerHTML = data;
     this.videoTarget.classList.remove("d-none")
-    this.videoreplaceTarget.classList.add("d-none")
+    this.videoReplaceTarget.classList.add("d-none")
   }
 
   uploadToCloudinary(video) {
