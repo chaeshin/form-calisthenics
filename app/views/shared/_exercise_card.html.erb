@@ -22,6 +22,7 @@
       <%# sub exercise_sets form here: %>
       <%# total_sets = 0 %>
       <div class="d-flex">
+      <%# get the number of exercise.sets store them in a variable, use that variablee to get the last two instances of the exercise_sets %>
         <% exercise.sets.times do |i| %>
           <%= link_to workout_session_exercise_path(workout_session, exercise), class:"text-decoration-none link-dark" do %>
           <%# <button></button> %>
