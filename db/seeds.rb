@@ -135,10 +135,21 @@ workout_session = WorkoutSession.create(
 )
 
 exercise_set = ExerciseSet.new(
-  reps: 10,
+  reps: 6,
   workout_session: workout_session,
-  exercise_id: workout_session.exercises[0]
+  exercise_id: workout_session.exercises[5]
 )
+file = File.open("videos/video1.mp4")
+exercise_set.video.attach(io: file, filename: 'video1.mp4', content_type: 'video/mp4')
+
+exercise_set2 = ExerciseSet.new(
+  reps: 6,
+  workout_session: workout_session,
+  exercise_id: workout_session.exercises[5]
+)
+
+file2 = File.open("videos/video2.mp4")
+exercise_set2.video.attach(io: file2, filename: 'video2.mp4', content_type: 'video/mp4')
 
 workout_session.exercises.each do |exercise|
   p exercise.name
@@ -150,4 +161,6 @@ workout_session.exercises.each do |exercise|
     )
     exercise_set.save!
   end
+
+
 end
