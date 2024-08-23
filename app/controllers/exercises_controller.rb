@@ -15,11 +15,19 @@ class ExercisesController < ApplicationController
 
   end
 
-  def view
+  def compare
     @exercise = Exercise.find(params[:id])
-    # @exercise_set = ExerciseSet.where(exercise: @exercise)
-    # @workout = Workout.find(params[:id])
+    @exercise_sets = ExerciseSet.where(exercise: @exercise)
+    @exercise_sets.last
+    @exercise_set = ExerciseSet.last
+
+
+    # @workout_sessions = WorkoutSession.where(exercise: @exercise)
+    # @exercises = @workout_sessions.each do |workout_session|
+    #   workout_session.exercise.find(@exercise)
+    # end
     # @workout_sessions = WorkoutSession.where(workout_id: params[:id])
+    # @workout = Workout.find(params[:id])
     # @exercises = @workout.exercises
   end
 

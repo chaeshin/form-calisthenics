@@ -1,0 +1,77 @@
+.simple-calendar {
+  color: white !important; // Change the text color to white
+  background-color: #2e2e2e; // Set the background color to grey
+  padding: 10px; // Optional: add padding for better spacing
+  border-radius: 20px; // Optional: add rounded corners for the border
+  color: white; // Ensure text color is visible against grey background
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  margin-top: 27px;
+
+  .day {
+    color:white
+  }
+  .wday-0 {
+    color: white
+  }
+  .wday-1 {
+    color: white
+  }
+  .wday-2 {
+    color: white
+  }
+  .wday-3 {
+    color: white
+  }
+  .wday-4 {
+    color: white
+  }
+  .wday-5 {
+    color: white
+  }
+  .wday-6 {
+    color: white
+  }
+
+  .today {
+    color: white
+  }
+  .past {
+    color: white
+  }
+  .future {
+    color: white
+  }
+
+  .start-date {
+    color: white
+  }
+
+  .prev-month {
+    color: white
+  }
+  .next-month {
+    color: white
+  }
+  .current-month {
+    color: white
+  }
+
+
+  .has-events {
+    color: white
+  }
+}
+
+.simple-calendar table th,
+.simple-calendar table td {
+  color: white; // Ensure headers and table cells also use the white color
+}
+
+
+.calendar-title a {
+  color:white
+}
+
+nav a {
+  color: white; // Change the font color to white
+}

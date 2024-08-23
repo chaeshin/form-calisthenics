@@ -1,4 +1,9 @@
 
+<div class="container">
+  <h1 class="text-light d-flex justify-content-center mt-3">Calendar</h1>
+<%= month_calendar do |date| %>
+  <%= date.day %>
+<% end %>
 <h1 class="custom-margin">Workout Sessions</h1>
 <div class="cards">
   <% @workout_sessions.each do |workout_session| %>
@@ -12,3 +17,4 @@
   <%= link_to new_workout_path, class: 'fab' do %>
     <i class="fas fa-plus"></i> <!-- Font Awesome icon -->
   <% end %>
+</div>
