@@ -17,7 +17,7 @@ class ExercisesController < ApplicationController
 
   def compare
     @exercise = Exercise.find(params[:id])
-    @exercise_sets = ExerciseSet.where(exercise: @exercise)
+    @exercise_sets = ExerciseSet.where(exercise: @exercise).order(created_at: :desc)
     @exercise_sets.last
     @exercise_set = ExerciseSet.last
 
