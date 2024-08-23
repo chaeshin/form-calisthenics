@@ -2,6 +2,7 @@ class WorkoutSessionsController < ApplicationController
 
   def index
     @workout_sessions = WorkoutSession.all
+    @workout_sessions = WorkoutSession.order(created_at: :desc)
     @workout_sesssion = WorkoutSession.new
   end
 
