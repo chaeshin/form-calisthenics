@@ -14,13 +14,16 @@ Rails.application.routes.draw do
   end
 
   resources :workout_sessions, only: [:index, :show] do
+    resources :exercises, only: [:show]
   end
 
-  resources :exercises, only: [:show, :update, :create, :new] do
+  resources :exercises, only: [:index, :show, :update, :create, :new] do
+    member do
+      get :view
+    end
     resources :exercise_sets, only: [:create, :show]
   end
 
   get 'calendar', to: "pages#calendar", as: :calendar
-
 
 end

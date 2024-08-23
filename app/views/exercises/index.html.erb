@@ -1,0 +1,7 @@
+
+<h1 class="custom-margin">Exercise List</h1>
+<div class="cards">
+  <% @exercises.each do |exercise| %>
+    <%= render 'shared/exercise_list_card', exercise: exercise %>
+  <% end %>
+</div>
