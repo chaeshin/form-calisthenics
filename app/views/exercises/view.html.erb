@@ -7,8 +7,8 @@
       <%# end %>
       <%# end %>
 
-      <% @exercise_set.each_with_index do |exercise, index| %>
-        <%= render 'shared/exercise_card', exercise: exercise, index_exercise: index, workout_session: @workout_session %>
+      <% @exercises.each do |exercise| %>
+        <%= render 'shared/exercise_display_card', exercise: exercise %>
       <% end %>
 
       <%= p @exercise_set %>

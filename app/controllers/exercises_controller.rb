@@ -17,7 +17,11 @@ class ExercisesController < ApplicationController
 
   def view
     @exercise = Exercise.find(params[:id])
-    @exercises = Exercise.where()
+    @workout_sessions = WorkoutSession.where(exercise: @exercise)
+    @exercises = @workout_sessions.each do |workout_session|
+      workout_session.exercise.find(@exercise)
+    end
+
     @exercise_set = ExerciseSet.where(exercise: @exercise)
     @workout_sessions = WorkoutSession.where(workout_id: params[:id])
     # @workout = Workout.find(params[:id])
