@@ -1,17 +1,21 @@
 <div>
   <h1 class="custom-margin"><%= @exercise.name %></h1>
-
-      <h2>Last set</h2>
-      <%= @exercise_set.reps %>
-      <%= cl_video_tag @exercise_set.video.key, resource_type: 'raw', controls: true %>
-
-       <h2>Set to compare</h2>
-      <% @exercise_sets[0..-2].each do |exercise_set| %>
+  <h2>Last set</h2>
+  <div class="video-wrapper">
+    <div>
+      <%= render 'shared/exercise_display_card', exercise: @exercise, exercise_set: @exercise_set%>
+    </div>
+    <%= cl_video_tag @exercise_set.video.key, width: 410, resource_type: 'raw', controls: true %>
+  </div>
+  <h2>Set to compare</h2>
+  <div class="scrollable">
+    <% @exercise_sets[1..-1].each do |exercise_set| %>
       <% unless exercise_set.video.key.nil? %>
-      <%= cl_video_tag exercise_set.video.key, resource_type: 'raw', controls: true %>
+        <div class="video-wrapper">
+          <%= render 'shared/exercise_display_card', exercise: @exercise, exercise_set: exercise_set%>
+          <%= cl_video_tag exercise_set.video.key, width: 410, resource_type: 'raw', controls: true %>
+        </div>
       <% end %>
-      <% end %>
-
-
-
+    <% end %>
+  </div>
 </div>
