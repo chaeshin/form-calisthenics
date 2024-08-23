@@ -1,6 +1,8 @@
 class ExerciseSetsController < ApplicationController
 
   def create
+    # @exercise = @exercise_set.exercise
+    # @exercise.sets < ExerciseSet.where("workout_session_id": params[:workout_session_id]).count
     @exercise_set = ExerciseSet.new(exercise_set_params)
     @exercise_set.exercise = Exercise.find(params[:exercise_id])
     @exercise_set.set_duration = 10

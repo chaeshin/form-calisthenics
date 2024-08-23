@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="record-video"
 export default class extends Controller {
-  static targets = ["start", "stop", "live", "form", "video"]
+  static targets = ["start", "stop", "live", "form", "video", "videoReplace"]
   connect() {
     console.log(this.startTarget, this.stopTarget, this.liveTarget)
   }
@@ -56,7 +56,7 @@ export default class extends Controller {
   replace(data) {
     this.videoTarget.innerHTML = data;
     this.videoTarget.classList.remove("d-none")
-    // this.collapseTarget.classList.add("d-none")
+    this.videoReplaceTarget.classList.add("d-none")
   }
 
   uploadToCloudinary(video) {
