@@ -7,6 +7,7 @@
   align-items: center;
   border-radius: 20px;
   margin: 10px;
+  position: relative;
 }
 
 .card-product img {
@@ -82,6 +83,14 @@
   padding-right: 3px;
   padding-left: 3px;
   margin-left: 10px;
+}
+
+.card-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 }
 
 // .exercise-sets-grid {
