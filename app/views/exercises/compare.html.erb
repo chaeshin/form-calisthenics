@@ -1,0 +1,17 @@
+<div>
+  <h1 class="custom-margin"><%= @exercise.name %></h1>
+
+      <h2>Last set</h2>
+      <%= @exercise_set.reps %>
+      <%= cl_video_tag @exercise_set.video.key, resource_type: 'raw', controls: true %>
+
+       <h2>Set to compare</h2>
+      <% @exercise_sets[0..-2].each do |exercise_set| %>
+      <% unless exercise_set.video.key.nil? %>
+      <%= cl_video_tag exercise_set.video.key, resource_type: 'raw', controls: true %>
+      <% end %>
+      <% end %>
+
+
+
+</div>
