@@ -22,7 +22,7 @@ Rails.application.routes.draw do
 
   resources :exercises, only: [:index, :show, :update, :create, :new] do
     member do
-      get :view
+      get :compare
     end
     resources :exercise_sets, only: [:create, :show]
   end
