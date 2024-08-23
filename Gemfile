@@ -81,4 +81,4 @@ gem 'roo'
 gem 'faker'
 gem 'cloudinary'
 gem "pg_search"
-gem "simple_calendar", "~> 2.0"
+gem "simple_calendar"

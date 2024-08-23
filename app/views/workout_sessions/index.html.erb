@@ -1,28 +1,16 @@
-
 <div class="container">
   <h1 class="text-light mt-4">Calendar</h1>
-
-<%= month_calendar events: @workouts do |date, workouts| %>
-  <%= date.day %>
-
-  <% workouts.each do |workout| %>
-    <div>
-      <%= workout.name %>
-    </div>
+  <%= month_calendar do |date| %>
+    <%= date.day %>
   <% end %>
-<% end %>
-
-<h1 class="custom-margin">Workout Sessions</h1>
-<div class="cards">
-  <% @workout_sessions.each do |workout_session| %>
-    <%= render 'shared/workout_session_card', workout_session: workout_session %>
-  <% end %>
-</div>
-
-
-
-<div class="fab-container">
-  <%= link_to new_workout_path, class: 'fab' do %>
-    <i class="fas fa-plus"></i> <!-- Font Awesome icon -->
-  <% end %>
-</div>
+  <h1 class="custom-margin">Workout Sessions</h1>
+  <div class="cards">
+    <% @workout_sessions.each do |workout_session| %>
+      <%= render 'shared/workout_session_card', workout_session: workout_session %>
+    <% end %>
+  </div>
+  <div class="fab-container">
+    <%= link_to new_workout_path, class: 'fab' do %>
+      <i class="fas fa-plus"></i> <!-- Font Awesome icon -->
+    <% end %>
+  </div>

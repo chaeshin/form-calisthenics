@@ -339,7 +339,7 @@ DEPENDENCIES
   roo
   sassc-rails
   selenium-webdriver
-  simple_calendar (~> 2.0)
+  simple_calendar
   simple_form!
   sprockets-rails
   stimulus-rails
