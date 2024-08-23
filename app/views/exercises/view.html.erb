@@ -1,11 +1,18 @@
 <div>
-  <h1><%= @exercise.name %></h1>
+  <h1 class="custom-margin"><%= @exercise.name %></h1>
 
+      <%#= @exercise.exercise_sets.each do |exercise_set| %>
+      <%# unless exercise_set.video.key.nil? %>
+      <%#= cl_video_tag exercise_set.video.key, resource_type: 'raw', controls: true %>
+      <%# end %>
+      <%# end %>
 
-       <%= @exercise.exercise_sets.each do |exercise_set| %>
-        <% unless exercise_set.video.key.nil? %>
-        <%= cl_video_tag exercise_set.video.key, resource_type: 'raw', controls: true %>
-        <% end %>
+      <% @exercises.each do |exercise| %>
+        <%= render 'shared/exercise_display_card', exercise: exercise %>
       <% end %>
+
+      <%= p @exercise_set %>
+
+
 
 </div>

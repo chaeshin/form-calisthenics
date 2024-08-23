@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   end
 
   resources :workout_sessions, only: [:index, :show] do
+    member do
+      get :view
+    end
     resources :exercises, only: [:show]
   end
 
