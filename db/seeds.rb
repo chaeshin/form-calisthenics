@@ -5,8 +5,10 @@ require "roo"
 
 puts " "
 puts "Cleaning the DB..."
+ExerciseSet.destroy_all
 ExerciseAssignment.destroy_all
 User.destroy_all
+WorkoutSession.destroy_all
 Workout.destroy_all
 Exercise.destroy_all
 
@@ -133,34 +135,35 @@ workout_session = WorkoutSession.create(
   bodyweight: 70.0,
   sleep_time: 7 * 60,
 )
+# workout_session.exercises.each do |exercise|
+#   p exercise.name
+#   exercise.sets.times do
+#     exercise_set = ExerciseSet.new(
+#       reps: exercise.reps,
+#       workout_session: workout_session,
+#       exercise: exercise
+#     )
+#     exercise_set.save!
+#   end
+# end
 
 exercise_set = ExerciseSet.new(
   reps: 6,
   workout_session: workout_session,
-  exercise_id: workout_session.exercises[5]
+  exercise: workout_session.workout.exercises.first
 )
-file = File.open("videos/video1.mp4")
+file = File.open(File.join(Rails.root, "public/videos/video1.mp4"))
 exercise_set.video.attach(io: file, filename: 'video1.mp4', content_type: 'video/mp4')
+p exercise_set.video.key
+exercise_set.save!
 
 exercise_set2 = ExerciseSet.new(
   reps: 6,
   workout_session: workout_session,
-  exercise_id: workout_session.exercises[5]
-)
+  exercise: workout_session.workout.exercises.first
+  )
 
-file2 = File.open("videos/video2.mp4")
-exercise_set2.video.attach(io: file2, filename: 'video2.mp4', content_type: 'video/mp4')
-
-workout_session.exercises.each do |exercise|
-  p exercise.name
-  exercise.sets.times do
-    exercise_set = ExerciseSet.new(
-      reps: exercise.reps,
-      workout_session: workout_session,
-      exercise: exercise
-    )
-    exercise_set.save!
-  end
-
-
-end
+  file2 = File.open(File.join(Rails.root, "public/videos/video2.mp4"))
+  exercise_set2.video.attach(io: file2, filename: 'video2.mp4', content_type: 'video/mp4')
+  p exercise_set2.video.key
+  exercise_set2.save!
