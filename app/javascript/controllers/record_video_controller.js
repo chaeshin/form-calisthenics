@@ -70,13 +70,22 @@ export default class extends Controller {
     // }
   }
 
+  // showFullScreen() {
+  //   const video = this.liveTarget;
+  //   if (!document.fullscreenElement) {
+  //     video.requestFullscreen().catch(err => {
+  //       alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+  //     });
+  //   } else {
+  //     document.exitFullscreen();
+  //   }
+  // }
+
   uploadToCloudinary(video) {
     const formData = new FormData(this.formTarget);
-    // const formData = new FormData();
     formData.append('exercise_set[video]', video, `my_video.mp4`);
 
     fetch(this.formTarget.action, {
-      // headers: { "Accept": "application/json"},
       body: formData,
       method: "POST",
       headers: { 'Accept': 'text/plain' }

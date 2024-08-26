@@ -18,4 +18,6 @@
   </div>
 
   <div><%= @reps %></div>
+
+  <%= cl_video_tag @exercise_set.video.key, width: 410, resource_type: 'video', controls: true %>
 </div>
