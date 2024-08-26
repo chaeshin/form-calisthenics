@@ -14,6 +14,8 @@ class ExercisesController < ApplicationController
     @workout_session = WorkoutSession.find(params[:workout_session_id])
     @exercises = @workout_session.exercises
 
+
+
     # display progress of current workout_session
     # @exercise_sets = @workout_session.exercise_sets
 
