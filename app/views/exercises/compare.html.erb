@@ -5,7 +5,7 @@
     <div>
       <%= render 'shared/exercise_display_card', exercise: @exercise, exercise_set: @exercise_set%>
     </div>
-    <%= cl_video_tag @exercise_set.video.key, width: 410, resource_type: 'video', controls: true %>
+    <%= cl_video_tag @exercise_set_last.video.key, width: 410, resource_type: 'video', controls: true %>
   </div>
   <h2>Set to compare</h2>
   <div class="scrollable">

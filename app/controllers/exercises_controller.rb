@@ -27,6 +27,7 @@ class ExercisesController < ApplicationController
     @exercise_sets = ExerciseSet.where(exercise: @exercise).order(created_at: :desc)
     @exercise_sets.last
     @exercise_set = ExerciseSet.last
+    @exercise_set_last = ExerciseSet.where(exercise: @exercise).last
 
 
     # @workout_sessions = WorkoutSession.where(exercise: @exercise)
