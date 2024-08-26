@@ -14,9 +14,12 @@ class ExercisesController < ApplicationController
     @workout_session = WorkoutSession.find(params[:workout_session_id])
     @exercises = @workout_session.exercises
 
+
+
     # display progress of current workout_session
     # @exercise_sets = @workout_session.exercise_sets
-
+    # get exercise_set
+    # @exercise_set = @exercises.exercise_set
   end
 
   def compare

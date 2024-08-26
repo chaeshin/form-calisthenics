@@ -31,6 +31,5 @@ class WorkoutSessionsController < ApplicationController
     else
       render root_path
     end
-
   end
 end

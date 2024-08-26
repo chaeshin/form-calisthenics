@@ -86,11 +86,42 @@
 //   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow adjustment for pressed state */
 // }
 
-.rep_num_button {
+.rep-num-button {
   width: 30px;
   height: 40px;
-  background-color: rgb(211, 211, 211);
-  color: black;
+  background-color: rgb(46, 139, 87);
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
   border-radius: 4px;
   margin: 3px;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.rep-num-total {
+  width: 30px;
+  height: 40px;
+  font-size: 20px;
+  color: rgb(46, 139, 87);
+  font-weight: bold;
+  border-radius: 4px;
+  margin: 3px;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.rep-num-button-light {
+  width: 30px;
+  height: 40px;
+  background-color: rgb(227, 227, 227);
+  color: rgb(108, 108, 108);
+  border-radius: 4px;
+  margin: 3px;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  padding: auto;
 }

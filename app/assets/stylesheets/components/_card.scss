@@ -75,6 +75,15 @@
   flex-grow: 1;
 }
 
+.exercise-sets-card .set {
+  display: flex;
+  align-items: center;
+  margin-left: 3px;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  width: 200px;
+}
+
 .exercise-sets-card .total-set-count {
   background-color: rgb(191, 191, 191);
   border-radius: 4px;
@@ -83,6 +92,7 @@
   padding-right: 3px;
   padding-left: 3px;
   margin-left: 10px;
+  width: 50px;
 }
 
 .card-link {
@@ -106,4 +116,8 @@
 
 .set-highlite {
   color: #60ff60;
+}
+
+.how-to-link {
+  text-decoration: none;
 }

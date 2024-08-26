@@ -20,12 +20,17 @@ Rails.application.routes.draw do
     resources :exercises, only: [:show]
   end
 
+  namespace :videos do
+    resources :exercises, only: [:show]
+  end
+
   resources :exercises, only: [:index, :show, :update, :create, :new] do
     member do
       get :compare
     end
-    resources :exercise_sets, only: [:create, :show]
+    resources :exercise_sets, only: [:create]
   end
+  resources :exercise_sets, only: [:show]
 
   get 'calendar', to: "pages#calendar", as: :calendar
 

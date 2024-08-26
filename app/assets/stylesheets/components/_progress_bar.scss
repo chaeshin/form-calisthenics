@@ -1,5 +1,6 @@
 .step-progress {
   display: flex;
+  flex-direction:row;
   justify-content: space-between;
   position: relative;
   width: 100%;
@@ -8,7 +9,7 @@
 
 .step {
   display: flex;
-  flex-direction: column;
+  flex-direction:row;
   align-items: center;
   width: 30%;
   position: relative;
@@ -29,7 +30,7 @@
 }
 
 .step-name {
-  font-size: 14px;
+  font-size: 20px;
 }
 
 .step.completed .bullet {
