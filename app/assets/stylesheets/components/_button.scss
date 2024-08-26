@@ -111,6 +111,7 @@
   text-decoration: none;
   align-items: center;
   justify-content: center;
+  padding: auto;
 }
 
 .rep-num-button-light {
@@ -118,10 +119,11 @@
   height: 40px;
   background-color: rgb(227, 227, 227);
   color: rgb(108, 108, 108);
-  border-radius: 4px;
+  // font-weight: bold;
+  font-size: 20px;
+  border-radius: 3px;
   margin: 3px;
   text-decoration: none;
   align-items: center;
-  justify-content: center;
-  padding: auto;
+  justify-content: space-around;
 }

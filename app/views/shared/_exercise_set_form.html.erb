@@ -1,15 +1,9 @@
-<%# <%= link_to workout_session_exercise_path(workout_session, exercise), class:"text-decoration-none link-dark" do %>
-  <div>
-    <%= simple_form_for([exercise, set], html: {data: { record_video_target:"form"}}) do |f| %>
-      <div class="custom-set-form">
-        <%= f.input :reps, label: false, input_html: {class: 'set-value', id: 'sets-form'}  %>
-        <%= f.input :workout_session_id, as: :hidden, input_html: { value: workout_session.id} %>
-      </div>
-    <% end %>
-  </div>
-<%# <% end %>
-
-<%# <div class="custom-set-form"> %>
-  <%# <%= f.input :reps, label: false, input_html: {class: 'set-value', id: 'sets-form', data: { total_set_count_target: 'input', action: 'input->total-set-count#calculateTotal'}, 'data-bs-toggle': "collapse", 'data-bs-target':"#collapse-#{index_exercise}-#{index}", 'aria-expanded':"false", 'aria-controls':"collapse-#{index_exercise}-#{index}"} %>
-  <%# <%= f.input :workout_session_id, as: :hidden, input_html: { value: workout_session.id} %>
-<%# </div> %>
+<div>
+  <%= simple_form_for([exercise, set], html: {data: { record_video_target:"form", action: 'submit->record_video#save'}}) do |f| %>
+    <div class="custom-set-form">
+      <%= f.input :reps, label: false, input_html: {class: 'set-value', id: 'sets-form'} %>
+      <%= f.input :workout_session_id, as: :hidden, input_html: { value: workout_session.id} %>
+    </div>
+    <%= f.submit %>
+  <% end %>
+</div>
