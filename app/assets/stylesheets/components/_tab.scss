@@ -1,0 +1,8 @@
+.category-list{
+  flex-wrap: nowrap;
+  overflow: scroll;
+
+  .nav-link{
+    width: max-content;
+  }
+}
