@@ -1,7 +1,7 @@
 <div class="container">
   <h1 class="text-light mt-4">Calendar</h1>
-  <%= month_calendar do |date| %>
-    <%= date.day %>
+  <%= calendar number_of_days: 4 do |date| %>
+    <%= date %>
   <% end %>
   <h1 class="custom-margin">Workout Sessions</h1>
   <div class="cards">
@@ -14,3 +14,4 @@
       <i class="fas fa-plus"></i> <!-- Font Awesome icon -->
     <% end %>
   </div>
+</div>
