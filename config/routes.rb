@@ -20,6 +20,10 @@ Rails.application.routes.draw do
     resources :exercises, only: [:show]
   end
 
+  namespace :videos do
+    resources :exercises, only: [:show]
+  end
+
   resources :exercises, only: [:index, :show, :update, :create, :new] do
     member do
       get :compare

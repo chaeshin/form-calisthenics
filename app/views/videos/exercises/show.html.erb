@@ -1,0 +1,4 @@
+<h1>videos</h1>
+<% @exercise.exercise_sets.each do |exercise_set| %>
+<%= cl_video_tag(exericse_set.video.key) %>
+<% end %>
