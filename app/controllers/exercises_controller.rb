@@ -2,7 +2,11 @@ class ExercisesController < ApplicationController
 
 
   def index
-    @exercises = Exercise.all
+    if params[:category]
+      @exercises = Exercise.where(category: params[:category])
+    else
+      @exercises = Exercise.all
+    end
   end
 
   def show
