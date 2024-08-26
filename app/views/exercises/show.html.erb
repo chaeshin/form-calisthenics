@@ -4,6 +4,19 @@
     <%= @exercise.name %>
   </h1>
 
+  <div>
+    <%# sets and reps here: %>
+    <span class="exercise-info"><%= @exercise.sets %> x
+      <% if @exercise.lower_reps.nil? && @exercise.upper_reps.nil?  %>
+        <%= @exercise.hold_time %>
+      <% else %>
+        <%= @exercise.lower_reps %>-<%= @exercise.upper_reps %>
+      <% end %>
+    </span>
+    <%# rest time:here %>
+    <span class="exercise-info">| rest: <%= @exercise.rest %>s</span>
+  </div>
+
   <%# how to link here: %>
   <%= render 'shared/how_to_link', exercise: @exercise, workout_session: @workout_session %>
 
@@ -14,9 +27,9 @@
   <div class="video">
     <div data-controller="record-video">
       <div data-record-video-target="videoReplace">
-        <h3>Record your video</h3>
-        <button id="start" data-record-video-target="start" data-action="click->record-video#record">Start</button>
-        <button id="stop" data-record-video-target="stop" data-action="click->record-video#replace">Stop and save</button>
+        <h3>Record your video for</h3>
+        <button id="start"  data-record-video-target="start" data-action="click->record-video#record"><i class="fa-solid fa-play"></i></button>
+        <button id="stop" data-record-video-target="stop" data-action="click->record-video#replace"><i class="fa-solid fa-stop"></i></button>
         <div>
           <video style="border: 1px solid black" id="live" width="100%vw" height="300" autoplay muted data-record-video-target="live"></video>
         </div>
@@ -29,6 +42,8 @@
     </div>
   </div>
 
-
-  <%= link_to "Back", workout_session_path(@workout_session), class: 'm-3 btn btn-light' %>
+  <div class="d-flex justify-content-between">
+    <%= link_to "Back", workout_session_path(@workout_session), class: 'm-3 btn btn-light' %>
+    <%= link_to "Next", workout_session_exercise_path(@workout_session, @exercise), class: 'm-3 btn btn-light' %>
+  </div>
 </div>

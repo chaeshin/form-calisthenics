@@ -12,7 +12,8 @@ class ExercisesController < ApplicationController
 
     # display progress of current workout_session
     # @exercise_sets = @workout_session.exercise_sets
-
+    # get exercise_set
+    # @exercise_set = @exercises.exercise_set
   end
 
   def compare
