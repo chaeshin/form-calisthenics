@@ -107,6 +107,7 @@ xlsx.sheet('Skills Workout').parse do |row|
       tempo: row[0].to_s,
       category: row[2],
       exercise_type: row[3],
+      ref_video_link: row[7],
       progression_difficulty: nil,
       progression_name: nil
       )
