@@ -1,7 +1,7 @@
 <div class="card-product">
   <div class="card-product-infos">
     <h2><%= exercise.name %></h2>
-    <p> temp</p>
+    <p> <%= exercise.category %></p>
   </div>
   <% if exercise.exercise_sets.any? %>
     <%= link_to '', compare_exercise_path(exercise), class: 'btn card-link'  %>

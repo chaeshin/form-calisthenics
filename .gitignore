@@ -40,4 +40,4 @@
 *.swp
 .DS_Store
 
-db/videos
+/public/videos
