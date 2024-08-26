@@ -37,7 +37,11 @@
           <% (exercise.sets - sets_done.count).times do |i| %>
             <%= link_to workout_session_exercise_path(workout_session, exercise), class:"text-decoration-none" do %>
             <button class='rep-num-button-light'>
-              <%= exercise.lower_reps %>
+              <% if exercise.lower_reps.nil? %>
+                <%= exercise.hold_time %>
+              <% else %>
+                <%= exercise.lower_reps %>
+              <% end %>
             </button>
             <% end %>
             <%#= render 'shared/exercise_set_form', set: ExerciseSet.new, exercise: exercise, index: i, index_exercise: index_exercise, workout_session: workout_session %>
