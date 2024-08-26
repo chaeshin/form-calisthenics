@@ -7,4 +7,8 @@ class ExerciseSet < ApplicationRecord
 
   validates :workout_session, presence: true
   validates :exercise, presence: true
+
+  def completed?
+    self.reps.class == Integer
+  end
 end

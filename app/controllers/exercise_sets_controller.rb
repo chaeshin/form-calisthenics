@@ -16,7 +16,16 @@ class ExerciseSetsController < ApplicationController
     end
   end
 
+  def show
+    @exercise_set = ExerciseSet.find(params[:id])
+    @exercise = @exercise_set.exercise
+    @workout_session = @exercise_set.workout_session
+    @reps = @exercise_set.reps
+  end
+
+  private
   def exercise_set_params
     params.require(:exercise_set).permit(:video, :reps, :workout_session_id)
   end
+
 end

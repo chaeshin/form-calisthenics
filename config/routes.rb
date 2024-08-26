@@ -28,8 +28,9 @@ Rails.application.routes.draw do
     member do
       get :compare
     end
-    resources :exercise_sets, only: [:create, :show]
+    resources :exercise_sets, only: [:create]
   end
+  resources :exercise_sets, only: [:show]
 
   get 'calendar', to: "pages#calendar", as: :calendar
 
