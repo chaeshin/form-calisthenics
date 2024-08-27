@@ -1,0 +1,63 @@
+<div>
+  <div class="exercise-sets-card">
+    <div class="pe-1 exercise-name border-end border-light-subtle">
+      <%# div 1 exercise and descriptions %>
+      <h6><strong><%= exercise.name %></strong></h6>
+      <%# excercise name here: %>
+      <div>
+        <%# sets and reps here: %>
+        <span class="exercise-info"><%= exercise.sets %> x
+          <% if exercise.lower_reps.nil? && exercise.upper_reps.nil?  %>
+            <%= exercise.hold_time %>
+          <% else %>
+            <%= exercise.lower_reps %>-<%= exercise.upper_reps %>
+          <% end %>
+        </span>
+        <%# rest time:here %>
+        <span class="exercise-info">| rest: <%= exercise.rest %>s</span>
+      </div>
+    </div>
+    <%# each exercise_sets input and total set here: %>
+    <div class="sets">
+      <%# sub exercise_sets form here: %>
+      <%# total_sets = 0 %>
+      <div class="d-flex">
+        <%# get the number of exercise.sets store them in a variable, use that variable to get the last two instances of the exercise_sets %>
+        <%# set_num = exercise.sets %>
+        <%# exercise_sets_completed = @exercise_sets.where("exercise_id":exercise.id).last(set_num) %>
+        <%# exercise_sets_completed.each do |exercise_set, i| %>
+          <%#=  rep_num = exercise_set.reps %>
+        <%# end %>
+        <% sets_done = workout_session.sets_done(exercise) %>
+        <div class='set'>
+          <% sets_done.each do |set_done| %>
+            <%= link_to set_done.reps , exercise_set_path(set_done), class:"rep-num-button" %>
+          <% end %>
+
+          <% (exercise.sets - sets_done.count).times do |i| %>
+            <%= link_to workout_session_exercise_path(workout_session, exercise), class:"text-decoration-none" do %>
+            <p class='rep-num-button-light'>
+              <% if exercise.lower_reps.nil? %>
+                <%= exercise.hold_time %>
+              <% else %>
+                <%= exercise.lower_reps %>
+              <% end %>
+            </p>
+            <% end %>
+            <%#= render 'shared/exercise_set_form', set: ExerciseSet.new, exercise: exercise, index: i, index_exercise: index_exercise, workout_session: workout_session %>
+          <% end %>
+        </div>
+      </div>
+
+      <%# total # of sets display here: %>
+      <div class="justify-content-between align-items-center">
+        <% total = 0 %>
+        <% sets_done.each do |set_done| %>
+          <% total += set_done.reps unless set_done.reps.nil? %>
+        <% end %>
+        <span class="rep-num-total">=<%= total %></span>
+      </div>
+    </div>
+
+  </div>
+</div>

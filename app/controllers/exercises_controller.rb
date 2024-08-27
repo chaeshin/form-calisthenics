@@ -17,6 +17,15 @@ class ExercisesController < ApplicationController
     # @exercise_sets = @workout_session.exercise_sets
     # get exercise_set
     # @exercise_set = @exercises.exercise_set
+    @exercise_sets = @workout_session.exercise_sets.group_by(&:exercise)
+
+    @exercise_completed = {}
+    @workout_session.exercises.each do |exercise|
+      @exercise_completed[exercise.name] = false
+    end
+    @exercise_sets.each do |exercise, exercise_sets|
+      @exercise_completed[exercise.name] = exercise_sets.length >= exercise.sets
+    end
   end
 
   def compare

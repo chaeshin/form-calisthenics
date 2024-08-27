@@ -45,11 +45,12 @@
 // exercise sets card
 .exercise-sets-card {
   background-color:  #2e2e2e;
-  border-radius: 16px;
-  border: solid;
-  border-color: rgb(187, 187, 187);
-  border-width: 0.25px;
-  padding: 16px;
+  // border-radius: 16px;
+  // border: solid;
+  // border-color: rgb(187, 187, 187);
+  // border-width: 0.25px;
+  padding-top: 25px;
+  padding-bottom: 25px;
   width: 100%;
   display: flex;
 }
@@ -60,11 +61,11 @@
 }
 
 .exercise-sets-card .exercise-name {
-  width: 125px;
+  width: 150px;
 }
 
 .exercise-sets-card .exercise-info {
-  font-size: 12px;
+  font-size: 20px;
 }
 
 .exercise-sets-card .sets {
@@ -94,6 +95,48 @@
   margin-left: 10px;
   width: 50px;
 }
+
+/* Basic styles */
+.collapsible {
+  width: 300px;
+  margin: 0 auto;
+}
+
+.collapsible-button {
+  width: 100%;
+  padding: 25px;
+  border-radius: 16px;
+  background-color: #2e2e2e;
+  color: white;
+  border: solid;
+  border-color: rgb(187, 187, 187);
+  border-width: 0.225px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-align: left;
+}
+
+.collapsible-button:focus {
+  outline: none;
+}
+
+.collapsible-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  background-color: #f1f1f1;
+  border-color:  rgb(46, 139, 87);
+  // padding: 0 10px;
+}
+
+.collapsible-content.open {
+  max-height: 500px; /* Set a max height to the expected maximum content height */
+  border-color: rgb(46, 139, 87);
+}
+
 
 .card-link {
   position: absolute;

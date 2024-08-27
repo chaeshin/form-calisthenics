@@ -2,10 +2,11 @@
   <div class="step-progress">
     <% exercises.each_with_index do |exercise, i| %>
       <% exercise_num = i + 1 %>
-      <% if exercise.completed? %>
+
+      <% if @exercise_completed[exercise.name] %>
         <div class="bullet-completed"><%= exercise_num %></div>
       <% else %>
-        <div class="bullet step step-na"><%= exercise_num %></div>
+        <div class="bullet"><%= exercise_num %></div>
       <% end %>
     <% end %>
   </div>
