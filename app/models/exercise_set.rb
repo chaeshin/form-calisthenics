@@ -6,7 +6,6 @@ class ExerciseSet < ApplicationRecord
   validates :reps, numericality: { greater_than_or_equal_to: 0 }
   # validates :set_duration, numericality: { greater_than_or_equal_to: 0 }
 
-
   validates :workout_session, presence: true
   validates :exercise, presence: true
 

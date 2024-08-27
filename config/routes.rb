@@ -30,7 +30,7 @@ Rails.application.routes.draw do
     end
     resources :exercise_sets, only: [:create]
   end
-  resources :exercise_sets, only: [:show]
+  resources :exercise_sets, only: [:show, :update]
 
   get 'calendar', to: "pages#calendar", as: :calendar
 

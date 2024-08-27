@@ -1,1 +1,2 @@
 <%= cl_video_tag exercise_set.video.key, resource_type: 'raw', controls: true %>
+<%= hidden_field_tag :exercise_id, exercise_set.id %>

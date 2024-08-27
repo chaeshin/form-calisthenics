@@ -127,3 +127,36 @@
   align-items: center;
   justify-content: space-around;
 }
+
+.camera {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background-color:  #2e2e2e;
+  color: white;
+  border: solid;
+  border-width: 0.5px;
+  border-color: #c8c8c8;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.camera:hover {
+  background-color:  #d2d2d2;
+  color: rgb(0, 0, 0);
+}
+
+.rounded-button {
+  height: 40px;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 20px;
+  margin: 10px;
+  background-color: #c8c8c8;
+  color: black;
+  justify-content: center;
+  justify-items: center;
+  text-decoration: none;
+}
