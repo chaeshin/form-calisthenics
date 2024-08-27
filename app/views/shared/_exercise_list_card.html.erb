@@ -1,9 +1,9 @@
 <div class="card-product">
   <div class="card-product-infos">
-    <h2><%= link_to exercise.name, videos_exercise_path(exercise), class: 'exercise-link' %></h2>
+    <h2><%= link_to exercise.name, compare_exercise_path(exercise), class: 'exercise-link' %></h2>
     <p> <%= exercise.category %></p>
   </div>
   <% if exercise.exercise_sets.any? %>
-    <%= link_to '', videos_exercise_path(exercise), class: 'btn card-link'  %>
+    <%= link_to '', compare_exercise_path(exercise), class: 'btn card-link'  %>
   <% end %>
 </div>
