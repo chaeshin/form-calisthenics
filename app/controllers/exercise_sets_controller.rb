@@ -12,7 +12,9 @@ class ExerciseSetsController < ApplicationController
         format.text { render partial: 'shared/cl_video_tag', locals: { exercise_set: @exercise_set }, formats: [:html] }
       end
     else
-      render 'workout_session', status: :unprocessable_entity
+      @workout_session = @exercise_set.workout_session
+      @exercise = @exercise_set.exercise
+      render 'exercises/show', status: :unprocessable_entity
     end
   end
 

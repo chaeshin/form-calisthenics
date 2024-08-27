@@ -4,21 +4,24 @@
     <%= @exercise.name %>
   </h1>
 
-  <div>
-    <%# sets and reps here: %>
-    <span class="exercise-info"><%= @exercise.sets %> x
-      <% if @exercise.lower_reps.nil? && @exercise.upper_reps.nil?  %>
-        <%= @exercise.hold_time %>
-      <% else %>
-        <%= @exercise.lower_reps %>-<%= @exercise.upper_reps %>
-      <% end %>
-    </span>
-    <%# rest time:here %>
-    <span class="exercise-info">| rest: <%= @exercise.rest %>s</span>
+  <div class="d-flex justify-content-between">
+    <div>
+      <%# sets and reps here: %>
+      <span class="exercise-info"><%= @exercise.sets %> x
+        <% if @exercise.lower_reps.nil? && @exercise.upper_reps.nil?  %>
+          <%= @exercise.hold_time %>
+        <% else %>
+          <%= @exercise.lower_reps %>-<%= @exercise.upper_reps %>
+        <% end %>
+      </span>
+      <%# rest time:here %>
+      <span class="exercise-info">| rest: <%= @exercise.rest %>s</span>
+    </div>
+
+    <%# how to link here: %>
+    <%= render 'shared/how_to_link', exercise: @exercise, workout_session: @workout_session %>
   </div>
 
-  <%# how to link here: %>
-  <%= render 'shared/how_to_link', exercise: @exercise, workout_session: @workout_session %>
 
   <%# progress bar here: %>
   <%= render 'shared/progress_bar', workout_session: @workout_session, exercises: @exercises %>
@@ -27,17 +30,21 @@
   <div class="video">
     <div data-controller="record-video">
       <div data-record-video-target="videoReplace">
-        <h3>Record your video for</h3>
         <button id="start"  data-record-video-target="start" data-action="click->record-video#record"><i class="fa-solid fa-play"></i></button>
         <button id="stop" data-record-video-target="stop" data-action="click->record-video#replace"><i class="fa-solid fa-stop"></i></button>
         <div>
-          <video style="border: 1px solid black" id="live" width="100%vw" height="300" autoplay muted data-record-video-target="live"></video>
+          <%# <button data-action="click->record-video#showFullScreen">Toggle Full Screen</button> %>
+          <video style="border: solid;" autoplay muted data-record-video-target="live">
+          </video>
         </div>
       </div>
-      <div data-record-video-target="video" class="d-none" width="100%vw" height="300"></div>
+      <div data-record-video-target="video" class="d-none" width="100vw" height="100vh"></div>
       <div>
         <h3>Enter your reps</h3>
         <%= render 'shared/exercise_set_form', set: ExerciseSet.new, exercise: @exercise, workout_session: @workout_session %>
+      </div>
+      <div>
+        <h3>Duration:</h3>
       </div>
     </div>
   </div>

@@ -18,8 +18,6 @@ class Exercise < ApplicationRecord
     }
 
   def completed?
-    self.exercise_sets.all?
+    self.exercise_sets.all? { |set| set.reps }
   end
-
-  # self.exercise_sets.all? { |set| set.reps.any? }
 end

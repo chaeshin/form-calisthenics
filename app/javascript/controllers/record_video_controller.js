@@ -20,7 +20,7 @@ export default class extends Controller {
     .then (recordedChunks => {
       const recordedBlob = new Blob(recordedChunks, { type: "video/mp4" });
       console.log(recordedBlob);
-      this.uploadToCloudinary(recordedBlob);
+      this.blob = recordedBlob;
     })
   }
 
@@ -59,19 +59,41 @@ export default class extends Controller {
     this.videoReplaceTarget.classList.add("d-none")
   }
 
+  save(event) {
+    event.preventDefault();
+    // Check if the value is a valid integer
+    // if (Number.isInteger(parseInt(value)) && parseInt(value) > 0) {
+    //   this.formTarget.requestSubmit(); // Automatically submit the form
+    // }
+    // if (Number.isInteger(parseInt(value)) && parseInt(value) > 0) {
+    this.uploadToCloudinary(this.blob);
+    // }
+  }
+
+  // showFullScreen() {
+  //   const video = this.liveTarget;
+  //   if (!document.fullscreenElement) {
+  //     video.requestFullscreen().catch(err => {
+  //       alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+  //     });
+  //   } else {
+  //     document.exitFullscreen();
+  //   }
+  // }
+
   uploadToCloudinary(video) {
     const formData = new FormData(this.formTarget);
     formData.append('exercise_set[video]', video, `my_video.mp4`);
+
     fetch(this.formTarget.action, {
-      // headers: { "Accept": "application/json"},
       body: formData,
       method: "POST",
       headers: { 'Accept': 'text/plain' }
     })
-      .then((response) => response.text())
-      .then((data) => {
-        console.log(data);
-        this.replace(data);
-      })
+    .then((response) => response.text())
+    .then((data) => {
+      console.log(data);
+      this.replace(data);
+    })
   }
 }
