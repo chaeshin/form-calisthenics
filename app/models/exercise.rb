@@ -21,4 +21,12 @@ class Exercise < ApplicationRecord
   def completed?
     self.exercise_sets.all? { |set| set.reps }
   end
+
+  def default_reps
+    if lower_reps.nil? && upper_reps.nil?
+      hold_time
+    else
+      lower_reps
+    end
+  end
 end

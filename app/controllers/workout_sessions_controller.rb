@@ -1,9 +1,14 @@
 class WorkoutSessionsController < ApplicationController
 
   def index
-    @workout_sessions = WorkoutSession.all
-    @workout_sessions = WorkoutSession.order(created_at: :desc)
-    @workout_sesssion = WorkoutSession.new
+    if params[:workout_id].present?
+      @workout = Workout.find(params[:workout_id])
+      @workout_sessions = WorkoutSession.where(workout: @workout).order(created_at: :desc)
+    else
+      @workout_sessions = WorkoutSession.all
+      @workout_sessions = WorkoutSession.order(created_at: :desc)
+      @workout_sesssion = WorkoutSession.new
+    end
   end
 
   def new
@@ -16,6 +21,7 @@ class WorkoutSessionsController < ApplicationController
     # need exercise_sets for the exercise and the workout_session
     # create instance(@) for the exercise_sets for the workout_session
     @exercise_sets = @workout_session.exercise_sets
+    @workout = @workout_session.workout
   end
 
   def create

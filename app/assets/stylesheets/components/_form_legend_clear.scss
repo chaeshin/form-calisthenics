@@ -16,10 +16,26 @@ legend ~ div.form-check:first-of-type {
 }
 
 .custom-set-form {
-  width: 30px;
   margin: 3px;
   padding: 0px;
+  display: flex;
+  justify-content: center;
+  input[type="number"] {
+    width: 30px;
+  }
+  input[type="submit"] {
+    height: 40px;
+  }
 }
+
+.label {
+  display: flex;
+  justify-content: center;
+}
+
+// #new_exercise_set {
+//
+// }
 
 // form {
 // }
@@ -27,6 +43,7 @@ legend ~ div.form-check:first-of-type {
 #sets-form {
   padding: 0px;
   height: 40px;
+  width: 50px;
   align-items: center;
 }
 

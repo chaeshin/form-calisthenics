@@ -2,9 +2,9 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="record-video"
 export default class extends Controller {
-  static targets = ["start", "stop", "live", "form", "video", "videoReplace"]
+  static targets = ["start", "stop", "live", "form", "video", "videoReplace", "repsInput", "submit", "cameraButton"]
   connect() {
-    console.log(this.startTarget, this.stopTarget, this.liveTarget)
+    // console.log(this.startTarget, this.stopTarget, this.liveTarget)
   }
   record() {
     navigator.mediaDevices.getUserMedia({
@@ -19,8 +19,8 @@ export default class extends Controller {
     .then(() => this.startRecording(this.liveTarget.captureStream()))
     .then (recordedChunks => {
       const recordedBlob = new Blob(recordedChunks, { type: "video/mp4" });
-      console.log(recordedBlob);
-      this.blob = recordedBlob;
+      // console.log(recordedBlob);
+      this.uploadToCloudinary(recordedBlob);
     })
   }
 
@@ -57,29 +57,22 @@ export default class extends Controller {
     this.videoTarget.innerHTML = data;
     this.videoTarget.classList.remove("d-none")
     this.videoReplaceTarget.classList.add("d-none")
+    this.cameraButtonTarget.classList.add("d-none")
   }
 
-  save(event) {
-    event.preventDefault();
-    // Check if the value is a valid integer
-    // if (Number.isInteger(parseInt(value)) && parseInt(value) > 0) {
-    //   this.formTarget.requestSubmit(); // Automatically submit the form
-    // }
-    // if (Number.isInteger(parseInt(value)) && parseInt(value) > 0) {
-    this.uploadToCloudinary(this.blob);
-    // }
+  updateSet(event) {
+  //   document.getElementById("new_exercise_set").submit()
+    // const formData = new FormData(this.formTarget)
+    // formData.delete('exercise_set[video]')
+    // fetch(this.formTarget.action, {
+    //   body: formData,
+    //   method: "PATCH",
+    // })
   }
 
-  // showFullScreen() {
-  //   const video = this.liveTarget;
-  //   if (!document.fullscreenElement) {
-  //     video.requestFullscreen().catch(err => {
-  //       alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
-  //     });
-  //   } else {
-  //     document.exitFullscreen();
-  //   }
-  // }
+  showFullScreen() {
+    this.videoReplaceTarget.classList.remove('d-none')
+  }
 
   uploadToCloudinary(video) {
     const formData = new FormData(this.formTarget);
@@ -94,6 +87,10 @@ export default class extends Controller {
     .then((data) => {
       console.log(data);
       this.replace(data);
+      this.exercise_set_id = document.querySelector("#exercise_id").value
+      this.formTarget.action = `/exercise_sets/${this.exercise_set_id}`
+      this.formTarget.setAttribute('method', 'PATCH')
+      this.submitTarget.value = 'Update Reps'
     })
   }
 }

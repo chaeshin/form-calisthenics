@@ -27,30 +27,36 @@
   <%= render 'shared/progress_bar', workout_session: @workout_session, exercises: @exercises %>
 
   <%# video here %>
-  <div class="video">
+  <div  class="video">
     <div data-controller="record-video">
-      <div data-record-video-target="videoReplace">
-        <button id="start"  data-record-video-target="start" data-action="click->record-video#record"><i class="fa-solid fa-play"></i></button>
-        <button id="stop" data-record-video-target="stop" data-action="click->record-video#replace"><i class="fa-solid fa-stop"></i></button>
-        <div>
-          <%# <button data-action="click->record-video#showFullScreen">Toggle Full Screen</button> %>
-          <video style="border: solid;" autoplay muted data-record-video-target="live">
-          </video>
-        </div>
-      </div>
-      <div data-record-video-target="video" class="d-none" width="100vw" height="100vh"></div>
       <div>
-        <h3>Enter your reps</h3>
+        <div data-record-video-target="cameraButton">
+          <button data-action="click->record-video#showFullScreen" class="camera"><i class="fa-solid fa-camera fa-2xl"></i></button>
+        </div>
+        <div data-record-video-target="videoReplace" class="record-frame d-none">
+          <button id="start" data-record-video-target="start" data-action="click->record-video#record"><i class="fa-solid fa-play"></i></button>
+          <button id="stop" data-record-video-target="stop" data-action="click->record-video#replace"><i class="fa-solid fa-stop"></i></button>
+          <div>
+            <%# <button data-action="click->record-video#showFullScreen">Toggle Full Screen</button> %>
+            <video style="border: solid;" autoplay muted data-record-video-target="live"  width="100px" height="100px">
+            </video>
+          </div>
+        </div>
+        <div data-record-video-target="video" class="d-none"></div>
+      </div>
+      <div>
+        <h3 class="label">Enter your reps</h3>
         <%= render 'shared/exercise_set_form', set: ExerciseSet.new, exercise: @exercise, workout_session: @workout_session %>
       </div>
       <div>
-        <h3>Duration:</h3>
+        <h3 class="label">Duration</h3>
+        <%#= @exercise.duration %>
       </div>
     </div>
   </div>
 
   <div class="d-flex justify-content-between">
-    <%= link_to "Back", workout_session_path(@workout_session), class: 'm-3 btn btn-light' %>
-    <%= link_to "Next", workout_session_exercise_path(@workout_session, @exercise), class: 'm-3 btn btn-light' %>
+    <%= link_to "Back", workout_session_path(@workout_session), class: 'rounded-button' %>
+    <%= link_to "Next", workout_session_exercise_path(@workout_session, @exercise), class: 'rounded-button' %>
   </div>
 </div>

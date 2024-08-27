@@ -18,6 +18,11 @@ class ExerciseSetsController < ApplicationController
     end
   end
 
+  def update
+    @exercise_set = ExerciseSet.find(params[:id])
+    @exercise_set.update(exercise_set_params)
+  end
+
   def show
     @exercise_set = ExerciseSet.find(params[:id])
     @exercise = @exercise_set.exercise
