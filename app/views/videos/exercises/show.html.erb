@@ -1,4 +1,54 @@
 <h1>videos</h1>
-<% @exercise.exercise_sets.each do |exercise_set| %>
-<%= cl_video_tag(exericse_set.video.key) %>
-<% end %>
+<hr>
+<form action="/videos/exercises/<%= @exercise.id %>" method="GET">
+  <select name="first_date" id="">
+    <% @workout_sessions_hash.keys.map(&:start_time).each do |start_time| %>
+      <option value="<%= start_time %>"><%= start_time %></option>
+    <% end %>
+  </select>
+  <select name="second_date" id="">
+    <% @workout_sessions_hash.keys.map(&:start_time).each do |start_time| %>
+      <option value="<%= start_time %>"><%= start_time %></option>
+    <% end %>
+  </select>
+  <button type="submit">Compare</button>
+</form>
+
+<hr>
+<div class="scrollable">
+    <% @last_exercise_set.each do |exercise_set| %>
+      <div class="video-wrapper">
+        <%= render 'shared/exercise_display_card', exercise: @exercise, exercise_set: exercise_set%>
+        <% if exercise_set.video.attached? %>
+          <%= cl_video_tag exercise_set.video.key, width: 410, resource_type: 'video', controls: true %>
+        <% end %>
+      </div>
+    <% end %>
+</div>
+
+<hr>
+<div class="scrollable">
+    <% @second_last_exercise_set.each do |exercise_set| %>
+      <div class="video-wrapper">
+        <%= render 'shared/exercise_display_card', exercise: @exercise, exercise_set: exercise_set%>
+        <% if exercise_set.video.attached? %>
+          <%= cl_video_tag exercise_set.video.key, width: 410, resource_type: 'video', controls: true %>
+        <% end %>
+      </div>
+    <% end %>
+</div>
+
+<hr>
+
+
+<%# @workout_sessions_hash.each do |workout_session, exercise_sets| %>
+  <div>
+    <%# workout_session.start_time %>
+    <%# exercise_sets.each do |exercise_set| %>
+      <%# if exercise_set.video.attached? %>
+        <%#= cl_video_tag exercise_set.video.key, width: 410, resource_type: 'video', controls: true %>
+      <%# end %>
+    <%# end %>
+  </div>
+
+<%# end %>
