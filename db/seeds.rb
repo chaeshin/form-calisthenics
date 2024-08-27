@@ -1,6 +1,5 @@
-# require "open-uri"
+require "open-uri"
 # require "nokogiri"
-#
 require 'securerandom'
 require "faker"
 require "roo"
@@ -143,7 +142,8 @@ def create_exercise_set(reps, workout_session, exercise, video_path)
   )
 
   unless video_path.nil?
-    file = File.open(File.join(Rails.root, video_path))
+    # file = File.open(File.join(Rails.root, video_path))
+    file = URI.open(video_path)
     exercise_set.video.attach(io: file, filename: "#{exercise}.mp4", content_type: 'video/mp4')
     p exercise_set.video.key
   end
