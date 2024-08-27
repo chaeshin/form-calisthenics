@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="record-video"
 export default class extends Controller {
-  static targets = ["start", "stop", "live", "form", "video", "videoReplace", "repsInput", "submit"]
+  static targets = ["start", "stop", "live", "form", "video", "videoReplace", "repsInput", "submit", "cameraButton"]
   connect() {
     // console.log(this.startTarget, this.stopTarget, this.liveTarget)
   }
@@ -57,6 +57,7 @@ export default class extends Controller {
     this.videoTarget.innerHTML = data;
     this.videoTarget.classList.remove("d-none")
     this.videoReplaceTarget.classList.add("d-none")
+    this.cameraButtonTarget.classList.add("d-none")
   }
 
   updateSet(event) {

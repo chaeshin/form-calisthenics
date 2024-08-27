@@ -23,7 +23,7 @@ class Exercise < ApplicationRecord
   end
 
   def default_reps
-    if lower_reps.nil? && exercise.upper_reps.nil?
+    if lower_reps.nil? && upper_reps.nil?
       hold_time
     else
       lower_reps

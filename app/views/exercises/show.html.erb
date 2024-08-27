@@ -30,7 +30,9 @@
   <div  class="video">
     <div data-controller="record-video">
       <div>
-        <button data-action="click->record-video#showFullScreen" class="camera"><i class="fa-solid fa-camera"></i></button>
+        <div data-record-video-target="cameraButton">
+          <button data-action="click->record-video#showFullScreen" class="camera"><i class="fa-solid fa-camera fa-2xl"></i></button>
+        </div>
         <div data-record-video-target="videoReplace" class="record-frame d-none">
           <button id="start" data-record-video-target="start" data-action="click->record-video#record"><i class="fa-solid fa-play"></i></button>
           <button id="stop" data-record-video-target="stop" data-action="click->record-video#replace"><i class="fa-solid fa-stop"></i></button>
@@ -43,11 +45,12 @@
         <div data-record-video-target="video" class="d-none"></div>
       </div>
       <div>
-        <h3>Enter your reps</h3>
+        <h3 class="label">Enter your reps</h3>
         <%= render 'shared/exercise_set_form', set: ExerciseSet.new, exercise: @exercise, workout_session: @workout_session %>
       </div>
       <div>
-        <h3>Duration</h3>
+        <h3 class="label">Duration</h3>
+        <%#= @exercise.duration %>
       </div>
     </div>
   </div>
