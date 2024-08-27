@@ -32,4 +32,12 @@ class WorkoutSessionsController < ApplicationController
       render root_path
     end
   end
+
+  def view
+    @workout_session = WorkoutSession.find(params[:id])
+    @exercises = @workout_session.exercises
+    # need exercise_sets for the exercise and the workout_session
+    # create instance(@) for the exercise_sets for the workout_session
+    @exercise_sets = @workout_session.exercise_sets
+  end
 end

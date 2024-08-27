@@ -1,12 +1,13 @@
 <div class="container">
   <h1 class="text-light mt-4">Calendar</h1>
-  <%= calendar number_of_days: 4 do |date| %>
-    <%= date %>
+  <%= month_calendar do |date| %>
+    <%= date.day %>
   <% end %>
   <h1 class="custom-margin">Workout Sessions</h1>
   <div class="cards">
     <% @workout_sessions.each do |workout_session| %>
       <%= render 'shared/workout_session_card', workout_session: workout_session %>
+      <%= link_to 'View Workout', view_workout_session_path(workout_session), class: 'btn btn-primary' %>
     <% end %>
   </div>
   <div class="fab-container">
