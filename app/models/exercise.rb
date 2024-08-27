@@ -4,6 +4,7 @@ class Exercise < ApplicationRecord
   has_many :exercise_assignments, dependent: :destroy
   has_many :workouts, through: :exercise_assignments
   has_many :exercise_sets
+  has_many :workout_sessions, through: :exercise_sets
 
   # Validations
   validates :name, presence: true

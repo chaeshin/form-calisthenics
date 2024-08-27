@@ -1,7 +1,7 @@
 <div class="exercise-sets-card">
   <div class="pe-1 exercise-name border-end border-light-subtle">
     <%# div 1 exercise and descriptions %>
-    <%= exercise_set.created_at.strftime("%A, %b %d") %>
+    <%= exercise_set.workout_session.start_time.strftime("%A, %b %d") %>
     <%# excercise name here: %>
     <div>
       <%# sets and reps here: %>
@@ -22,7 +22,7 @@
     <%# total_sets = 0 %>
     <div class="d-flex justify-space-between">
       <%# get the number of exercise.sets store them in a variable, use that variablee to get the last two instances of the exercise_sets %>
-      <% exercise_set.workout_session.exercise_sets.each do |set| %>
+      <% exercise_set.workout_session.exercise_sets.where(exercise: exercise).each do |set| %>
         <p class="<%= set == exercise_set ? 'set-highlite': '' %> me-2"> <%= set.reps %> </p>
       <% end %>
     </div>

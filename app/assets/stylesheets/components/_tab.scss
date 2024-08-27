@@ -1,8 +1,32 @@
-.category-list{
+.category-list {
   flex-wrap: nowrap;
   overflow: scroll;
 
-  .nav-link{
+  .nav-link {
     width: max-content;
+    margin-right: 7px;
+    margin-left: 10px;
+    border-radius: 50px;
+    /* Makes the tab pill-shaped */
+    background-color: #ff5722;
+    /* Orange background color */
+    color: #fff;
+    /* White text color for contrast */
+    border: 2px solid transparent;
+    /* Border is initially transparent */
+    padding: 8px 16px;
+    /* Adjust padding for size */
+    text-align: center;
+    /* Center text */
+    font-weight: bold;
+    /* Make text bold for better visibility */
+    transition: background-color 0.3s, border-color 0.3s;
+
   }
+  .nav-link.active,
+  .nav-link:hover {
+    background-color: #e64a19; /* Slightly darker orange for active/hover state */
+    border-color: #ff5722; /* Orange border color for active/hover state */
+  }
+
 }

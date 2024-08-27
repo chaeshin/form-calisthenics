@@ -13,9 +13,6 @@ class ExercisesController < ApplicationController
     @exercise = Exercise.find(params[:id])
     @workout_session = WorkoutSession.find(params[:workout_session_id])
     @exercises = @workout_session.exercises
-
-
-
     # display progress of current workout_session
     # @exercise_sets = @workout_session.exercise_sets
     # get exercise_set
@@ -27,6 +24,7 @@ class ExercisesController < ApplicationController
     @exercise_sets = ExerciseSet.where(exercise: @exercise).order(created_at: :desc)
     @exercise_sets.last
     @exercise_set = ExerciseSet.last
+    @exercise_set_last = ExerciseSet.where(exercise: @exercise).last
 
 
     # @workout_sessions = WorkoutSession.where(exercise: @exercise)

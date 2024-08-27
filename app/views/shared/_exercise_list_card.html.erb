@@ -4,6 +4,6 @@
     <p> <%= exercise.category %></p>
   </div>
   <% if exercise.exercise_sets.any? %>
-    <%= link_to '', compare_exercise_path(exercise), class: 'btn card-link'  %>
+    <%= link_to '', videos_exercise_path(exercise), class: 'btn card-link'  %>
   <% end %>
 </div>

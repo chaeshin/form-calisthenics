@@ -1,6 +1,6 @@
 <div class="card-product">
   <div class="card-product-infos">
-      <h2><%=workout_session.workout.updated_at.strftime("%A, %b %d %Y") %></h2>
+      <h2><%=workout_session.start_time.strftime("%A, %b %d %Y") %></h2>
       <p class= "m-0"><%= workout_session.workout.category %>, <%= workout_session.workout.name %> </p>
   </div>
 </div>

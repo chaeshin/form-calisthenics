@@ -167,8 +167,8 @@ xlsx.sheet('Planche').parse do |row|
       workout: Workout.first,
       bodyweight: 70.0,
       sleep_time: 7 * 60,
-      start_time: row[2],
-      end_time: row[2]
+      start_time: row[2] + 11.hour,
+      end_time: row[2] + 13.hour
       )
       puts "Created #{workout_session.workout.name} ... "
       puts " "
