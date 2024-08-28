@@ -1,5 +1,5 @@
 <div>
-  <h1 class="custom-margin">
+  <h1 class="custom-margin <%= @exercise.exercise_type %>">
     <%#= @workout_session.workout.name %>
     <%= @exercise.name %>
   </h1>
@@ -7,16 +7,15 @@
   <div class="d-flex justify-content-between align-items-center">
     <div class="exercise-info-div">
       <%# sets and reps here: %>
-      <span class="exercise-info"><%= @exercise.sets %> sets x
-        <% if @exercise.lower_reps.nil? && @exercise.upper_reps.nil?  %>
-          <%= @exercise.hold_time %> s
+      <span class="exercise-info">
+        <i class="fa-solid fa-hashtag"></i> <%= @exercise.sets %>
+        <% if @exercise.lower_reps.nil? && @exercise.upper_reps.nil? %>
+          <i class="fa-solid fa-stopwatch ms-3"></i> <%= @exercise.hold_time %> s
         <% else %>
-          <%= @exercise.lower_reps %>-<%= @exercise.upper_reps %> reps
+          <i class="fa-solid fa-repeat ms-3"></i> <%= @exercise.lower_reps %>-<%= @exercise.upper_reps %>
         <% end %>
+        <i class="fa-regular fa-circle-pause ms-3"></i> <%= @exercise.rest %>s
       </span>
-      <%# rest time:here %>
-      <span class="exercise-info">rest: <%= @exercise.rest %>s</span>
-
     </div>
       <%# how to link here: %>
       <%= render 'shared/how_to_link', exercise: @exercise, workout_session: @workout_session %>
