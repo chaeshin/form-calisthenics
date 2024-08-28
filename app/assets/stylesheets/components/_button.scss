@@ -112,57 +112,62 @@
 // }
 
 .rep-num-button {
-  width: 30px;
+  width: 35px;
   height: 40px;
-  background-color: rgb(46, 139, 87);
-  font-size: 20px;
+  background-color: #ff5722;
   color: rgb(255, 255, 255);
-  font-weight: bold;
+  // font-weight: bold;
+  font-size: 20px;
   border-radius: 4px;
-  margin: 3px;
+  margin-right: 6px;
+  margin-bottom: 16px;
   text-decoration: none;
   align-items: center;
-  justify-content: center;
+  // justify-content: center;
+}
+
+.rep-num-button-light {
+  width: 35px;
+  height: 40px;
+  background-color: rgb(232, 232, 232);
+  color: rgb(161, 161, 161);
+  // font-weight: bold;
+  font-size: 20px;
+  border-radius: 4px;
+  margin-right: 6px;
+  margin-bottom: 16px;
+  text-decoration: none;
+  align-items: center;
+  // justify-content: space-around;
 }
 
 .rep-num-total {
-  width: 30px;
+  width: 35px;
   height: 40px;
-  font-size: 20px;
-  color: rgb(46, 139, 87);
+  font-size: 24px;
+  color: #ff5722;
   font-weight: bold;
   border-radius: 4px;
-  margin: 3px;
+  // margin: 3px;
   text-decoration: none;
   align-items: center;
   justify-content: center;
   padding: auto;
 }
 
-.rep-num-button-light {
-  width: 30px;
-  height: 40px;
-  background-color: rgb(227, 227, 227);
-  color: rgb(108, 108, 108);
-  // font-weight: bold;
-  font-size: 20px;
-  border-radius: 3px;
-  margin: 3px;
-  text-decoration: none;
-  align-items: center;
-  justify-content: space-around;
-}
-
 .camera {
   width: 180px;
   height: 180px;
   border-radius: 50%;
-  background-color:  #2e2e2e;
+  background-color: #ff5722;
   color: white;
   border: solid;
-  border-width: 0.5px;
-  border-color: #c8c8c8;
-  margin: 20px;
+  border-width: 2px;
+  border-color: white;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -176,13 +181,14 @@
 .rounded-button {
   height: 40px;
   text-decoration: none;
-  padding: 10px;
+  padding: 20px;
+  margin: 10px;
   border-radius: 20px;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  background-color: #c8c8c8;
-  color: black;
+  background-color: #ff5722;
+  color: rgb(255, 255, 255);
   justify-content: center;
   justify-items: center;
-  text-decoration: none;
+  font-size: 20px;
+  align-items: center;
+  display: flex;
 }
