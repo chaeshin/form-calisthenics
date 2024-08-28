@@ -1,108 +1,79 @@
-<h1> <%= @exercise.name %> </h1>
-
-<!-- Nav tabs -->
-    <ul class="nav nav-pills" id="myTab" role="tablist">
-        <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Video</button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Analyse</button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Other</button>
-        </li>
-    </ul>
-
-    <!-- Tab panes -->
-    <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-
-
-          <form action="/videos/exercises/<%= @exercise.id %>" method="GET">
-            <select name="first_date" id="">
-              <% @workout_sessions_hash.keys.map(&:start_time).each do |start_time| %>
-                <option value="<%= start_time %>"><%= start_time %></option>
-              <% end %>
-            </select>
-            <select name="second_date" id="">
-              <% @workout_sessions_hash.keys.map(&:start_time).each do |start_time| %>
-                <option value="<%= start_time %>"><%= start_time %></option>
-              <% end %>
-            </select>
-            <button type="submit">Compare</button>
-          </form>
-
-
-          <div class="scrollable m-1">
-              <% @last_exercise_set.each do |exercise_set| %>
-                <div class="video-wrapper">
-                  <%= render 'shared/exercise_display_card', exercise: @exercise, exercise_set: exercise_set%>
-                  <% if exercise_set.video.attached? %>
-                    <%= cl_video_tag exercise_set.video.key, width: 410, resource_type: 'video', controls: true, :playsinline => true, muted: true, autoplay: true %>
-                  <% end %>
-                </div>
-              <% end %>
-          </div>
-
-
-          <div class="scrollable m-1">
-              <% @second_last_exercise_set.each do |exercise_set| %>
-                <div class="video-wrapper">
-
-                  <% if exercise_set.video.attached? %>
-                    <%= cl_video_tag exercise_set.video.key, width: 410, resource_type: 'video', controls: true, :playsinline => true, muted: true, autoplay: true %>
-                  <% end %>
-                  <%= render 'shared/exercise_display_card', exercise: @exercise, exercise_set: exercise_set%>
-                </div>
-              <% end %>
-          </div>
-
-
+<div class="compare-container">
+  <h1> <%= @exercise.name %> </h1>
+  <!-- Nav tabs -->
+  <ul class="nav nav-pills" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Video</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Analyse</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Other</button>
+    </li>
+  </ul>
+  <!-- Tab panes -->
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+      <form action="/exercises/<%= @exercise.id %>/compare" method="GET" class="date-select">
+        <select name="first_date" id="">
+          <% @workout_sessions_hash.keys.map(&:start_time).sort.reverse.each do |start_time| %>
+            <option value="<%= start_time %>"><%= start_time.strftime(" %a, %b %e, %Y") %></option>
+          <% end %>
+          <%# <option value="" selected>Select date</option> %>
+        </select>
+        <select name="second_date" id="">
+          <% @workout_sessions_hash.keys.map(&:start_time).sort.reverse.each do |start_time| %>
+            <option value="<%= start_time %>"><%= start_time.strftime(" %a, %b %e, %Y") %></option>
+          <% end %>
+        </select>
+        <button type="submit" class="me-2">View</button>
+      </form>
+      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="false">
+        <div class="carousel-indicators">
+          <% @max_sets.times do |index| %> <%=  %>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%= index %>" class="<%= index == 0 ? "active" : "" %>" aria-current="<%= index == 0 %>" aria-label="Slide <%= index %>"></button>
+          <% end %>
         </div>
-        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-         <h2>volume</h2>
-          <div style="overflow-x: auto; white-space: nowrap;">
-            <%= line_chart @data_hash_sum, ytitle: "Volume", height: "380px", width: "#{@data_hash_sum.size * 25}px", library: {
-                hAxis: {
-                  slantedText: true,
-                  viewWindow: {
-                    min: Date.today - 30,
-                    max: Date.today
-                  }
-                },
-                vAxis: {
-                  viewWindow: {
-                    min: 0
-                  },
-                  textPosition: 'out'
-                }
-              } %>
-          </div>
-
-          <%= line_chart @exercise.exercise_sets.group(:reps).count, height: "380px" %>
-
-
-
-
+        <div class="carousel-inner">
+          <% @max_sets.times do |index| %>
+            <div class="carousel-item <%= index == 0 ? "active" : "" %>">
+              <div class="video-wrapper">
+                <%= render 'shared/compare_display_card', exercise: @exercise, exercise_set: @last_exercise_set[index]%>
+                <%= render 'shared/compare_display_card', exercise: @exercise, exercise_set: @second_last_exercise_set[index]%>
+              </div>
+            </div>
+          <% end %>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
         </div>
-        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-            <p>Contact content goes here.</p>
-        </div>
+      </div>
     </div>
-
-
-
-
-
-
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+      <h2>volume</h2>
+      <div style="overflow-x: auto; white-space: nowrap;">
+        <%= line_chart @data_hash_sum, ytitle: "Volume", height: "380px", width: "400px"%>
+      </div>
+      <%= line_chart @exercise.exercise_sets.group(:reps).count, height: "380px" %>
+    </div>
+    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+      <p>Contact content goes here.</p>
+    </div>
+  </div>
+</div>
 <%# @workout_sessions_hash.each do |workout_session, exercise_sets| %>
   <div>
     <%# workout_session.start_time %>
     <%# exercise_sets.each do |exercise_set| %>
       <%# if exercise_set.video.attached? %>
-        <%#= cl_video_tag exercise_set.video.key, width: 410, resource_type: 'video', controls: true %>
+      <%#= cl_video_tag exercise_set.video.key, width: 410, resource_type: 'video', controls: true %>
       <%# end %>
+      <%# end %>
+    </div>
     <%# end %>
-  </div>
-
-<%# end %>

@@ -42,11 +42,20 @@ class ExercisesController < ApplicationController
       @last_exercise_set = @workout_sessions_hash[@last_two_sessions.last]
       @second_last_exercise_set = @workout_sessions_hash[@last_two_sessions[0]]
     end
+      @max_sets = @last_exercise_set.size > @second_last_exercise_set.size ? @last_exercise_set.size : @second_last_exercise_set.size
 
     @data_hash_sum = Hash.new(0)
     current_user.workout_sessions.each do |workout_session|
       @data_hash_sum[workout_session.start_time] += workout_session.exercise_sets.where(exercise: @exercise).sum { |exercise_set| exercise_set.reps }
     end
+
+
+    @data_hash_by_year = {}
+    @data_hash_sum.each do |date, sum|
+      @data_hash_by_year[date.year] = {} if @data_hash_by_year[date.year].nil?
+      @data_hash_by_year[date.year][date] = sum
+    end
+
   end
 
   def new

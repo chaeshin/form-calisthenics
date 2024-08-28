@@ -30,3 +30,20 @@
   }
 
 }
+
+/* Change the background color and text color of the active tab */
+.nav-pills .nav-link.active {
+  background-color: $orange; /* Change to your desired background color */
+  color: #ffffff; /* Change to your desired text color */
+  border-radius: 8px;
+}
+
+/* Change the background color and text color of the inactive tabs */
+.nav-pills .nav-link {
+  color: #ffffff; /* Change to your desired text color */
+}
+
+/* Change the background color and text color of inactive tabs on hover */
+.nav-pills .nav-link:hover {
+  color: #ffffff; /* Change to your desired hover text color */
+}
