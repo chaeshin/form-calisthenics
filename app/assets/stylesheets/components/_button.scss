@@ -10,6 +10,7 @@
   font-weight: bold;
   transition: all 0.3s ease; /* Smooth transition */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+  height: 48px;
 }
 
 .btn-cool:hover {
@@ -127,7 +128,7 @@
 }
 
 .rep-num-button-light {
-  width: 35px;
+  width: 25px;
   height: 40px;
   background-color: rgb(232, 232, 232);
   color: rgb(161, 161, 161);
@@ -138,7 +139,8 @@
   margin-bottom: 16px;
   text-decoration: none;
   align-items: center;
-  // justify-content: space-around;
+  display: flex;
+  justify-content: center;
 }
 
 .rep-num-total {

@@ -5,15 +5,10 @@
     <%= text_field_tag :query, params[:query], class: "form-control rounded-pill", placeholder: "Search by exercise or workout", style: "background-color: white;" %>
     <%= submit_tag "Search", name: "", class: "btn btn-light shadow-sm align-item-center border rounded-pill", style: "background-color: white;" %>
   <% end %>
-  <h2 class="mt-4">August</h2>
+  <h2 class="mt-5">August</h2>
   <div class="cards">
     <% @workout_sessions.each do |workout_session| %>
       <%= render 'shared/workout_session_card', workout_session: workout_session %>
-    <% end %>
-  </div>
-  <div class="fab-container">
-    <%= link_to new_workout_path, class: 'fab' do %>
-      <i class="fas fa-plus"></i> <!-- Font Awesome icon -->
     <% end %>
   </div>
 </div>
