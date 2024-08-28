@@ -200,6 +200,13 @@
   width: 250px;
 }
 
+.exercise-info-div {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  justify-items: center;
+}
+
 .exercise-info {
   font-size: 20px;
 }
@@ -214,6 +221,7 @@
   .div-left {
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
     align-content: space-between;
     justify-content: space-between;
     text-align: left;
@@ -222,15 +230,17 @@
       display: flex;
       flex-grow: 1;
       flex-wrap: wrap;
-      width: 230px;
+      // width: 200px;
       margin-top: 80px;
       // align-items: center;
     }
   }
   .div-right {
+    width: 100px;
     display: flex;
     flex-direction: column;
     align-self: flex-end;
+    justify-items:flex-end;
   }
 }
 
@@ -240,8 +250,9 @@
   justify-items: center;
   align-items: center;
   h2 {
-    font-size: 40px;
+    font-size: 50px;
     color: #ff5722;
+    margin-bottom: 0;
   }
   h4 {
     font-size: 20px;
@@ -310,7 +321,7 @@
 }
 
 
-.collapsible-button:focus {
+.collapsible-button:has(.collapsible-content.open) {
   // outline: none;
   border-color: #ff5722;
   border-width: 2px;
@@ -320,13 +331,11 @@
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease-out;
-  border-color: #ff5722;
   // padding: 0 10px;
 }
 
 .collapsible-content.open {
   max-height: 500px; /* Set a max height to the expected maximum content height */
-  border-color: #ff5722;
 }
 
 

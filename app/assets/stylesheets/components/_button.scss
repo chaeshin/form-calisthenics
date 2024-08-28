@@ -113,7 +113,8 @@
 // }
 
 .rep-num-button {
-  width: 35px;
+  display: flex;
+  width: 27px;
   height: 40px;
   background-color: #ff5722;
   color: rgb(255, 255, 255);
@@ -124,11 +125,12 @@
   margin-bottom: 16px;
   text-decoration: none;
   align-items: center;
-  // justify-content: center;
+  justify-content: center;
 }
 
 .rep-num-button-light {
-  width: 25px;
+  display: flex;
+  width: 27px;
   height: 40px;
   background-color: rgb(232, 232, 232);
   color: rgb(161, 161, 161);
@@ -139,12 +141,12 @@
   margin-bottom: 16px;
   text-decoration: none;
   align-items: center;
-  display: flex;
   justify-content: center;
+  // justify-content: space-around;
 }
 
 .rep-num-total {
-  width: 35px;
+  width: 27px;
   height: 40px;
   font-size: 24px;
   color: #ff5722;
@@ -169,7 +171,7 @@
   margin-top: 20px;
   margin-left: 20px;
   margin-right: 20px;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -184,7 +186,8 @@
   height: 40px;
   text-decoration: none;
   padding: 20px;
-  margin: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
   border-radius: 20px;
   background-color: #ff5722;
   color: rgb(255, 255, 255);
@@ -193,4 +196,15 @@
   font-size: 20px;
   align-items: center;
   display: flex;
+  text-decoration-style: none;
+}
+
+.create-set-btn {
+  display: flex;
+  border-radius: 0px 15px 15px 0px;
+  font-size: 20px;
+  justify-content: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  align-items: center;
 }

@@ -16,7 +16,7 @@
           <h6><i class="fa-solid fa-chevron-down"></i></h6>
         </div>
         <%# card collapsed portion %>
-        <div class="collapsible-content" data-collapse-target="content">
+        <div class="collapsible-content <%= exercise.id == params[:active_tab].to_i ? 'open' : '' %>" data-collapse-target="content">
           <%= render 'shared/exercise_card', exercise: exercise, index_exercise: index, workout_session: @workout_session %>
         </div>
       </button>
@@ -24,9 +24,9 @@
   </div>
 
   <%# bodyweight sleeptime form here: %>
-  <div class="workout_session_info_form">
-    <%= render 'shared/workout_session_info_form', workout_session: @workout_session  %>
-  </div>
+  <%# <div class="workout_session_info_form"> %>
+    <%#= render 'shared/workout_session_info_form', workout_session: @workout_session  %>
+  <%# </div> %>
 
   <%# session completed button here: %>
   <div class="d-flex justify-content-center">
