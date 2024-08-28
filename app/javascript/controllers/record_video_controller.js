@@ -80,6 +80,7 @@ export default class extends Controller {
   uploadToCloudinary(video) {
     const formData = new FormData(this.formTarget);
     formData.append('exercise_set[video]', video, `my_video.mp4`);
+    formData.append('transformation', JSON.stringify({ width: 640, height: 360, crop: "limit", quality: "auto" }))
 
     fetch(this.formTarget.action, {
       body: formData,
