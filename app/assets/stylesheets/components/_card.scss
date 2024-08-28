@@ -1,8 +1,52 @@
+.card-products {
+  overflow: hidden;
+  height: 90px;
+  // background: #2e2e2e;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  margin: 10px;
+  position: relative;
+}
+
+.card-products img {
+  height: 100%;
+  width: 90px;
+  object-fit: cover;
+  border-radius: 25%;
+}
+
+.card-products h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  color: white
+}
+
+.card-products p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  color: white;
+}
+
+.card-products .card-product-infos {
+  flex-grow: 1;
+  padding: 16px;
+}
+
+.cards {
+  margin-top: 30px
+}
+
 .card-product {
   overflow: hidden;
-  height: 70px;
+  height: 90px;
   background: #2e2e2e;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5), 0 6px 20px rgba(0, 0, 0, 0.3); /* Cool shadow effect */
   display: flex;
   align-items: center;
   border-radius: 20px;
@@ -14,6 +58,7 @@
   height: 100%;
   width: 90px;
   object-fit: cover;
+  border-radius: 25%;
 }
 
 .card-product h2 {
@@ -132,19 +177,19 @@
   position: relative;
 }
 
-// exercise sets card
-// .exercise-sets-card {
-  // background-color:  #2e2e2e;
-  // // border-radius: 16px;
-  // // border: solid;
-  // // border-color: rgb(187, 187, 187);
-  // // border-width: 0.25px;
-  // padding-top: 25px;
-  // padding-bottom: 25px;
-  // width: 100%;
-  // display: flex;
-  // justify-content: space-between;
-// }
+.exercise-sets-card {
+  background-color:  #2e2e2e;
+  border-radius: 16px;
+  border: solid;
+  border-color: rgb(187, 187, 187);
+  border-width: 0.25px;
+  padding: 25px 12px 12px 25px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 18px;
+  align-items: center;
+}
 
 .exercise-sets-card h6{
   font-size: 16px;

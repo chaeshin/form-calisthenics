@@ -17,12 +17,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 65px;
-  height: 65px;
+  width: 109px;
+  height: 153px;
   background-color: #2e2e2e;
-  border-radius: 50%;
+  border-radius: 15%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   font-size: 40px;
+}
+
+.bubble img {
+  width: 100%; /* Make the image take up the full width of the bubble */
+  height: 100%; /* Make the image take up the full height of the bubble */
+  object-fit: cover; /* Cover the bubble area while maintaining aspect ratio */
+  border-radius: 15%; /* Ensure the image matches the circular shape of the bubble */
 }
 
 .title {

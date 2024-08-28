@@ -1,0 +1,54 @@
+<div class="styling-header">
+  <img class="avatar-large" alt="avatar-large" src="https://avatars.githubusercontent.com/u/62231862?v=4" />
+  <h1 class="margin-h1">Hi, Nick 👋 </h1>
+</div>
+<%# enter last exercise recorded here  %>
+<%#= form_with url: root_path, method: :get, class: "d-flex align-items-center mt-3", style: "width: 200px;" do %>
+  <%# <h6><i class="fa-solid fa-magnifying-glass text-white"></i></h6> %>
+  <%#= text_field_tag :query, %>
+            <%# params[:query], %>
+            <%# class: "form-control rounded-pill", %>
+            <%# placeholder: "Search by exercise or workout", %>
+            <%# style: "background-color: white;" %>
+            <%# %>
+  <%#= submit_tag "Search", name: "", class: "btn btn-light shadow-sm align-item-center border rounded-pill", style: "background-color: white;" %>
+<%# end %>
+
+<h2 class="custom-margin mb-2">Featured Workout</h2>
+<div class="bubble-container">
+  <div class="bubble-wrap">
+    <div class="bubble">
+      <%= image_tag 'Human_flag.jpg', alt: 'Skill' %>
+    </div>
+    <span class="title">Core</span>
+  </div>
+  <div class="bubble-wrap">
+    <div class="bubble">
+      <%= image_tag 'full_planche.jpeg', alt: 'Skill' %>
+    </div>
+    <span class="title">Upper Body</span>
+  </div>
+  <div class="bubble-wrap">
+    <div class="bubble">
+      <%= image_tag 'one_arm_handstand.jpg', alt: 'Skill' %>
+    </div>
+    <span class="title">Skill</span>
+  </div>
+</div>
+<h2 class="custom-margin">Today's Workout</h2>
+<div class="cards">
+  <%# @workouts.each do |workout| %>
+    <%#= render 'shared/workout_card', workout: workout %>
+    <%# end %>
+    <% @workouts.first(3).each_with_index do |workout, index| %>
+      <%= render 'shared/workout_card', workout: workout, index:index %>
+    <% end %>
+  </div>
+
+
+
+  <div class="fab-container">
+    <%= link_to new_workout_path, class: 'fab' do %>
+      <i class="fas fa-plus"></i> <!-- Font Awesome icon -->
+    <% end %>
+  </div>
