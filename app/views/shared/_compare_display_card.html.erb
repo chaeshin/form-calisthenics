@@ -1,0 +1,23 @@
+<div class="compare-display-card-parent">
+  <div class="compare-display-card">
+    <div class="pe-1">
+      <%# div 1 exercise and descriptions %>
+      <%= exercise_set&.workout_session&.start_time&.strftime("%A, %b %d") %>
+      <%# excercise name here: %>
+    </div>
+    <%# each exercise_sets input and total set here: %>
+    <div data-controller="total-set-count" class="sets">
+      <%# sub exercise_sets form here: %>
+      <div class="d-flex justify-space-between">
+        <%# get the number of exercise.sets store them in a variable, use that variablee to get the last two instances of the exercise_sets %>
+        <p class="me-2">sets:</p>
+        <% exercise_set&.workout_session&.exercise_sets&.where(exercise: exercise)&.each do |set| %>
+          <p class="<%= set == exercise_set ? 'set-highlite': '' %> me-2"> <%= set.reps %> </p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <% if exercise_set&.video&.attached? %>
+    <%= cl_video_tag exercise_set&.video&.key, resource_type: 'video', controls: false, :playsinline => true, muted: true, autoplay: true, class: "video-wrapper" %>
+  <% end %>
+</div>

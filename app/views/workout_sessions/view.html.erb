@@ -1,5 +1,7 @@
 <div class="container">
-  <h1><%= @workout_session.workout.name %> - <%= @workout_session.start_time.strftime("%b %d, %Y") %></h1>
+  <h1 class="margin-h1">
+    <%= @workout_session.workout.name %> - <%= @workout_session.start_time.strftime("%b %d, %Y") %>
+  </h1>
   <% @exercises.each_with_index do |exercise, index| %>
     <%= render 'shared/exercise_done', exercise: exercise, index_exercise: index, workout_session: @workout_session %>
   <% end %>

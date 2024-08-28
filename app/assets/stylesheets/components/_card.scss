@@ -1,8 +1,52 @@
+.card-products {
+  overflow: hidden;
+  height: 90px;
+  // background: #2e2e2e;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  margin: 10px;
+  position: relative;
+}
+
+.card-products img {
+  height: 100%;
+  width: 90px;
+  object-fit: cover;
+  border-radius: 25%;
+}
+
+.card-products h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  color: white
+}
+
+.card-products p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  color: white;
+}
+
+.card-products .card-product-infos {
+  flex-grow: 1;
+  padding: 16px;
+}
+
+.cards {
+  margin-top: 30px
+}
+
 .card-product {
   overflow: hidden;
-  height: 70px;
+  height: 90px;
   background: #2e2e2e;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5), 0 6px 20px rgba(0, 0, 0, 0.3); /* Cool shadow effect */
   display: flex;
   align-items: center;
   border-radius: 20px;
@@ -14,6 +58,7 @@
   height: 100%;
   width: 90px;
   object-fit: cover;
+  border-radius: 25%;
 }
 
 .card-product h2 {
@@ -41,20 +86,110 @@
   margin-top: 30px
 }
 
+.compare-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
-// exercise sets card
-// .exercise-sets-card {
-  // background-color:  #2e2e2e;
-  // // border-radius: 16px;
-  // // border: solid;
-  // // border-color: rgb(187, 187, 187);
-  // // border-width: 0.25px;
-  // padding-top: 25px;
-  // padding-bottom: 25px;
-  // width: 100%;
-  // display: flex;
-  // justify-content: space-between;
-// }
+.compare-container h1 {
+  margin: 2rem 0;
+}
+
+.compare-display-card {
+  background: linear-gradient(180deg, black, transparent);
+  padding-top: 8px;
+  padding-left: 8px;
+  width: 100%;
+  display: flex;
+  position: absolute;
+  font-size: 20px;
+  color: white;
+  justify-content: space-between;
+  border-radius: 24px;
+}
+.date-select {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Select Elements */
+.date-select select {
+  padding: 5px;
+  font-size: 16px;
+  border-radius: 5px;
+  appearance: none; /* Removes default arrow for better custom styling */
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.date-select select:focus {
+  border-color: #007bff; /* Blue border on focus */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Blue glow on focus */
+  outline: none;
+}
+
+/* Submit Button */
+.date-select button {
+  padding: 6px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: $orange; /* Blue button */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.date-select button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: translateY(-2px); /* Slight lift on hover */
+}
+
+.date-select button:active {
+  background-color: #003d80; /* Even darker blue on click */
+  transform: translateY(0); /* Reset lift on click */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .date-select {
+    padding: 15px;
+  }
+
+  .date-select select, .date-select button {
+    font-size: 14px;
+  }
+}
+
+.compare-display-card .sets {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 3px;
+}
+
+.compare-display-card-parent {
+  position: relative;
+}
+
+.exercise-sets-card {
+  background-color:  #2e2e2e;
+  border-radius: 16px;
+  border: solid;
+  border-color: rgb(187, 187, 187);
+  border-width: 0.25px;
+  padding: 25px 12px 12px 25px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 18px;
+  align-items: center;
+}
 
 .exercise-sets-card h6{
   font-size: 16px;
@@ -227,6 +362,7 @@
 
 .set-highlite {
   color: #60ff60;
+  font-weight: bold;
 }
 
 

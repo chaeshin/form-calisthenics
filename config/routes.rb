@@ -33,5 +33,6 @@ Rails.application.routes.draw do
   resources :exercise_sets, only: [:show, :update]
 
   get 'calendar', to: "pages#calendar", as: :calendar
+  get 'dashboard', to: "pages#dashboard", as: :dashboard
 
 end

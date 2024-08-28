@@ -1,11 +1,11 @@
 <div class="exercise-sets-card">
-  <div class="pe-1 exercise-name border-end border-light-subtle">
-    <h6><strong><%= exercise.name %></strong></h6>
-  </div>
   <div class="sets">
+    <div class="pe-1 border-light-subtle">
+      <h6><strong><%= exercise.name %></strong></h6>
+    </div>
     <div class="d-flex">
       <% sets_done = workout_session.sets_done(exercise) %>
-      <div class='set'>
+      <div class='set' style="display: inline-flex;">
         <% sets_done.each do |set_done| %>
           <%= link_to set_done.reps , exercise_set_path(set_done), class:"rep-num-button" %>
         <% end %>
