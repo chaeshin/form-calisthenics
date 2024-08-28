@@ -46,7 +46,8 @@ class ExercisesController < ApplicationController
 
     @data_hash_sum = Hash.new(0)
     current_user.workout_sessions.each do |workout_session|
-      @data_hash_sum[workout_session.start_time] += workout_session.exercise_sets.where(exercise: @exercise).sum { |exercise_set| exercise_set.reps }
+      reps = workout_session.exercise_sets.where(exercise: @exercise).sum { |exercise_set| exercise_set.reps }
+      @data_hash_sum[workout_session.start_time] += reps if reps.positive?
     end
 
 
