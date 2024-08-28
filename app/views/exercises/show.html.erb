@@ -5,22 +5,23 @@
   </h1>
 
   <div class="d-flex justify-content-between align-items-center">
-    <div>
+    <div class="exercise-info-div">
       <%# sets and reps here: %>
-      <span class="exercise-info"><%= @exercise.sets %> x
+      <span class="exercise-info"><%= @exercise.sets %> sets x
         <% if @exercise.lower_reps.nil? && @exercise.upper_reps.nil?  %>
-          <%= @exercise.hold_time %>
+          <%= @exercise.hold_time %> s
         <% else %>
-          <%= @exercise.lower_reps %>-<%= @exercise.upper_reps %>
+          <%= @exercise.lower_reps %>-<%= @exercise.upper_reps %> reps
         <% end %>
       </span>
       <%# rest time:here %>
       <span class="exercise-info">rest: <%= @exercise.rest %>s</span>
-    </div>
 
-    <%# how to link here: %>
-    <%= render 'shared/how_to_link', exercise: @exercise, workout_session: @workout_session %>
+    </div>
+      <%# how to link here: %>
+      <%= render 'shared/how_to_link', exercise: @exercise, workout_session: @workout_session %>
   </div>
+
 
   <%# progress bar here: %>
   <%#= render 'shared/progress_bar', workout_session: @workout_session, exercises: @exercises %>
@@ -42,11 +43,11 @@
           <button data-action="click->record-video#showFullScreen" class="camera"><i class="fa-solid fa-camera fa-2xl"></i></button>
         </div>
         <div data-record-video-target="videoReplace" class="record-frame d-none">
-          <button id="start" data-record-video-target="start" data-action="click->record-video#record"><i class="fa-solid fa-play"></i></button>
+          <button id="start" data-record-video-target="start" data-action="click->record-video#record"><i class="fa-solid fa-circle"></i></button>
           <button id="stop" data-record-video-target="stop" data-action="click->record-video#replace"><i class="fa-solid fa-stop"></i></button>
           <div>
             <%# <button data-action="click->record-video#showFullScreen">Toggle Full Screen</button> %>
-            <video style="border: solid;" autoplay muted data-record-video-target="live"  width="100px" height="100px">
+            <video autoplay muted data-record-video-target="live"  width="100px" height="100px">
             </video>
           </div>
         </div>

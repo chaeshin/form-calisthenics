@@ -7,6 +7,9 @@ export default class extends Controller {
     // console.log(this.startTarget, this.stopTarget, this.liveTarget)
   }
   record() {
+    this.startTarget.style.display = "none"
+    this.stopTarget.style.display = "block"
+
     navigator.mediaDevices.getUserMedia({
       video: true,
       audio: true
