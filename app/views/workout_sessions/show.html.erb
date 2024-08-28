@@ -3,19 +3,25 @@
     <h1 class="custom-margin"><%= @workout_session.workout.name %></h1>
   </div>
 
+  <%# progress bar here: %>
+  <%#= render 'shared/progress_bar', workout_session: @workout_session, exercises: @exercises %>
+
+  <div data-controller="collapse">
     <% @exercises.each_with_index do |exercise, index| %>
       <%# card not collapsed here %>
-      <div data-controller="collapse">
-        <button class="collapsible-button exercise-sets-card" data-action="click->collapse#toggle">
-          <h3><strong><%= exercise.name %></strong></h3>
-
-          <%# card collapsed portion %>
-          <div class="collapsible-content" data-collapse-target="content">
-            <%= render 'shared/exercise_card', exercise: exercise, index_exercise: index, workout_session: @workout_session %>
-          </div>
-        </button>
-      </div>
+      <button class="collapsible-button" data-action="click->collapse#toggle">
+        <div class="name">
+          <p class="in-progress">In progress</p>
+          <h2 class="exercise-name"><%= exercise.name %></h2>
+          <h6><i class="fa-solid fa-chevron-down"></i></h6>
+        </div>
+        <%# card collapsed portion %>
+        <div class="collapsible-content" data-collapse-target="content">
+          <%= render 'shared/exercise_card', exercise: exercise, index_exercise: index, workout_session: @workout_session %>
+        </div>
+      </button>
     <% end %>
+  </div>
 
   <%# bodyweight sleeptime form here: %>
   <div class="workout_session_info_form">

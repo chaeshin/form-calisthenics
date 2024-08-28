@@ -9,11 +9,11 @@ legend ~ div.form-check:first-of-type {
   clear: left;
 }
 
-.form-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+// .form-container {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }
 
 .custom-set-form {
   margin: 3px;
@@ -25,6 +25,9 @@ legend ~ div.form-check:first-of-type {
   }
   input[type="submit"] {
     height: 40px;
+    background-color: #ff5722;
+    color: white;
+    border: 0;
   }
 }
 
@@ -44,7 +47,6 @@ legend ~ div.form-check:first-of-type {
   padding: 0px;
   height: 40px;
   width: 50px;
-  align-items: center;
 }
 
 .form-control {
