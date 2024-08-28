@@ -86,6 +86,96 @@
   margin-top: 30px
 }
 
+.compare-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.compare-container h1 {
+  margin: 2rem 0;
+}
+
+.compare-display-card {
+  background: linear-gradient(180deg, black, transparent);
+  padding-top: 8px;
+  padding-left: 8px;
+  width: 100%;
+  display: flex;
+  position: absolute;
+  font-size: 20px;
+  color: white;
+  justify-content: space-between;
+  border-radius: 24px;
+}
+.date-select {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Select Elements */
+.date-select select {
+  padding: 5px;
+  font-size: 16px;
+  border-radius: 5px;
+  appearance: none; /* Removes default arrow for better custom styling */
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.date-select select:focus {
+  border-color: #007bff; /* Blue border on focus */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Blue glow on focus */
+  outline: none;
+}
+
+/* Submit Button */
+.date-select button {
+  padding: 6px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: $orange; /* Blue button */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.date-select button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: translateY(-2px); /* Slight lift on hover */
+}
+
+.date-select button:active {
+  background-color: #003d80; /* Even darker blue on click */
+  transform: translateY(0); /* Reset lift on click */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .date-select {
+    padding: 15px;
+  }
+
+  .date-select select, .date-select button {
+    font-size: 14px;
+  }
+}
+
+.compare-display-card .sets {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 3px;
+}
+
+.compare-display-card-parent {
+  position: relative;
+}
 
 .exercise-sets-card {
   background-color:  #2e2e2e;
@@ -261,6 +351,7 @@
 
 .set-highlite {
   color: #60ff60;
+  font-weight: bold;
 }
 
 
