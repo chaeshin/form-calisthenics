@@ -1,6 +1,8 @@
-<div class="card-product">
-  <div class="card-product-infos">
-      <h2><%=workout_session.start_time.strftime("%A, %b %d %Y") %></h2>
-      <p class= "m-0"><%= workout_session.workout.category %>, <%= workout_session.workout.name %> </p>
+<%= link_to view_workout_session_path(workout_session), class: 'text-decoration-none' do %>
+  <div class="card-product">
+    <div class="card-product-infos">
+      <h2 class= "m-0"><%= workout_session.workout.category %>, <%= workout_session.workout.name %> </h2>
+      <p><%=workout_session.start_time.strftime("%A, %b %d %Y") %></p>
+    </div>
   </div>
-</div>
+<% end %>
