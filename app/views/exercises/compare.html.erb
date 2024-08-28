@@ -38,7 +38,7 @@
                 <div class="video-wrapper">
                   <%= render 'shared/exercise_display_card', exercise: @exercise, exercise_set: exercise_set%>
                   <% if exercise_set.video.attached? %>
-                    <%= cl_video_tag exercise_set.video.key, width: 410, resource_type: 'video', controls: true %>
+                    <%= cl_video_tag exercise_set.video.key, width: 410, resource_type: 'video', controls: true, :playsinline => true, muted: true, autoplay: true %>
                   <% end %>
                 </div>
               <% end %>
@@ -50,7 +50,7 @@
                 <div class="video-wrapper">
 
                   <% if exercise_set.video.attached? %>
-                    <%= cl_video_tag exercise_set.video.key, width: 410, resource_type: 'video', controls: true %>
+                    <%= cl_video_tag exercise_set.video.key, width: 410, resource_type: 'video', controls: true, :playsinline => true, muted: true, autoplay: true %>
                   <% end %>
                   <%= render 'shared/exercise_display_card', exercise: @exercise, exercise_set: exercise_set%>
                 </div>

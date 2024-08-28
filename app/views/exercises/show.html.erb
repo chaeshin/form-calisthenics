@@ -1,10 +1,10 @@
 <div>
   <h1 class="custom-margin">
-    <%= @workout_session.workout.name %>
+    <%#= @workout_session.workout.name %>
     <%= @exercise.name %>
   </h1>
 
-  <div class="d-flex justify-content-between">
+  <div class="d-flex justify-content-between align-items-center">
     <div>
       <%# sets and reps here: %>
       <span class="exercise-info"><%= @exercise.sets %> x
@@ -15,19 +15,27 @@
         <% end %>
       </span>
       <%# rest time:here %>
-      <span class="exercise-info">| rest: <%= @exercise.rest %>s</span>
+      <span class="exercise-info">rest: <%= @exercise.rest %>s</span>
     </div>
 
     <%# how to link here: %>
     <%= render 'shared/how_to_link', exercise: @exercise, workout_session: @workout_session %>
   </div>
 
-
   <%# progress bar here: %>
-  <%= render 'shared/progress_bar', workout_session: @workout_session, exercises: @exercises %>
+  <%#= render 'shared/progress_bar', workout_session: @workout_session, exercises: @exercises %>
+
+  <% @sets_done = @workout_session.sets_done(@exercise) %>
 
   <%# video here %>
-  <div  class="video">
+  <div class="video">
+
+    <div class="progress-note">
+      <h4>You have</h4>
+      <h2><%= @exercise.sets - @sets_done.count %></h2>
+      <h4>sets remaining!</h4>
+    </div>
+
     <div data-controller="record-video">
       <div>
         <div data-record-video-target="cameraButton">
@@ -57,6 +65,8 @@
 
   <div class="d-flex justify-content-between">
     <%= link_to "Back", workout_session_path(@workout_session), class: 'rounded-button' %>
-    <%= link_to "Next", workout_session_exercise_path(@workout_session, @exercise), class: 'rounded-button' %>
+    <% unless @sets_done.count >= @exercise.sets - 1 %>
+      <%= link_to "Next", workout_session_exercise_path(@workout_session, @exercise), class: 'rounded-button' %>
+    <% end %>
   </div>
 </div>

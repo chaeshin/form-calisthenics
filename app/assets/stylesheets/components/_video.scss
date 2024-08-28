@@ -4,8 +4,12 @@
   // border: solid;
   // border-color: rgb(187, 187, 187);
   border-width: 0.25px;
-  padding: 8px;
+  padding-right: 50px;
+  padding-left: 50px;
+  padding-bottom: 90px;
+  padding-top: 90px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -29,4 +33,11 @@
     height: 100%;
   }
 
+}
+
+.video-wrapper {
+  object-fit: contain;
+  width: 100%;
+  height: auto;
+  max-height: 100%; /* Adjust according to your container */
 }

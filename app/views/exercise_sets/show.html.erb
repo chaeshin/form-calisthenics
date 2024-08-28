@@ -1,20 +1,20 @@
 <div>
   <h1 class="custom-margin">
-    <%= @workout_session.workout.name %>
+    <%#= @workout_session.workout.name %>
     <%= @exercise.name %>
   </h1>
 
   <div>
     <%# sets and reps here: %>
-    <span class="exercise-info"><%= @exercise.sets %> x
+    <h6 class="exercise-info"><%= @exercise.sets %> x
       <% if @exercise.lower_reps.nil? && @exercise.upper_reps.nil?  %>
         <%= @exercise.hold_time %>
       <% else %>
         <%= @exercise.lower_reps %>-<%= @exercise.upper_reps %>
       <% end %>
-    </span>
+    </h6>
     <%# rest time:here %>
-    <span class="exercise-info">| rest: <%= @exercise.rest %>s</span>
+    <h6 class="exercise-info">| rest: <%= @exercise.rest %>s</h6>
   </div>
 
   <div><%= @reps %></div>

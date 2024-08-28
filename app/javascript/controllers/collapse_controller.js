@@ -7,15 +7,21 @@ export default class extends Controller {
     console.log("Collapse controller connected!");
   }
 
-  toggle() {
-    const content = this.contentTarget;
-
+  toggle(e) {
+    const btn = e.currentTarget;
+    const content = btn.lastElementChild;
+    console.log(this.contentTargets)
+    this.contentTargets.forEach(element => {
+      element.classList.remove("open");
+    });
     content.classList.toggle("open");
 
-    if (content.classList.contains("open")) {
-      content.style.maxHeight = content.scrollHeight + 'px';
+    this.contentTargets.forEach(el => {
+    if (el.classList.contains("open")) {
+      el.style.maxHeight = el.scrollHeight + 'px';
     } else {
-      content.style.maxHeight = null;
+      el.style.maxHeight = null;
     }
+    })
   }
 }
