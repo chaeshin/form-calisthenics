@@ -12,7 +12,7 @@
       <button class="collapsible-button" data-action="click->collapse#toggle">
         <div class="name">
           <p class="in-progress">In progress</p>
-          <h2 class="exercise-name"><%= exercise.name %></h2>
+          <h2 class="exercise-name <%= exercise.exercise_type %>"><%= exercise.name %></h2>
           <h6><i class="fa-solid fa-chevron-down"></i></h6>
         </div>
         <%# card collapsed portion %>

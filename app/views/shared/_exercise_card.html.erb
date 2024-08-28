@@ -2,8 +2,19 @@
     <%# excercise name here: %>
   <div class="exercise-card-items">
     <div class="div-left"><%# div1 %>
-      <h2><%= exercise.name %></h2>
+      <h2 class="<%= exercise.exercise_type %>"><%= exercise.name %></h2>
 
+      <div class="d-flex mt-2">
+        <%# rest time:here %>
+        <h4 class="exercise-info me-3">
+          <% if exercise.lower_reps.nil? && exercise.upper_reps.nil?  %>
+            <i class="fa-solid fa-stopwatch"></i> <%= exercise.hold_time %> s
+          <% else %>
+            <i class="fa-solid fa-repeat"></i> <%= exercise.lower_reps %>-<%= exercise.upper_reps %>
+          <% end %>
+        </h4>
+        <h4 class="exercise-info"><i class="fa-regular fa-circle-pause"></i> <%= exercise.rest %>s</h4>
+      </div>
       <div>
         <% sets_done = workout_session.sets_done(exercise) %>
         <div class='set'>
@@ -12,7 +23,7 @@
           <% end %>
 
           <% (exercise.sets - sets_done.count).times do |i| %>
-            <%= link_to workout_session_exercise_path(workout_session, exercise), class:"text-decoration-none" do %>
+            <%#= link_to workout_session_exercise_path(workout_session, exercise), class:"text-decoration-none" do %>
               <p class='rep-num-button-light'>
                 <% if exercise.lower_reps.nil? %>
                   <%= exercise.hold_time %>
@@ -20,7 +31,7 @@
                   <%= exercise.lower_reps %>
                 <% end %>
               </p>
-            <% end %>
+            <%# end %>
           <% end %>
         </div>
 
@@ -38,25 +49,22 @@
     <div class="div-right"><%# div2 %>
       <div><%# sets and reps in this div: %>
         <div>
-          <span class="exercise-info"><%= exercise.sets %> sets x </span>
-          <h2>
-            <% if exercise.lower_reps.nil? && exercise.upper_reps.nil?  %>
-              <%= exercise.hold_time %> s
-            <% else %>
-              <%= exercise.lower_reps %>-<%= exercise.upper_reps %> reps
-            <% end %>
-          </h2>
+          <%# <span class="exercise-info"><%= exercise.sets %>
+            <%# sets x  %>
+          <%# </span>  %>
+
         </div>
-        <%# rest time:here %>
-        <h6 class="exercise-info">rest: <%= exercise.rest %>s</h6>
+
       </div>
 
       <div class="progress-done"><%# 1/5 done in this div: %>
         <% if sets_done.count == exercise.sets %>
           <h4><i class="fa-sharp fa-solid fa-check fa-2xl"></i></h4>
         <% else %>
-          <h2><%= sets_done.count %>/<%= exercise.sets %></h2>
-          <h6 class="">done</h6>
+          <%= link_to workout_session_exercise_path(workout_session, exercise), class:"text-decoration-none text-white" do %>
+            <h2><%= sets_done.count %>/<%= exercise.sets %></h2>
+            <h6 class="">sets done</h6>
+          <% end %>
         <% end %>
       </div>
     </div>

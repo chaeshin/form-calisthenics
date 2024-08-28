@@ -6,7 +6,7 @@
       <%# excercise name here: %>
       <div>
         <%# sets and reps here: %>
-        <span class="exercise-info"><%= exercise.sets %> x
+        <span class="exercise-info"><%= exercise.sets %>
           <% if exercise.lower_reps.nil? && exercise.upper_reps.nil?  %>
             <%= exercise.hold_time %>
           <% else %>
@@ -14,7 +14,7 @@
           <% end %>
         </span>
         <%# rest time:here %>
-        <span class="exercise-info">| rest: <%= exercise.rest %>s</span>
+        <span class="exercise-info"><i class="fa-regular fa-circle-pause"></i> <%= exercise.rest %>s</span>
       </div>
     </div>
     <%# each exercise_sets input and total set here: %>
