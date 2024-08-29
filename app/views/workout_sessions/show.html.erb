@@ -12,9 +12,14 @@
       <button class="collapsible-button" data-action="click->collapse#toggle">
         <div class="name">
           <p class="in-progress">In progress</p>
-          <h2 class="exercise-name <%= exercise.exercise_type %>"><%= exercise.name %></h2>
+          <div>
+            <h2 class="exercise-name <%= exercise.exercise_type %>"><%= exercise.name %>
+            </h2>
+            <span class="exercise-name"><%= exercise.category %></span>
+          </div>
           <h6><i class="fa-solid fa-chevron-down"></i></h6>
         </div>
+
         <%# card collapsed portion %>
         <div class="collapsible-content <%= exercise.id == params[:active_tab].to_i ? 'open' : '' %>" data-collapse-target="content">
           <%= render 'shared/exercise_card', exercise: exercise, index_exercise: index, workout_session: @workout_session %>
@@ -30,6 +35,6 @@
 
   <%# session completed button here: %>
   <div class="d-flex justify-content-center">
-    <%= link_to 'Complete', workout_sessions_path(workout_id: @workout.id), class:"m-3 text-decoration-none link-dark btn btn-light rounded-pill" %>
+    <%= link_to 'Complete', workout_sessions_path(workout_id: @workout.id), class:"m-3 text-decoration-none rounded-button" %>
   </div>
 </div>
