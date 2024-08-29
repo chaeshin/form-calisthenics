@@ -167,9 +167,9 @@
   border-radius: 50%;
   background-color: #ff5722;
   color: white;
-  border: solid;
-  border-width: 2px;
-  border-color: white;
+  border: none;
+  // border-width: 2px;
+  // border-color: white;
   margin-top: 20px;
   margin-left: 20px;
   margin-right: 20px;
@@ -179,9 +179,17 @@
   align-items: center;
 }
 
-.camera:hover {
-  background-color:  #d2d2d2;
-  color: rgb(0, 0, 0);
+.camera:active{
+  background-color: #ffffff;
+  color: #ff5722;
+  border-color: #ff5722;
+  border: solid;
+  border-width: 2px;
+  transform: scale(0.90);
+}
+
+a {
+  text-decoration: none;
 }
 
 .rounded-button {
@@ -198,7 +206,15 @@
   font-size: 20px;
   align-items: center;
   display: flex;
-  text-decoration-style: none;
+}
+
+.rounded-button:active {
+  background-color:  #ffffff;
+  color: #ff5722;
+  border-color: #ff5722;
+  border: solid;
+  border-width: 2px;
+  transform: scale(0.90);
 }
 
 .create-set-btn {
@@ -209,4 +225,13 @@
   padding-left: 10px;
   padding-right: 10px;
   align-items: center;
+}
+
+.delayed {
+  transition: all 0.2s;
+  transition-delay: 300ms;
+}
+
+.delayed:active {
+  transition: none;
 }

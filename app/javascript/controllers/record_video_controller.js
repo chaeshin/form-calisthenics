@@ -2,13 +2,14 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="record-video"
 export default class extends Controller {
-  static targets = ["start", "stop", "live", "form", "video", "videoReplace", "repsInput", "submit", "cameraButton"]
+  static targets = ["start", "stop", "live", "form", "video", "videoReplace", "repsInput", "submit", "cameraButton", "duration"]
   connect() {
     // console.log(this.startTarget, this.stopTarget, this.liveTarget)
   }
   record() {
-    this.startTarget.style.display = "none"
-    this.stopTarget.style.display = "block"
+    this.startTarget.style.display = "none";
+    this.stopTarget.style.display = "block";
+    this.startTime = new Date();
 
     navigator.mediaDevices.getUserMedia({
       video: true,
@@ -23,6 +24,7 @@ export default class extends Controller {
     .then (recordedChunks => {
       const recordedBlob = new Blob(recordedChunks, { type: "video/mp4" });
       // console.log(recordedBlob);
+      this.endTime = new Date();
       this.uploadToCloudinary(recordedBlob);
     })
   }
@@ -80,7 +82,10 @@ export default class extends Controller {
   uploadToCloudinary(video) {
     const formData = new FormData(this.formTarget);
     formData.append('exercise_set[video]', video, `my_video.mp4`);
+    // formData.append('transformation', JSON.stringify({ width: 640, height: 360, crop: "limit", quality: "auto" }))
     formData.append('transformation', JSON.stringify({ width: 390, crop: "imagga_crop", quality: "auto" }));
+    const duration = ((this.endTime - this.startTime)/1000)
+    formData.append('exercise_set[set_duration]', duration)
 
     fetch(this.formTarget.action, {
       body: formData,
@@ -95,6 +100,7 @@ export default class extends Controller {
       this.formTarget.action = `/exercise_sets/${this.exercise_set_id}`
       this.formTarget.setAttribute('method', 'PATCH')
       this.submitTarget.value = 'Update Reps'
+      this.durationTarget.innerHTML = 'Duration: ' + duration + 's'
     })
   }
 }
