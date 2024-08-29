@@ -1,9 +1,8 @@
-<div class="card-product">
-  <div class="card-product-infos">
-    <h2><%= link_to exercise.name, compare_exercise_path(exercise), class: 'exercise-link' %></h2>
-    <p> <%= exercise.category %></p>
+<%= link_to compare_exercise_path(exercise) do %>
+  <div class="card-product">
+    <div class="card-product-infos">
+      <h2 class="exercise-title"><%= exercise.name %></h2>
+      <p><%= exercise.category %></p>
+    </div>
   </div>
-  <% if exercise.exercise_sets.any? %>
-    <%= link_to '', compare_exercise_path(exercise), class: 'btn card-link'  %>
-  <% end %>
-</div>
+<% end %>

@@ -35,7 +35,7 @@
 .nav-pills .nav-link.active {
   background-color: $orange; /* Change to your desired background color */
   color: #ffffff; /* Change to your desired text color */
-  border-radius: 8px;
+  // border-radius: 8px;
 }
 
 /* Change the background color and text color of the inactive tabs */
@@ -46,4 +46,9 @@
 /* Change the background color and text color of inactive tabs on hover */
 .nav-pills .nav-link:hover {
   color: #ffffff; /* Change to your desired hover text color */
+}
+
+.nav-pills .nav-linkk.active {
+  background-color: $orange; /* Change to your desired background color */
+  color: #ffffff; /* Change to your desired text color */
 }
