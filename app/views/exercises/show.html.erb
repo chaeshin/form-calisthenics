@@ -8,14 +8,14 @@
     <div class="exercise-info-div">
       <%# sets and reps here: %>
       <span class="exercise-info">
-        <i class="fa-solid fa-hashtag"></i> <%= @exercise.sets %>
+        <i class="fa-solid fa-dumbbell"></i> <%= @exercise.sets %> sets
         <% if @exercise.lower_reps.nil? && @exercise.upper_reps.nil? %>
-          <i class="fa-solid fa-stopwatch ms-3"></i> <%= @exercise.hold_time %> s
+          <i class="fa-solid fa-stopwatch ms-3"></i> <%= @exercise.hold_time %> s hold
         <% else %>
-          <i class="fa-solid fa-repeat ms-3"></i> <%= @exercise.lower_reps %>-<%= @exercise.upper_reps %>
+          <i class="fa-solid fa-repeat ms-3"></i> <%= @exercise.lower_reps %>-<%= @exercise.upper_reps %> reps
         <% end %>
-        <i class="fa-regular fa-circle-pause ms-3"></i> <%= @exercise.rest %>s
       </span>
+      <span><i class="fa-regular fa-circle-pause"></i> <%= @exercise.rest %>s rest</span>
     </div>
       <%# how to link here: %>
       <%= render 'shared/how_to_link', exercise: @exercise, workout_session: @workout_session %>
@@ -57,16 +57,15 @@
         <%= render 'shared/exercise_set_form', set: ExerciseSet.new, exercise: @exercise, workout_session: @workout_session %>
       </div>
       <div>
-        <h3 class="label">Duration</h3>
-        <%#= @exercise.duration %>
+        <h3 class="label" data-record-video-target="duration"></h3>
       </div>
     </div>
   </div>
 
   <div class="d-flex justify-content-between">
-    <%= link_to "Back", workout_session_path(@workout_session, active_tab: @exercise.id), class: 'rounded-button'%>
+    <%= link_to "Back", workout_session_path(@workout_session, active_tab: @exercise.id), class: 'rounded-button delayed'%>
     <% unless @sets_done.count >= @exercise.sets - 1 %>
-      <%= link_to "Next", workout_session_exercise_path(@workout_session, @exercise), class: 'rounded-button' %>
+      <%= link_to "Next", workout_session_exercise_path(@workout_session, @exercise), class: 'rounded-button delayed' %>
     <% end %>
   </div>
 </div>

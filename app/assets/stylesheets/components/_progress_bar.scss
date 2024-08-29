@@ -67,3 +67,18 @@
     border-width: 2px;
   }
 }
+
+.progress-done:active {
+  background-color:  #ffffff;
+  color: #ff5722;
+  border-color: #ff5722;
+  border: solid;
+  border-width: 2px;
+  transform: scale(0.90);
+  h2 {
+    color: #ff5722;
+  }
+  h6 {
+    color: #ff5722;
+  }
+}

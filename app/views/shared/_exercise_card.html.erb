@@ -8,14 +8,16 @@
         <%# rest time:here %>
         <h4 class="exercise-info me-3">
           <% if exercise.lower_reps.nil? && exercise.upper_reps.nil?  %>
-            <i class="fa-solid fa-stopwatch"></i> <%= exercise.hold_time %> s
+            <i class="fa-solid fa-stopwatch"></i> <%= exercise.hold_time %> s hold
           <% else %>
-            <i class="fa-solid fa-repeat"></i> <%= exercise.lower_reps %>-<%= exercise.upper_reps %>
+            <i class="fa-solid fa-repeat"></i> <%= exercise.lower_reps %>-<%= exercise.upper_reps %> reps
           <% end %>
         </h4>
-        <h4 class="exercise-info"><i class="fa-regular fa-circle-pause"></i> <%= exercise.rest %>s</h4>
+        <h4 class="exercise-info"><i class="fa-regular fa-circle-pause"></i> <%= exercise.rest %>s rest</h4>
       </div>
       <div>
+        <div><h4 class="exercise-info set-text"><i class="fa-solid fa-dumbbell"></i> <%= exercise.sets %> sets to do:</h4></div>
+
         <% sets_done = workout_session.sets_done(exercise) %>
         <div class='set'>
           <% sets_done.each do |set_done| %>
@@ -41,7 +43,7 @@
           <% sets_done.each do |set_done| %>
             <% total += set_done.reps unless set_done.reps.nil? %>
           <% end %>
-          <span class="rep-num-total">Total: <%= total %></span>
+          <span class="rep-num-total">Volume: <%= total %></span>
         </div>
       </div>
     </div>
@@ -61,9 +63,9 @@
         <% if sets_done.count == exercise.sets %>
           <h4><i class="fa-sharp fa-solid fa-check fa-2xl"></i></h4>
         <% else %>
-          <%= link_to workout_session_exercise_path(workout_session, exercise), class:"text-decoration-none text-white" do %>
+          <%= link_to workout_session_exercise_path(workout_session, exercise), class:"text-decoration-none text-white delayed" do %>
             <h2><%= sets_done.count %>/<%= exercise.sets %></h2>
-            <h6 class="">sets done</h6>
+            <h6>done</h6>
           <% end %>
         <% end %>
       </div>

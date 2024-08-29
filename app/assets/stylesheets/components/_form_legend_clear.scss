@@ -31,6 +31,17 @@ legend ~ div.form-check:first-of-type {
   }
 }
 
+.custom-set-form:active {
+  input[type="submit"] {
+    background-color: #ffffff;
+    color: #ff5722;
+    border-color: #ff5722;
+    border: solid;
+    border-width: 2px;
+    transform: scale(0.90);
+  }
+}
+
 .label {
   display: flex;
   justify-content: center;

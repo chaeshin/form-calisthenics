@@ -4,21 +4,25 @@
     <%= @exercise.name %>
   </h1>
 
-  <div class="d-flex justify-content-between align-items-center">
+  <div>
     <div>
       <%# sets and reps here: %>
-      <span class="exercise-info"><i class="fa-solid fa-hashtag"></i> <%= @exercise.sets %>
+      <span class="exercise-info"><i class="fa-solid fa-dumbbell"></i> <%= @exercise.sets %>
       <% if @exercise.lower_reps.nil? && @exercise.upper_reps.nil?  %>
-        <i class="fa-solid fa-stopwatch ms-3"></i> <%= @exercise.hold_time %> s
+        <i class="fa-solid fa-stopwatch ms-3"></i> <%= @exercise.hold_time %> s hold
       <% else %>
-        <i class="fa-solid fa-repeat ms-3"></i> <%= @exercise.lower_reps %>-<%= @exercise.upper_reps %>
+        <i class="fa-solid fa-repeat ms-3"></i> <%= @exercise.lower_reps %>-<%= @exercise.upper_reps %> reps
       <% end %>
       <%# rest time:here %>
-      <i class="fa-regular fa-circle-pause ms-3"></i> <%= @exercise.rest %>s</span>
+      <i class="fa-regular fa-circle-pause ms-3"></i> <%= @exercise.rest %>s rest</span>
     </div>
-
+  </div>
+  <div class="d-flex justify-content-between align-items-center mt-5">
+      <h3>Duration: <%= @exercise_set.set_duration %> s</h3>
     <div class="rep-num-button"><%= @reps %></div>
   </div>
+  <div data-controller="record-video">
+    <h3 class="label" data-record-video-target="duration"></h3>
+  </div>
 
-  <%= cl_video_tag @exercise_set.video.key, width: 410, resource_type: 'video', controls: true %>
-</div>
+<%= render 'shared/cl_video_tag', exercise_set: @exercise_set, exercise: @exercise, workout_session: @workout_session %>
