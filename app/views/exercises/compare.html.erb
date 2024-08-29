@@ -71,7 +71,7 @@
           <div class="tab-content" id="yearsContent">
             <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
               <div style="overflow-x: auto; white-space: nowrap;">
-                <%= line_chart @data_hash_sum, width: "200%", height: "630px", colors: ["#ff9574", "#ff9574"], library: {
+                <%= line_chart @data_hash_sum, width: "200%", height: "580px", colors: ["#ff9574", "#ff9574"], library: {
                 scales: {
                   x: {
                     ticks: {
@@ -85,7 +85,7 @@
                     },
                     title: {
                     display: true,
-                    text: 'Volume',
+                    text: 'Total reps',
                     color: "#FFFFFF" # Set the x-axis title color
                     }
                   }
@@ -93,7 +93,7 @@
                 plugins: {
                   title: {
                         display: true,
-                        # text: "Total reps", # Set the chart title text
+                        text: "Volume over time", # Set the chart title text
                         color: '#FFFFFF',          # Set the chart title color
                         font: {
                           size: 18,             # Set the chart title font size
@@ -109,7 +109,7 @@
               </div>
             </div>
             <div class="tab-pane fade" id="2024" role="tabpanel" aria-labelledby="2024-tab">
-              <%= line_chart @data_hash_by_year[2024], width: "100%", height: "630px",colors: ["#ff9574", "#ff9574"], library: {
+              <%= line_chart @data_hash_by_year[2024], width: "100%", height: "580px",colors: ["#ff9574", "#ff9574"], library: {
                 scales: {
                   x: {
                     ticks: {
@@ -146,7 +146,7 @@
               } %>
             </div>
             <div class="tab-pane fade" id="2023" role="tabpanel" aria-labelledby="2023-tab">
-              <%= line_chart@data_hash_by_year[2023], width: "100%", height: "630px", colors: ["#ff9574", "#ff9574"], library: {
+              <%= line_chart@data_hash_by_year[2023], width: "100%", height: "580px", colors: ["#ff9574", "#ff9574"], library: {
                 scales: {
                   x: {
                     ticks: {
@@ -183,7 +183,7 @@
               } %>
             </div>
             <div class="tab-pane fade" id="2022" role="tabpanel" aria-labelledby="2022-tab">
-              <%= line_chart@data_hash_by_year[2022], width: "100%", height: "630px", colors: ["#ff9574", "#ff9574"], library: {
+              <%= line_chart@data_hash_by_year[2022], width: "100%", height: "580px", colors: ["#ff9574", "#ff9574"], library: {
                 scales: {
                   x: {
                     ticks: {
