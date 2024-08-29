@@ -1,5 +1,5 @@
 <div class="container">
-  <h1 class="margin-h1">
+  <h1 class="custom-margin">
     <%= @workout_session.workout.name %> - <%= @workout_session.start_time.strftime("%b %d, %Y") %>
   </h1>
   <% @exercises.each_with_index do |exercise, index| %>
