@@ -57,6 +57,24 @@ class ExercisesController < ApplicationController
       @data_hash_by_year[date.year][date] = sum
     end
 
+    @data_hash_average_per_set = Hash.new(0)
+    current_user.workout_sessions.each do |workout_session|
+      exercise_sets = workout_session.exercise_sets.where(exercise: @exercise)
+      @exercise.sets.times do |set_number|
+        @data_hash_average_per_set[set_number + 1] += exercise_sets[set_number].reps unless exercise_sets[set_number].nil?
+      end
+    end
+
+    @total_workout_sessions_with_exercise = 0
+    current_user.workout_sessions.each do |workout_session|
+      @total_workout_sessions_with_exercise += workout_session.exercise_sets.where(exercise: @exercise).count
+    end
+
+    @total_workout_sessions_with_exercise = @total_workout_sessions_with_exercise / @exercise.sets
+
+    @exercise.sets.times do |set_number|
+      @data_hash_average_per_set[set_number + 1] = @data_hash_average_per_set[set_number + 1].fdiv(@total_workout_sessions_with_exercise).round(2)
+    end
   end
 
   def new
