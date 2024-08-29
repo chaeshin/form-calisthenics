@@ -4,7 +4,7 @@
       <%= f.input :reps, label: false, input_html: {class: 'set-value', id: 'sets-form', value: exercise.default_reps, data: {record_video_target: "inputReps", action: 'change->record_video#updateSet'}}  %>
       <%= f.input :workout_session_id, as: :hidden, input_html: { value: workout_session.id} %>
       <%# unless @sets_done.count >= @exercise.sets - 1 %>
-      <%= f.submit 'Create Set', data: {record_video_target: 'submit'}, class: 'create-set-btn'%>
+      <%= f.submit 'Save', data: {record_video_target: 'submit'}, class: 'create-set-btn'%>
     </div>
   <% end %>
 </div>
