@@ -32,17 +32,17 @@ class ExercisesController < ApplicationController
     @exercise = Exercise.find(params[:id])
     @workout_sessions_hash = @exercise.exercise_sets.group_by(&:workout_session)
     if params[:first_date] && params[:second_date]
-      @last_workout_session = @workout_sessions_hash.keys.find { |workout_session| workout_session.start_time == params[:first_date] }
-      @last_exercise_set = @workout_sessions_hash[@last_workout_session]
+      @last_workout_session = @workout_sessions_hash.keys.find { |workout_session| workout_session.id == params[:first_date].to_i}
+      @last_exercise_set = @workout_sessions_hash[@last_workout_session] || []
 
-      @second_last_workout_session = @workout_sessions_hash.keys.find { |workout_session| workout_session.start_time == params[:second_date] }
-      @second_last_exercise_set = @workout_sessions_hash[@second_last_workout_session]
+      @second_last_workout_session = @workout_sessions_hash.keys.find { |workout_session| workout_session.id == params[:second_date].to_i }
+      @second_last_exercise_set = @workout_sessions_hash[@second_last_workout_session] || []
     else
       @last_two_sessions = @workout_sessions_hash.keys.sort.last(2)
-      @last_exercise_set = @workout_sessions_hash[@last_two_sessions.last]
-      @second_last_exercise_set = @workout_sessions_hash[@last_two_sessions[0]]
+      @last_exercise_set = @workout_sessions_hash[@last_two_sessions.last] || []
+      @second_last_exercise_set = @workout_sessions_hash[@last_two_sessions[0]] || []
     end
-      @max_sets = @last_exercise_set.size > @second_last_exercise_set.size ? @last_exercise_set.size : @second_last_exercise_set.size
+      @max_sets = @exercise.sets
 
     @data_hash_sum = Hash.new(0)
     current_user.workout_sessions.each do |workout_session|
