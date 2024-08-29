@@ -1,2 +1,2 @@
-<%= cl_video_tag exercise_set.video.key, width: 410, resource_type: 'raw', controls: true %>
+<%= cl_video_tag exercise_set.video.key, width: 390, resource_type: 'raw', controls: false, :playsinline => true, muted: true, autoplay: true %>
 <%= hidden_field_tag :exercise_id, exercise_set.id %>
