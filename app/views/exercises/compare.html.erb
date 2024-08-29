@@ -65,7 +65,10 @@
               <button class="nav-link" id="2024-tab" data-bs-toggle="tab" data-bs-target="#2024" type="button" role="tab" aria-controls="2024" aria-selected="false">2024</button>
             </li>
             <li class="nav-item" role="presentation">
-              <button class="nav-link" id="2023-tab" data-bs-toggle="tab" data-bs-target="#2023" type="button" role="tab" aria-controls="2023" aria-selected="false">Other</button>
+              <button class="nav-link" id="2023-tab" data-bs-toggle="tab" data-bs-target="#2023" type="button" role="tab" aria-controls="2023" aria-selected="false">2023</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="2022-tab" data-bs-toggle="tab" data-bs-target="#2022" type="button" role="tab" aria-controls="2022" aria-selected="false">2022</button>
             </li>
           </ul>
           <div class="tab-content" id="yearsContent">
@@ -108,43 +111,119 @@
               } %>
               </div>
             </div>
-          </div>
-          <%# @data_hash_average_per_set %>
-          <%= line_chart@data_hash_by_year[2024], width: "100%",  colors: ["#ff9574", "#ff9574"], library: {
-            scales: {
-              x: {
-                ticks: {
-                  color: "#FFFFFF" # Custom color for x-axis labels
-                }
+            <div class="tab-pane fade d-flex" id="2024" role="tabpanel" aria-labelledby="2024-tab">
+              <%= line_chart@data_hash_by_year[2024], width: "100%", colors: ["#ff9574", "#ff9574"], library: {
+                scales: {
+                  x: {
+                    ticks: {
+                      color: "#FFFFFF" # Custom color for x-axis labels
+                    }
 
-              },
-              y: {
-                ticks: {
-                  color: "#FFFFFF" # Custom color for y-axis labels
-                },
-                title: {
-                display: true,
-                text: 'Volume',
-                color: "#FFFFFF" # Set the x-axis title color
-                }
-              }
-            },
-            plugins: {
-              title: {
-                    display: true,
-                    text: "Total reps for 2024", # Set the chart title text
-                    color: '#FFFFFF',          # Set the chart title color
-                    font: {
-                      size: 18,             # Set the chart title font size
-                      # weight: 'bold'      # Set the chart title font weight
+                  },
+                  y: {
+                    ticks: {
+                      color: "#FFFFFF" # Custom color for y-axis labels
                     },
-                    padding: {
-                      top: 15,              # Add padding above the title
-                      bottom: 5            # Add padding below the title
+                    title: {
+                    display: true,
+                    text: 'Volume',
+                    color: "#FFFFFF" # Set the x-axis title color
                     }
                   }
-            }
-          } %>
+                },
+                plugins: {
+                  title: {
+                        display: true,
+                        text: "Total reps for 2024", # Set the chart title text
+                        color: '#FFFFFF',          # Set the chart title color
+                        font: {
+                          size: 18,             # Set the chart title font size
+                          # weight: 'bold'      # Set the chart title font weight
+                        },
+                        padding: {
+                          top: 15,              # Add padding above the title
+                          bottom: 5            # Add padding below the title
+                        }
+                      }
+                }
+              } %>
+            </div>
+            <div class="tab-pane fade" id="2023" role="tabpanel" aria-labelledby="2023-tab">
+              <%= line_chart@data_hash_by_year[2023], width: "100%", colors: ["#ff9574", "#ff9574"], library: {
+                scales: {
+                  x: {
+                    ticks: {
+                      color: "#FFFFFF" # Custom color for x-axis labels
+                    }
+
+                  },
+                  y: {
+                    ticks: {
+                      color: "#FFFFFF" # Custom color for y-axis labels
+                    },
+                    title: {
+                    display: true,
+                    text: 'Volume',
+                    color: "#FFFFFF" # Set the x-axis title color
+                    }
+                  }
+                },
+                plugins: {
+                  title: {
+                        display: true,
+                        text: "Total reps for 2023", # Set the chart title text
+                        color: '#FFFFFF',          # Set the chart title color
+                        font: {
+                          size: 18,             # Set the chart title font size
+                          # weight: 'bold'      # Set the chart title font weight
+                        },
+                        padding: {
+                          top: 15,              # Add padding above the title
+                          bottom: 5            # Add padding below the title
+                        }
+                      }
+                }
+              } %>
+            </div>
+            <div class="tab-pane fade" id="2022" role="tabpanel" aria-labelledby="2022-tab">
+              <%= line_chart@data_hash_by_year[2022], width: "100%",  colors: ["#ff9574", "#ff9574"], library: {
+                scales: {
+                  x: {
+                    ticks: {
+                      color: "#FFFFFF" # Custom color for x-axis labels
+                    }
+
+                  },
+                  y: {
+                    ticks: {
+                      color: "#FFFFFF" # Custom color for y-axis labels
+                    },
+                    title: {
+                    display: true,
+                    text: 'Volume',
+                    color: "#FFFFFF" # Set the x-axis title color
+                    }
+                  }
+                },
+                plugins: {
+                  title: {
+                        display: true,
+                        text: "Total reps for 2022", # Set the chart title text
+                        color: '#FFFFFF',          # Set the chart title color
+                        font: {
+                          size: 18,             # Set the chart title font size
+                          # weight: 'bold'      # Set the chart title font weight
+                        },
+                        padding: {
+                          top: 15,              # Add padding above the title
+                          bottom: 5            # Add padding below the title
+                        }
+                      }
+                }
+              } %>
+            </div>
+          </div>
+          <%# @data_hash_average_per_set %>
           <%#= line_chart @exercise.exercise_sets.group(:reps).count, height: "380px" %>
         </div>
         <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
