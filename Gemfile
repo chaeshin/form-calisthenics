@@ -83,4 +83,5 @@ gem 'cloudinary'
 gem "pg_search"
 gem "simple_calendar"
 gem "chartkick"
+# gem 'chartjs-ror'
 gem "groupdate"

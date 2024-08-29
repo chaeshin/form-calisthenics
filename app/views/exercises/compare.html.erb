@@ -6,7 +6,7 @@
       <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Video</button>
     </li>
     <li class="nav-item" role="presentation">
-      <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Analyse</button>
+      <button class="nav-link" id="chart-tab" data-bs-toggle="tab" data-bs-target="#chart" type="button" role="tab" aria-controls="chart" aria-selected="false">Analyse</button>
     </li>
     <li class="nav-item" role="presentation">
       <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Other</button>
@@ -55,24 +55,100 @@
             </div>
           </div>
         </div>
-        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-          <div style="overflow-x: auto; white-space: nowrap;">
-            <%= line_chart @data_hash_sum, ytitle: "Volume", width: "100%"%>
+        <div class="tab-pane fade" id="chart" role="tabpanel" aria-labelledby="chart-tab">
+          <!-- Nav tabs -->
+          <ul class="nav nav-pills" id="years" role="tablist">
+            <li class="nav-item " role="presentation">
+              <button class="nav-link active" id="all-tab" data-bs-toggle="tab" data-bs-target="#all" type="button" role="tab" aria-controls="all" aria-selected="true">All</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="2024-tab" data-bs-toggle="tab" data-bs-target="#2024" type="button" role="tab" aria-controls="2024" aria-selected="false">2024</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="2023-tab" data-bs-toggle="tab" data-bs-target="#2023" type="button" role="tab" aria-controls="2023" aria-selected="false">Other</button>
+            </li>
+          </ul>
+          <div class="tab-content" id="yearsContent">
+            <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
+              <div style="overflow-x: auto; white-space: nowrap;">
+                <%= line_chart @data_hash_sum, width: "200%", colors: ["#ff9574", "#ff9574"], library: {
+                scales: {
+                  x: {
+                    ticks: {
+                      color: "#FFFFFF" # Custom color for x-axis labels
+                    }
+
+                  },
+                  y: {
+                    ticks: {
+                      color: "#FFFFFF" # Custom color for y-axis labels
+                    },
+                    title: {
+                    display: true,
+                    text: 'Volume',
+                    color: "#FFFFFF" # Set the x-axis title color
+                    }
+                  }
+                },
+                plugins: {
+                  title: {
+                        display: true,
+                        text: "Total reps", # Set the chart title text
+                        color: '#FFFFFF',          # Set the chart title color
+                        font: {
+                          size: 18,             # Set the chart title font size
+                          # weight: 'bold'      # Set the chart title font weight
+                        },
+                        padding: {
+                          top: 15,              # Add padding above the title
+                          bottom: 5            # Add padding below the title
+                        }
+                      }
+                }
+              } %>
+              </div>
+            </div>
           </div>
-          <%= line_chart @exercise.exercise_sets.group(:reps).count, height: "380px" %>
+          <%# @data_hash_average_per_set %>
+          <%= line_chart@data_hash_by_year[2024], width: "100%",  colors: ["#ff9574", "#ff9574"], library: {
+            scales: {
+              x: {
+                ticks: {
+                  color: "#FFFFFF" # Custom color for x-axis labels
+                }
+
+              },
+              y: {
+                ticks: {
+                  color: "#FFFFFF" # Custom color for y-axis labels
+                },
+                title: {
+                display: true,
+                text: 'Volume',
+                color: "#FFFFFF" # Set the x-axis title color
+                }
+              }
+            },
+            plugins: {
+              title: {
+                    display: true,
+                    text: "Total reps for 2024", # Set the chart title text
+                    color: '#FFFFFF',          # Set the chart title color
+                    font: {
+                      size: 18,             # Set the chart title font size
+                      # weight: 'bold'      # Set the chart title font weight
+                    },
+                    padding: {
+                      top: 15,              # Add padding above the title
+                      bottom: 5            # Add padding below the title
+                    }
+                  }
+            }
+          } %>
+          <%#= line_chart @exercise.exercise_sets.group(:reps).count, height: "380px" %>
         </div>
         <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
           <p>Contact content goes here.</p>
         </div>
       </div>
     </div>
-    <%# @workout_sessions_hash.each do |workout_session, exercise_sets| %>
-      <div>
-        <%# workout_session.start_time %>
-        <%# exercise_sets.each do |exercise_set| %>
-          <%# if exercise_set.video.attached? %>
-          <%#= cl_video_tag exercise_set.video.key, width: 410, resource_type: 'video', controls: true %>
-          <%# end %>
-          <%# end %>
-        </div>
-        <%# end %>
