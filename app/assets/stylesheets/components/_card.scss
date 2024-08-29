@@ -10,6 +10,10 @@
   position: relative;
 }
 
+.exercise-title h2 {
+  text-decoration: none;
+}
+
 .card-products img {
   height: 100%;
   width: 90px;
@@ -54,6 +58,11 @@
   position: relative;
 }
 
+.cards a {
+  text-decoration: none; /* Removes the underline */
+  color: inherit; /* Keeps the text color consistent */
+}
+
 .card-product img {
   height: 100%;
   width: 90px;
@@ -69,7 +78,7 @@
 }
 
 .card-product p {
-  font-size: 12px;
+  font-size: 16px;
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;

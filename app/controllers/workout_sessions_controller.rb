@@ -29,7 +29,7 @@ class WorkoutSessionsController < ApplicationController
     @workout_session = WorkoutSession.new
     @workout_session.user = current_user
     @workout_session.workout = @workout
-    @workout_session.start_time = Date.today
+    @workout_session.start_time = DateTime.now
 
 
     if @workout_session.save
