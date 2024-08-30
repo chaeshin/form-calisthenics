@@ -4,7 +4,7 @@
       <% exercise_num = i + 1 %>
 
       <% if @exercise_completed[exercise.name] %>
-        <div class="bullet-completed"><%= exercise_num %></div>
+        <div class="bullet-completed-<%= exercise.exercise_type %>"><%= exercise.name.first %></div>
       <% else %>
         <div class="bullet"><%= exercise_num %></div>
       <% end %>
