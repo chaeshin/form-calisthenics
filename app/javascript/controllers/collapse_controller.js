@@ -8,6 +8,8 @@ export default class extends Controller {
     this.contentTargets.forEach(el => {
       if (el.classList.contains("open")) {
         el.style.maxHeight = el.scrollHeight + 'px';
+        console.log(el.parentElement.id)
+        location.hash = "#" + el.parentElement.id;
       } else {
         el.style.maxHeight = null;
       }
