@@ -9,7 +9,7 @@
   <div data-controller="collapse">
     <% @exercises.each_with_index do |exercise, index| %>
       <%# card not collapsed here %>
-      <button class="collapsible-button" data-action="click->collapse#toggle">
+      <button class="collapsible-button" data-action="click->collapse#toggle" id="<%= exercise.id %>">
         <div class="name">
           <p class="in-progress">In progress</p>
           <div>
