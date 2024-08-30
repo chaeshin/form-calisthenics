@@ -235,3 +235,9 @@ a {
 .delayed:active {
   transition: none;
 }
+
+.back-button-container {
+  display: flex;
+  flex-direction: in;
+
+}
