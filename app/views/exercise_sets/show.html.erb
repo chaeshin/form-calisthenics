@@ -7,7 +7,7 @@
   <div>
     <div>
       <%# sets and reps here: %>
-      <span class="exercise-info"><i class="fa-solid fa-dumbbell"></i> <%= @exercise.sets %>
+      <span class="exercise-info"><i class="fa-solid fa-dumbbell"></i> <%= @exercise.sets %> sets
       <% if @exercise.lower_reps.nil? && @exercise.upper_reps.nil?  %>
         <i class="fa-solid fa-stopwatch ms-3"></i> <%= @exercise.hold_time %> s hold
       <% else %>
