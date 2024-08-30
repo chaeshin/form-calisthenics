@@ -22,6 +22,16 @@ class WorkoutSessionsController < ApplicationController
     # create instance(@) for the exercise_sets for the workout_session
     @exercise_sets = @workout_session.exercise_sets
     @workout = @workout_session.workout
+
+    @exercise_sets_grouped = @workout_session.exercise_sets.group_by(&:exercise)
+
+    @exercise_completed = {}
+    @workout_session.exercises.each do |exercise|
+      @exercise_completed[exercise.name] = false
+    end
+    @exercise_sets_grouped.each do |exercise, exercise_sets_grouped|
+      @exercise_completed[exercise.name] = exercise_sets_grouped.length >= exercise.sets
+    end
   end
 
   def create

@@ -5,17 +5,18 @@
   align-items: center;
   position: relative;
   width: 100%;
-  margin: 60px 0;
+  margin: 15px 0;
 }
 
-.step {
-  display: flex;
-  flex-direction:row;
-  align-items: center;
-  width: 30%;
-  position: relative;
-  text-align: center;
-}
+// .step {
+//   display: flex;
+//   flex-direction:row;
+//   align-items: center;
+//   width: 30%;
+//   position: relative;
+//   text-align: center;
+// }
+
 
 .bullet {
   width: 30px;
@@ -30,10 +31,18 @@
   transition: background-color 0.3s;
 }
 
-.bullet-completed {
+.bullet::after {
+  content: "";
+  position: absolute;
+  width: 197px;
+  height: 6px;
+  background-color: #d7d7c3;
+  right: 30px;
+}
+
+.bullet-completed-Pre {
   width: 30px;
   height: 30px;
-  background-color:  #ff5722;
   color: white;
   border-radius: 50%;
   display: flex;
@@ -41,9 +50,87 @@
   align-items: center;
   font-weight: bold;
   margin-bottom: 10px;
+  background-color: #cdff95;
   transition: background-color 0.3s;
 }
 
+.bullet-completed-A {
+  width: 30px;
+  height: 30px;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  margin-bottom: 10px;
+  background-color: #cb9bff;
+  transition: background-color 0.3s;
+}
+
+.bullet-completed-B {
+  width: 30px;
+  height: 30px;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  margin-bottom: 10px;
+  background-color: #8bcdff;
+  transition: background-color 0.3s;
+}
+
+.bullet-completed-C {
+  width: 30px;
+  height: 30px;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  margin-bottom: 10px;
+  background-color: #ffef94;
+  transition: background-color 0.3s;
+}
+
+.bullet-completed-Pre::after {
+  content: "";
+  position: absolute;
+  width: 197px;
+  height: 6px;
+  right: 30px;
+  background-color: #cdff95;
+}
+
+.bullet-completed-A::after {
+  content: "";
+  position: absolute;
+  width: 197px;
+  height: 6px;
+  right: 30px;
+  background-color: #cb9bff;
+}
+
+.bullet-completed-B::after {
+  content: "";
+  position: absolute;
+  width: 197px;
+  height: 6px;
+  right: 30px;
+  background-color: #8bcdff;
+}
+
+.bullet-completed-C::after {
+  content: "";
+  position: absolute;
+  width: 197px;
+  height: 6px;
+  right: 30px;
+  background-color: #ffef94;
+}
 
 .progress-done {
   width: 100px;
