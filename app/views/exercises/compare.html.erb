@@ -1,14 +1,19 @@
 <div class="compare-container">
   <h1> <%= @exercise.name %> </h1>
   <!-- Nav tabs -->
-  <ul class="nav nav-pills" id="myTab" role="tablist">
-    <li class="nav-item " role="presentation">
-      <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Video</button>
-    </li>
-    <li class="nav-item" role="presentation">
-      <button class="nav-link" id="chart-tab" data-bs-toggle="tab" data-bs-target="#chart" type="button" role="tab" aria-controls="chart" aria-selected="false">Analyse</button>
-    </li>
-  </ul>
+  <div class="back-button-container d-flex justify-content-between align-items-center">
+    <ul class="nav nav-pills" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active nav-tabs-custom" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true" >Video</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link nav-tabs-custom" id="chart-tab" data-bs-toggle="tab" data-bs-target="#chart" type="button" role="tab" aria-controls="chart" aria-selected="false">Analyse</button>
+      </li>
+    </ul>
+    <button type="button" class="btn btn-sporty ms-auto py-2" onclick="window.history.back();">
+      <i class="bi bi-arrow-left"></i> Back
+    </button>
+  </div>
   <!-- Tab panes -->
   <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
@@ -56,16 +61,16 @@
           <!-- Nav tabs -->
           <ul class="nav nav-pills mt-2" id="years" role="tablist">
             <li class="nav-item " role="presentation">
-              <button class="nav-link active" id="all-tab" data-bs-toggle="tab" data-bs-target="#all" type="button" role="tab" aria-controls="all" aria-selected="true">All</button>
+              <button class="nav-link active nav-tabs-custom" id="all-tab" data-bs-toggle="tab" data-bs-target="#all" type="button" role="tab" aria-controls="all" aria-selected="true">All</button>
             </li>
             <li class="nav-item" role="presentation">
-              <button class="nav-link" id="2024-tab" data-bs-toggle="tab" data-bs-target="#2024" type="button" role="tab" aria-controls="2024" aria-selected="false">2024</button>
+              <button class="nav-link nav-tabs-custom" id="2024-tab" data-bs-toggle="tab" data-bs-target="#2024" type="button" role="tab" aria-controls="2024" aria-selected="false">2024</button>
             </li>
             <li class="nav-item" role="presentation">
-              <button class="nav-link" id="2023-tab" data-bs-toggle="tab" data-bs-target="#2023" type="button" role="tab" aria-controls="2023" aria-selected="false">2023</button>
+              <button class="nav-link nav-tabs-custom" id="2023-tab" data-bs-toggle="tab" data-bs-target="#2023" type="button" role="tab" aria-controls="2023" aria-selected="false">2023</button>
             </li>
             <li class="nav-item" role="presentation">
-              <button class="nav-link" id="2022-tab" data-bs-toggle="tab" data-bs-target="#2022" type="button" role="tab" aria-controls="2022" aria-selected="false">2022</button>
+              <button class="nav-link nav-tabs-custom" id="2022-tab" data-bs-toggle="tab" data-bs-target="#2022" type="button" role="tab" aria-controls="2022" aria-selected="false">2022</button>
             </li>
           </ul>
           <div class="tab-content" id="yearsContent">
