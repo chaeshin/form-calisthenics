@@ -1,7 +1,10 @@
-<div style="display: flex; align-items: center;">
-  <img src="https://github.com/user-attachments/assets/590261f4-72b9-4d23-9843-3e1574bbfcb7" alt="apple-icon-180x180" width="90" />
-  <span style="margin-left: 10px;">Form - A Calisthenics workout tracker that records videos of your form.</span>
+<div style="display: inline; align-items: center; float: left;">
+  <img width="30" src="https://github.com/user-attachments/assets/590261f4-72b9-4d23-9843-3e1574bbfcb7" alt="apple-icon-180x180" width="90" />
+  <span style="margin-left: 10px;">Form - A Calisthenics workout tracker that records videos of your form.</span>                                                                                                             
 </div>
+
+| ![apple-icon](https://github.com/user-attachments/assets/590261f4-72b9-4d23-9843-3e1574bbfcb7) | **Form - A Calisthenics workout tracker that records videos of your form.** |
+|---|---|
 
 Form is a calisthenics workout tracker that allows you to record video your exercises, store them as part of your workout log and compare to your your past performance. 
 
