@@ -1,4 +1,6 @@
 # 📚 Form - A Calisthenics workout tracker that records videos of your form.
+![Screenshot 2024-08-27 at 19 00 10](https://github.com/user-attachments/assets/2b76ada1-f6e9-442a-ac90-119dce77eb11)
+
 
 Form is a calisthenics workout tracker that allows you to record video your exercises, store them as part of your workout log and compare to your your past performance. 
 
