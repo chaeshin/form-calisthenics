@@ -8,7 +8,7 @@ Form is a calisthenics workout tracker that allows you to record video your exer
 <img width="245" alt="Screenshot 2024-09-03 at 13 25 03" src="https://github.com/user-attachments/assets/b76c4791-a4b1-427b-b61b-d09f967fec50">
 
 <br>
-App home: https://www.form-calsithenics.com
+App home: [https://www.form-calsithenics.com](https://www.form-calisthenics.com)
    
 
 ## Getting Started
@@ -54,8 +54,8 @@ Inspired by many calisthenics content creators I have been following over the ye
 
 ## Team Members
 - [Nicholas Matsumoto](https://www.linkedin.com/in/nicholas-matsumoto-18596a7b/)
-- Chaewan Shin
-- Ryo 
+- [Chaewan Shin](https://github.com/chaeshin)
+- [Ryo Imakoa](https://github.com/rimaoka18)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
