@@ -2,11 +2,10 @@
 
 Form is a calisthenics workout tracker that allows you to record video your exercises, store them as part of your workout log and compare to your your past performance. 
 
-<img width="250" alt="Screenshot 2024-09-03 at 13 22 30" src="https://github.com/user-attachments/assets/746aa035-8260-4a86-8c6d-cb8685ffbc2a">
-<img width="250" alt="Screenshot 2024-09-03 at 13 22 53" src="https://github.com/user-attachments/assets/1e522023-6b33-44bc-ad91-7a5bab946a5b">
-<img width="250" alt="Screenshot 2024-09-03 at 13 23 45" src="https://github.com/user-attachments/assets/ff333ae5-7ab2-4095-b536-3ef887704ff3">
-<img width="250" alt="Screenshot 2024-09-03 at 13 24 32" src="https://github.com/user-attachments/assets/5d0c40ab-44ae-415b-b5c6-2ba100b3e240">
-<img width="250" alt="Screenshot 2024-09-03 at 13 25 03" src="https://github.com/user-attachments/assets/b76c4791-a4b1-427b-b61b-d09f967fec50">
+<img width="230" alt="Screenshot 2024-09-03 at 13 22 30" src="https://github.com/user-attachments/assets/746aa035-8260-4a86-8c6d-cb8685ffbc2a">
+<img width="230" alt="Screenshot 2024-09-03 at 13 22 53" src="https://github.com/user-attachments/assets/1e522023-6b33-44bc-ad91-7a5bab946a5b">
+<img width="230" alt="Screenshot 2024-09-03 at 13 24 32" src="https://github.com/user-attachments/assets/5d0c40ab-44ae-415b-b5c6-2ba100b3e240">
+<img width="230" alt="Screenshot 2024-09-03 at 13 25 03" src="https://github.com/user-attachments/assets/b76c4791-a4b1-427b-b61b-d09f967fec50">
 
 <br>
 App home: https://www.form-calsithennics.com
