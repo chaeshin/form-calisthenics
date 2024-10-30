@@ -1,6 +1,6 @@
 ## Form - A calisthenics workout tracker that records videos of your form
 
-App home: https://www.form-calisthenics.com
+App home: https://form-calisthenics-fb264cc22839.herokuapp.com/
 <br><br>
 Form is a calisthenics workout tracker that allows you to record video your exercises, store them as part of your workout log and compare to your your past performance.
 
