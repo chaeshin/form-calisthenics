@@ -19,3 +19,24 @@ body {
   color: white;
 
 }
+
+/* Example for small screens */
+@media (max-width: 768px) {
+  /* Styles for mobile view */
+  .menu {
+    display: none;
+  }
+  .mobile-menu {
+    display: block;
+  }
+}
+
+/* Larger screen styles */
+@media (min-width: 769px) {
+  .menu {
+    display: block;
+  }
+  .mobile-menu {
+    display: none;
+  }
+}
