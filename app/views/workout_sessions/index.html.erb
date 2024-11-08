@@ -7,7 +7,7 @@
   <% end %>
   <h2 class="mt-5">August</h2>
   <div class="cards">
-    <% @workout_sessions.first(5).each do |workout_session| %>
+    <% @workout_sessions.first(10).each do |workout_session| %>
       <%= render 'shared/workout_session_card', workout_session: workout_session %>
     <% end %>
   </div>
